@@ -1,0 +1,136 @@
+\documentclass[a4paper]{article}
+
+\usepackage[]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{psfrag}
+\usepackage{subfig}
+\usepackage{amsmath,amssymb}
+\usepackage{sistyle}
+\usepackage{cases}
+\usepackage{color}
+\usepackage{eurosym}
+\usepackage{fancyhdr}
+\usepackage[iso,english]{isodate}
+\usepackage{lastpage}
+\usepackage{multirow}
+\usepackage[obeyspaces]{url}
+\usepackage{longtable}
+\usepackage{pdfpages}
+\usepackage{booktabs}
+\usepackage[percent]{overpic}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots} 
+\usepackage{pgfgantt}
+\usepackage{pdflscape}
+\pgfplotsset{compat=newest,/pgf/number format/.cd,
+        use comma,
+        1000 sep={}} 
+\pgfplotsset{plot coordinates/math parser=false}
+
+\newlength\fwidth 
+
+\pagestyle{fancy}
+%
+% Margins
+%
+\setlength{\textheight}{23cm}
+\setlength{\textwidth}{17.2cm}
+\setlength{\topmargin}{-2.0cm}
+\setlength{\topskip}{0.0cm}        
+\setlength{\headheight}{1.8cm}
+\setlength{\oddsidemargin}{-0.2cm} 
+\setlength{\evensidemargin}{-0.2cm}
+%
+% Macros
+%
+\newcommand{\Place}     {Nuremberg}
+\newcommand{\Tel}       {~}
+\newcommand{\Department}{~}
+\newcommand{\Change}    {A}
+\newcommand{\Ref}       {GH-170201}
+\newcommand{\Dat}       {\today}
+\newcommand{\pagenr}    {\thepage~von \pageref{LastPage}}
+\newcommand{\Dist}      {
+\begin{tabular}{@{}p{3.5cm}l@{}}
+% Add a new line
+%-----------------------------------------------
+See appendix   &     \\
+%-----------------------------------------------
+\end{tabular}}
+
+\newcommand{\tbs}{\textbackslash}
+\newcommand{\kT}[1]{\tiny{\textsf{#1}}}
+\newcommand{\msub}[1]{\mbox{\tiny{#1}}}
+\newtheorem{defth}{Definition}[section]
+
+\makeatletter
+%
+% Titlepage
+%
+\def\maketitle{%
+  \null
+  \thispagestyle{empty}
+  \vspace{-2ex}
+  \begin{center}
+  \begin{tabular}{|p{4.2cm}|p{3.5cm}|p{1.3cm}|p{3cm}|p{3cm}|}
+  \hline
+  \kT{Department}&\kT{Place}&\kT{Pages}        &\kT{Version}&\kT{Date}\\
+  \Department    &\Place    &\pageref{LastPage}&\Change     &\Dat     \\ 
+  \hline
+  \kT{Name}&\kT{Telephone}&\multicolumn{2}{l|}{\kT{Approved}}&\kT{Reference}\\
+  \@author &\Tel          &\multicolumn{2}{l|}{}             &\Ref          \\ 
+  \hline
+  \end{tabular}
+  \end{center}
+  \begin{center}\leavevmode
+    \normalfont
+      \vskip1.5ex
+    {\LARGE \@title\par}%
+  \end{center}%
+  \null
+}
+%
+% Header-Footer
+%
+\lhead{
+  \begin{tabular}{|p{5.1cm}|p{3.cm}|p{3.cm}|p{2cm}|p{2cm}|}
+    \hline
+   \kT{Name} &\kT{Date} &\kT{Reference}&\kT{Version} &\kT{Page} \\
+   \@author  &\Dat      &\Ref          &\Change      &\pagenr   \\
+    \hline
+  \end{tabular}
+}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{} %\thepage}
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\makeatother
+
+
+\title{Design and analysis of stator windings}
+\author{J.J.~Germishuizen}
+
+\begin{document}
+
+\maketitle
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em plus 0.5ex minus 0.2ex}
+
+\input{content/content.tex}
+
+
+%==== Bibliography acro's & Index ===================================
+
+\clearpage
+\bibliographystyle{unsrt}
+\bibliography{backmatter/literatur}
+
+\end{document}

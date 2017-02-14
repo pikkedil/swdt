@@ -1,1 +1,12 @@
+[FormatInfo]
+Type=TeXnicCenterProjectInformation
+Version=4
+
+[ProjectInfo]
+MainFile=swdt.tex
+UseBibTeX=1
+UseMakeIndex=0
+ActiveProfile=LaTeX ⇨ PS
+ProjectLanguage=en
+ProjectDialect=GB
 
