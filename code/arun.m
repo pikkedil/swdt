@@ -1,4 +1,4 @@
-function arun(val)
+function wdt = arun(val)
     %
     % This example m-file is a driver for main function CDesign.m. Test cases
     % given here are for three phases. The test cases are defined as follows:
@@ -130,10 +130,21 @@ function arun(val)
         set(gca,'yticklabel',{' ', ' ', ' ', '-1.0', ' ', '-0.5',...
             ' ', ' ', ' ', '0.5', ' ', '1.0'});
         xlabel('Slot number')
+        %
+        % add the working harmonic
+        %
+        wnd = [];
+        wnd.axis = wdt.winding_axis*pi/180;
+        wnd.kw = wdt.Xsi_p;    
+        phi = wnd.axis*basic.p*pi/180+pi/2;
+        xw = linspace(0,basic.pb*2*pi,100*basic.pb);
+        yw = wnd.kw*cos(xw);
+        fac = 180/pi*basic.Qb/basic.Q/basic.pb;
+        plot(xw*fac,yw,'k--');
         hold off;
         grid on;
     end
-end
+end     
 
 function col = colour(ph)
 
