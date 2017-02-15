@@ -1,13 +1,39 @@
-function arun()
+function arun(val)
     %
-    % Driver for the main function CDesign.m. Run the examples 
-    % by uncomitting one of the following:
+    % This example m-file is a driver for main function CDesign.m. Test cases
+    % given here are for three phases. The test cases are defined as follows:
     %
-    %wdt = CDesign('Qs',54,'p',6,'x',1,'nl',2,'yd',4,'m',3);
-    %wdt = CDesign('Qs',30,'p',10,'x',1,'nl',1,'yd',1,'m',3);
-    %wdt = CDesign('Qs',30,'p',10,'x',1,'nl',2,'yd',1,'m',3);
-    %wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',1,'yd',3,'m',3);
-    wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',2,'yd',3,'m',3);  
+    % 1. wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',2,'yd',3,'m',3)
+    % 2. wdt = CDesign('Qs',54,'p',6, 'x',1,'nl',2,'yd',4,'m',3)
+    % 3. wdt = CDesign('Qs',30,'p',10,'x',1,'nl',1,'yd',1,'m',3)
+    % 4. wdt = CDesign('Qs',30,'p',10,'x',1,'nl',2,'yd',1,'m',3)
+    % 5. wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',1,'yd',3,'m',3)
+    % 
+    % To run the function:
+    %
+    % arun(3)
+    %
+    % to run test case number 3.
+    %
+    if nargin == 0
+        fprintf('Type <%s\n%s\n','help arun>','for more information');
+        return;
+    end
+    switch val
+        case 1
+            wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',2,'yd',3,'m',3);
+        case 2
+            wdt = CDesign('Qs',54,'p',6, 'x',1,'nl',2,'yd',4,'m',3);
+        case 3
+            wdt = CDesign('Qs',30,'p',10,'x',1,'nl',1,'yd',1,'m',3);
+        case 4
+            wdt = CDesign('Qs',30,'p',10,'x',1,'nl',2,'yd',1,'m',3);
+        case 5
+            wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',1,'yd',3,'m',3);
+        otherwise
+            disp('Invalid test case numer. Type help arun')
+            return;
+    end
     
     % Qs            : number of stator slots
     % p             : number of pole pairs
@@ -33,8 +59,6 @@ function arun()
     basic.nl = wdt.nl;
     basic.Qb = wdt.Qbasic;
     basic.pb = wdt.p/wdt.t;
-    
-    disp([basic.Q,basic.p,basic.m]);
     
     if basic.nl == 1
         bot = zeros(1,basic.Qb);
