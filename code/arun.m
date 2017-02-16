@@ -21,17 +21,22 @@ function wdt = arun(val)
     end
     switch val
         case 1
-            wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',2,'yd',3,'m',3);
-        case 2
-            wdt = CDesign('Qs',54,'p',6, 'x',1,'nl',2,'yd',4,'m',3);
-        case 3
             wdt = CDesign('Qs',30,'p',10,'x',1,'nl',1,'yd',1,'m',3);
-        case 4
+            filename = 'fig6b.tex';
+        case 2            
             wdt = CDesign('Qs',30,'p',10,'x',1,'nl',2,'yd',1,'m',3);
-        case 5
+            filename = 'fig7b.tex';
+        case 3
             wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',1,'yd',3,'m',3);
+            filename = 'fig8b.tex';
+        case 4
+            wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',2,'yd',3,'m',3);
+            filename = 'fig9b.tex';
+        case 5            
+            wdt = CDesign('Qs',54,'p',6, 'x',1,'nl',2,'yd',4,'m',3);
         otherwise
-            disp('Invalid test case numer. Type help arun')
+            disp('Invalid test case numer. Type help arun');
+            wdt = NaN;
             return;
     end
     
@@ -131,19 +136,21 @@ function wdt = arun(val)
             ' ', ' ', ' ', '0.5', ' ', '1.0'});
         xlabel('Slot number')
         %
-        % add the working harmonic
+        % add the working harmonic. The calculated winding axis is in
+        % degrees and the half slot pitch is already accounted for. 
         %
         wnd = [];
-        wnd.axis = wdt.winding_axis*pi/180;
-        wnd.kw = wdt.Xsi_p;    
+        wnd.axis = wdt.winding_axis;
         phi = wnd.axis*basic.p*pi/180+pi/2;
         xw = linspace(0,basic.pb*2*pi,100*basic.pb);
-        yw = wnd.kw*cos(xw);
+        kw = wdt.Xsi_p;
+        yw = kw*cos(xw-phi);
         fac = 180/pi*basic.Qb/basic.Q/basic.pb;
         plot(xw*fac,yw,'k--');
         hold off;
         grid on;
     end
+    %matlab2tikz(filename,'width','\fwidth');
 end     
 
 function col = colour(ph)
