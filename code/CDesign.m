@@ -48,20 +48,31 @@ Wnd.Coil_Data = Coil_Data;
 Xsi = [];
 Xsi_m = [];
 phase_axes = [];
+fac = m/(2*Wnd.Qc);
 for nu = 1:20*p
-    A = C*exp(i*nu*theta_m)'+CRe*exp(i*nu*theta_m)';    
-    Xsi = [Xsi, m*abs(A(1))/(2*Wnd.Qc)];
-    Xsi_m = [Xsi_m, m*A/(2*Wnd.Qc)];
-    phase_axes = [phase_axes, angle(A)];
+    A = C*exp(-i*nu*theta_m)'+CRe*exp(-i*nu*theta_m)';    
+    Xsi = [Xsi, fac*abs(A(1))];
+    Xsi_m = [Xsi_m, fac*A];
+    phase_axes = [phase_axes, angle(A)];    
 end
 Wnd.Xsi = Xsi;
 Wnd.Xsi_p = Xsi(p);
 Wnd.Xsi_5p = Xsi(5*p);
 Wnd.Xsi_7p = Xsi(7*p);
 
-% Calculate the winding axis
-Wnd.anti_node = -angle(Xsi_m(1,Wnd.p))/Wnd.p*180/pi;
-Wnd.winding_axis = Wnd.anti_node-90/Wnd.p;
+% Calculate the winding axis in degrees. 
+z  = 0+i;
+lo = 1;
+hi = Wnd.Qbasic;
+slot_angle_rad = theta_m(lo:hi);
+M1 = abs(C(1,lo:hi));
+M2 = abs(CRe(1,lo:hi));
+tmpA = M1 * exp(z*slot_angle_rad)';
+tmpB = M2 * exp(z*slot_angle_rad)';
+Wnd.winding_axis = tmpA+tmpB;
+tmpx = real(Wnd.winding_axis);
+tmpy = imag(Wnd.winding_axis);
+Wnd.winding_axis = -atan2(tmpy,tmpx)*180/pi + 180/Wnd.p + 360/(2*Wnd.Qs);
 
 return;
 
@@ -314,6 +325,7 @@ Winding.yp = yp;
 Winding.yd = yd;
 Winding.nl = nl;
 Winding.Qbasic = Qs/tc;
+Winding.pbasic = p/tc;
 Winding.Qc = Qc;
 
 if mod(qcd,2) == 0
