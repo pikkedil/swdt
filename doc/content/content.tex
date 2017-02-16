@@ -6,6 +6,14 @@ This report\footnote{Text taken from \cite{REF-00014}.} is devoted to a derivati
 \end{equation}
 where $\xi_p$ is the winding factor of the \textit{working harmonic}. The induced voltage in \eqref{eqn:ui} brings the importance of the winding design to the fore. For a given design requirement, it is desirable to have $\xi_p$ as high as possible.
 
+\section{Notes to the reader}
+A Matlab script that implements the algorithm in Fig.~\ref{fig:flowchart} is used to plot the examples given in Tab.~\ref{tab:Example_table}. The complete program listings are given in \ref{sec:malg} and \ref{sec:mex}. Start the script by typing from the Matlab promt:
+
+\begin{lstlisting}[language=matlab]
+wnd = arun(1);
+\end{lstlisting}
+The resulting plots are shown in Fig.~\ref{fig:tests} and the Matlab code is provided in appendix \ref{sec:mex}.
+
 \section{Definition of the working harmonic}\label{sec:working_harmonic}
 Throughout the analysis all harmonics are referred to in terms of the bore $2\pi$ of the machine, i.e.~the \textit{fundamental harmonic} has the order $\nu=1$ and forms one pole pair. The harmonic that produces the magnetic field that interacts with the rotor poles $2p$ has the order $\nu=p$ and is called the \textit{working harmonic}. Any other harmonic of the $\nu^{th}$ order will have $\nu$ pole pairs and spans a peripheral angle of $\frac{2\pi}{\nu}$.
 
@@ -868,34 +876,6 @@ Fig.~\ref{fig:f_Qs30_p5_2} shows the slot mmf of a stator with $Q_s=30$ slots an
 \end{figure}
 
 \clearpage
-\section{Matlab script}
-A Matlab script that implements the algorithm in Fig.~\ref{fig:flowchart} is used to plot the examples given in Tab.~\ref{tab:Example_table}. The complete program listings are given in \ref{sec:malg} and \ref{sec:mex}.
-\begin{figure}[htbp]
-\centering
-\fontsize{8}{0}\selectfont
-\setlength\fwidth{0.85\textwidth}
-\input{figs/fig6b.tex}
-\end{figure}
-\begin{figure}[htbp]
-\centering
-\fontsize{8}{0}\selectfont
-\setlength\fwidth{0.85\textwidth}
-\input{figs/fig7b.tex}
-\end{figure}
-\begin{figure}[htbp]
-\centering
-\fontsize{8}{0}\selectfont
-\setlength\fwidth{0.85\textwidth}
-\input{figs/fig8b.tex}
-\end{figure}
-\begin{figure}[htbp]
-\centering
-\fontsize{8}{0}\selectfont
-\setlength\fwidth{0.85\textwidth}
-\input{figs/fig9b.tex}
-\end{figure}
-
-\clearpage
 \section{Summary}
 In this report an algorithm was derived to present a winding in a matrix form. This compact form allows the calculation of the winding factors for all harmonics. The basis of the algorithm is the phase belt sequence and the phase belt constraint which are derived from the air gap mmf envelope functions. 
 
@@ -906,3 +886,27 @@ In this report an algorithm was derived to present a winding in a matrix form. T
 
 \section{Examples \texttt{arun.m}}\label{sec:mex}
 \verbatiminput{../code/arun.m}
+
+\begin{figure}[htbp]
+\centering
+\fontsize{8}{0}\selectfont
+\setlength\fwidth{0.47\textwidth}
+\subfloat{
+\input{figs/fig6b.tex}}
+\hfill
+\setlength\fwidth{0.47\textwidth}
+\subfloat{
+\input{figs/fig7b.tex}}
+\\
+\fontsize{8}{0}\selectfont
+\setlength\fwidth{0.47\textwidth}
+\subfloat{
+\input{figs/fig8b.tex}}
+\hfill
+\fontsize{8}{0}\selectfont
+\setlength\fwidth{0.47\textwidth}
+\subfloat{
+\input{figs/fig9b.tex}}
+\caption{Test results using \texttt{arun.m}}
+\label{fig:tests}
+\end{figure}
