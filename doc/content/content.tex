@@ -1,12 +1,145 @@
-\section{Introductory remarks}
-This report\footnote{Text taken from \cite{REF-00014}.} is devoted to a derivation of an algorithmic method to design $m$-phase symmetrical windings and a representation thereof in a compact form. The basic principle of the winding of an electrical machine is to obtain a rotating magnetic field in the stator (the stationary part) that interacts with the moving part (the rotor). This is achieved by arranging the coils of the winding in the stator slots around the air gap periphery in such a way that a rotating field is developed when applying currents. As a result the induced voltage, which arises from flux per pole $\hat{\Phi}$, is obtained from Faraday's law. In general the sinusoidally induced voltage for a winding having $N_s$ series turns per phase is
-\begin{equation}
-  \label{eqn:ui}
-  U_i = \sqrt{2} \pi f_1 \xi_p N_s \hat{\Phi}, \qquad \xi_p \leq 1
-\end{equation}
-where $\xi_p$ is the winding factor of the \textit{working harmonic}. The induced voltage in \eqref{eqn:ui} brings the importance of the winding design to the fore. For a given design requirement, it is desirable to have $\xi_p$ as high as possible.
+\chapter{Introduction}
+Analysis of electrical machines is a very well-known subject in electrical engineering and at a first glance one might think that this field cannot be embarked on any further. However, this is not the case, since advances in materials such as permanent magnets offer new possibilities which might not have been economical a few years ago. In addition to the development of the materials used in electrical machines, the mathematical and physics software tools for solving complex problems and the visualisation of the results have also improved. Furthermore, the technologies driving the microprocessors and storage devices used in personal computers have contributed to solve difficult mathematical functions by means of numerical methods. All these factors have influenced the way electrical machines are designed and will be designed in the future. The research presented in this book is a typical example of how advances in other fields can lead to new ideas in electrical engineering, and especially electrical machines. 
+
+\section{Problem statement}
+\label{sec:problem_statement}
+Designing the winding is from an electromagnetic point of view the most important part in machine design. In this step the coil sides of the phases need to be assigned to an appropriate stator slot which allows a rotating magnetic field when phase displaced currents are applied to the winding. Once the assignment is done, adjacent coil sides belonging to the same phase are called a phase belt. This is the definition used in modern textbooks such as that written by \cite{REF-00330} and was already in use in early papers by \cite{REF-00835}.
+
+In order to design symmetrical windings, it is necessary to have a systematic algorithm to allocate the slots. Then, after doing this, the coils can be inserted in the appropriate slots. The immediate and essential main question that first needs to be answered is: 
+\begin{quote}
+\textbf{What is the mathematical expression to allocate the stator slots belonging to a phase belt?} 
+\end{quote}
+
+Another sub-question arises from the requirement to allocate the slots that belong to a phase belt. Especially when using FEM to analyse machines, the entering of the winding arrangement is a complex process. The problem is exacerbated if different winding types are to be analysed. Furthermore, in the conceptual design phase a compact representation of the winding could simplify the choice of the initial geometrical parameters. Therefore the sub-question is: 
+\begin{quote}
+\textbf{How can a winding layout be represented in a compact form?} 
+\end{quote}
+
+\section{Overlapping and non-overlapping windings}\label{sec:def_con}  
+Fig.~\ref{fig:flux_coils}(a) shows a double layer overlapping winding. In the drawing some of the coils are removed which makes it easier to identify the two layers. In (b) a non-overlapping single layer winding is shown. Only each second stator tooth has a coil wound around it. 
+\begin{figure}[htbp]
+	\centering
+		\input{figs/f_coils.tex}
+	\caption{Double layer overlapping and single layer non-overlapping windings}
+	\label{fig:flux_coils}
+\end{figure}
+\index{overlapping}
+\index{non-overlapping}
+
+Non-overlapping windings are a sub-set of fractional slot windings and need some extra discussion. It is often categorised as concentrated. This is not necessarily wrong but is incongruent with the formal definition. The opposite of a concentrated winding is a distributed winding. In the latter case a the coils of a given phase are distributed in several slots. When referring to overlapping and non-overlapping windings a concentrated winding could be defined as follows:
+\begin{enumerate}
+	\item Formally a concentrated winding is one where the number of slots per pole and~%
+	phase equals one. In this case the coil pitch equals the pole pitch and it is~%
+	categorised as overlapping. This means that each coil side of the winding is~%
+	placed in a single slot. If the coil spans a pole pitch, it is called a full-pitch~%
+	concentrated winding.
+	\item Non-overlapping could also be classified as concentrated, but then it is not~%
+	done in terms of the formal definition. Concentrated in this case means that a coil~%
+	is concentrated around a stator tooth as shown in Fig.~\ref{fig:flux_coils}(b).
+\end{enumerate}
+
+A simplified illustration of single and double layer non-overlapping windings\footnote{In German these winding types are commonly referred to as ``Zahnspulen'' which means ``tooth coils''. Although tooth coils seem to be a very descriptive name for these windings, it is often called ``concentrated coils'' in the literature.} is shown in Fig.~\ref{fig:concen_coils} and the difference between them is given in Tab.~\ref{tab:single_vs_double}. For the purposes of the present dissertation a double layer winding is defined as follows:
+\begin{defth}
+  A double layer winding has two coil sides per stator slot. ``Double layer'' in the~%
+  case of overlapping windings means that the coil sides in a slot are placed~% 
+  radially in two layers. In the case of non-overlapping windings a~%
+  ``double layer'' winding has two coil sides side by side.
+\end{defth} 
+\begin{table}[htbp]
+  \caption{Difference between single and double layer windings}
+  \label{tab:single_vs_double}
+  \begin{tabularx}{\textwidth}{XX}
+    \toprule
+    \textbf{Single layer}  & \textbf{Double layer} \\\toprule
+    In the case of the single layer winding each stator slot has only one coil side
+    assigned to it as shown in Fig.~\ref{fig:concen_coils}(a).
+    & 
+    A double layer winding has two coil sides assigned to a stator slot as shown in
+    Fig.~\ref{fig:concen_coils}(b).\\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+\begin{figure}[htbp]
+	\centering
+		\input{figs/f_concen_coils.tex}
+	\caption{Double and single layer non-overlapping windings}
+	\label{fig:concen_coils}
+\end{figure}
+\index{Zahnspulen}
+\index{double layer}
+\index{concentrated coils}
+\index{tooth coils}
+
+In the literature different definitions of terms are in use for non-overlapping concentrated windings. The most common of them are:
+\begin{itemize}
+	\item \cite{REF-00822}: concentrated windings;
+	\item \cite{REF-00823}: concentrated fractional pitch windings; 
+	\item \cite{REF-00815}: fractional slot wound; and
+	\item \cite{REF-01044}: fractional slot. 
+\end{itemize}
+
+If the coils are to be equally in shape, which simplifies manufacturing, it is recognised that a single layer could easily have a variable slot pitch\footnote{The concept of a variable coil pitch is explained in chapter \ref{chap:DesignWindings}. Also refer to Fig.~\ref{fig:f_slotstar} for regular and irregular distributed slots.}. Furthermore, the coils could be implemented as either form-wound or round-wound. Returning to the variable coil pitch of the single layer, it is important to mention that this is an extra degree of freedom that offers to be an attractive design parameter. The air gap flux that links the coil could thus be increased and torque ripple can be improved. 
+\index{regular}
+\index{irregular}
+\index{form-wound}
+\index{round-wound}
+
+It is therefore helpful to classify a concentrated winding either as an overlapping or non-overlapping concentrated winding. \cite{REF-01045} certainly aroused interest in non-overlapping concentrated windings with their paper entitled ``Synthesis of High Performance PM Motors With Concentrated Windings'', since this is a paper which is very often used as a reference on these winding types. This could be a possible explanation for the use of the term ``concentrated windings'' rather than ``tooth coil windings''.
+
+The expansion of the classical winding types used in machines by non-overlapping windings offers new possibilities in especially traction machine design. The main research question in section \ref{sec:problem_statement} suggests a design algorithm that takes into account the non-overlapping type. Obviously a method that is valid for all types is required. In addition, it should be easy to integrate into whichever process is in use. 
 
 \section{Notes to the reader}
+The work presented in this thesis was done in Nürnberg, Germany. Consequently many of the literature used were in German. To name only a few, books by \cite{REF-00004}, \cite{REF-00429} and \cite{REF-00294} are still commonly used in design offices. It is noticeable that even though there exists a list of symbols for various quantities, English and German have in some cases different symbols for the same quantity. This is mainly due to the fact that languages develop individual and of course colloquial language rules. Even a direct translation does not necessarily give the typical word used. An example is the German word \textit{Felderregerkurve}. A direct translation would be ``field excitation curve'', which of course is not wrong. However, the field excitation curve in electrical terms is usually known as the ``magnetomotive force'' (mmf). Tab.~\ref{tab:translation} gives some common electrical machine quantities in English and German, and the different symbols in use.
+\begin{table}[htbp]
+	\caption[Typical machine quantities and their German translation]%
+	{Typical machine quantities, there German translation and~%
+	counterpart symbols}
+	\label{tab:translation}
+	\centering
+	\begin{tabular}{lccl}
+	\toprule
+	Quantity   &  English  & German & Unit \\
+	\toprule
+	magnetomotive force (\textit{Durchflutung}) & 
+	$F$& $\Theta$ & \SI{}{A}\\
+	\midrule
+	flux linkage (\textit{Flussverkettung}) & 
+	$\lambda$& $\psi$ & \SI{}{V.s}   \\
+	\midrule
+	voltage (\textit{Spannung})  & 
+	$V$& $U$ & \SI{}{V} \\
+	\midrule
+	specific resistance (\textit{spezifischer Widerstand})&
+	$\rho$& $\varrho$ & \SI{}{\ohm.m} \\
+	\midrule
+	specific weight (\textit{spezifischer Masse})&
+	$\rho$& $\gamma$& \SI{}{kg.m^{-3}}\\
+	\midrule
+	conductivity (\textit{Leitfähigkeit})&
+	$\sigma$&$\kappa$& \SI{}{S.m^{-1}}\\
+	\midrule
+	cross section area (\textit{Querschnitt})&
+	$A$&$Q$& \SI{}{m^{2}}\\
+	\midrule
+	turn number (\textit{Windungszahl}) & 
+	N& W & - \\
+	\bottomrule
+	\end{tabular}
+\end{table}
+\index{magnetomotive force}
+\index{flux linkage}
+\index{turn number}
+\index{specific resistance}
+\index{specific weight}
+\index{Felderregerkurve}
+
+It is commendable that the German terminology on electrical machines allows a very precise description of almost all aspects related to the subject. In many cases it is difficult to find an equivalent technical term in English, because it simply does not exist. The problem of different terminologies even exists within a language: different ``schools'' use different terms which makes the study of machine related books not easy. Also historical changes need to be kept in mind.
+
+The term ``machine'' as used in the present dissertation means it could be a machine that is operated either as a motor or as a generator. In the title the term ``motor'' is used, since only the measured results of motor operation are presented. However, in the theoretical sections, the word ``machine'' is preferred.  
+
+The document is optimised for a two-sided printout. A flip-book shows that the fundamental and fifth harmonic of the mmf rotate in the opposite direction. 
+
+\section{Design program}
 A Matlab script that implements the algorithm in Fig.~\ref{fig:flowchart} is used to plot the examples given in Tab.~\ref{tab:Example_table}. The complete program listings are given in \ref{sec:malg} and \ref{sec:mex}. Start the script by typing from the Matlab promt:
 
 \begin{lstlisting}[language=matlab]
@@ -14,12 +147,23 @@ wnd = arun(1);
 \end{lstlisting}
 The resulting plots are shown in Fig.~\ref{fig:tests} and the Matlab code is provided in appendix \ref{sec:mex}.
 
+%%%%
+
+\chapter{Classification of symmetrical windings}
+This report\footnote{Text taken from \cite{REF-00014}.} is devoted to a derivation of an algorithmic method to design $m$-phase symmetrical windings and a representation thereof in a compact form. The basic principle of the winding of an electrical machine is to obtain a rotating magnetic field in the stator (the stationary part) that interacts with the moving part (the rotor). This is achieved by arranging the coils of the winding in the stator slots around the air gap periphery in such a way that a rotating field is developed when applying currents. As a result the induced voltage, which arises from flux per pole $\hat{\Phi}$, is obtained from Faraday's law. In general the sinusoidally induced voltage for a winding having $N_s$ series turns per phase is
+\begin{equation}
+  \label{eqn:ui}
+  U_i = \sqrt{2} \pi f_1 \xi_p N_s \hat{\Phi}, \qquad \xi_p \leq 1
+\end{equation}
+where $\xi_p$ is the winding factor of the \textit{working harmonic}. The induced voltage in \eqref{eqn:ui} brings the importance of the winding design to the fore. For a given design requirement, it is desirable to have $\xi_p$ as high as possible.
+
 \section{Definition of the working harmonic}\label{sec:working_harmonic}
 Throughout the analysis all harmonics are referred to in terms of the bore $2\pi$ of the machine, i.e.~the \textit{fundamental harmonic} has the order $\nu=1$ and forms one pole pair. The harmonic that produces the magnetic field that interacts with the rotor poles $2p$ has the order $\nu=p$ and is called the \textit{working harmonic}. Any other harmonic of the $\nu^{th}$ order will have $\nu$ pole pairs and spans a peripheral angle of $\frac{2\pi}{\nu}$.
+\index{working harmonic}
 
 Often the harmonic orders are normalised with respect to the \textit{working harmonic}, i.e.~$\xi_{\nu /p}$. This then means that the \textit{working harmonic} is written as $\xi_1$ and sub-harmonics will have a fraction as subscript. This notation will not be used in this report.
 
-\section{Classification of symmetrical windings}%
+\section{Basic winding properties}%
 \label{sec:m_phases}
 The winding design can be quite a difficult task and at this point it is useful to have a coarse classification of symmetrical windings. Since symmetrical windings comprise such a great variety, an attempt to categorise them will depend on the properties by which they are to be sorted. 
 
@@ -40,6 +184,9 @@ Coils per pole and phase:
 $\frac{q_{c_n}}{q_{c_d}}$ is the reduced form of $q_c$. Each phase has $q_{c_n}$ coils distributed over $q_{c_d}$ poles. If $q_{c_n}$ is greater than one and $q_c$ is not equal to one it is a distributed winding. 
 \end{defth}
 These characteristic numbers give useful information on the winding when they are written as a reduced improper fraction\footnote{The reduced fraction could be either a proper or an improper fraction. An improper fraction has the numerator greater than the denominator.}. Additionally, the properties of single and double layer windings are summerised in Tab.~\ref{tab:properties_single_double}. 
+\index{slots per pole and phase}
+\index{reduced form}
+\index{coils per pole and phase}
 
 {\renewcommand{\arraystretch}{1.2}
 \begin{table}[htbp]
@@ -55,6 +202,7 @@ These characteristic numbers give useful information on the winding when they ar
 	\hline
 	\end{tabular}
 \end{table}}
+\index{winding properties}
 
 \subsection{Average coil pitch}
 The coil pitch is defined as the peripheral angle between the two coil sides. It is practical to express the coil pitch in terms of the number of slots. Therefore, it is an integer number. 
@@ -76,7 +224,8 @@ and the implemented coil pitch is given by
 \end{equation}
 \end{defth}
 In the case where $y_d=y_p$ it is a full-pitch winding. If $y_d \neq y_p$ it is called a fractional pitch winding. 
- 
+\index{average coil pitch}
+
 \subsection{Classification scheme}
 The aim of the classification scheme is to find a way to relate different winding types to each other. It is also a useful guideline to compare windings that belong to the same category. For the design methodology offered in this report, the following winding parameters are chosen for the classification:
 \begin{enumerate}
@@ -336,11 +485,9 @@ Fig.~\ref{fig:mmf_1}(a) means it is necessary to add two more coils. Using the p
 Fig.~\ref{fig:mmf_2}(b) shows graphically the mmf's of the three coils with $N_t$-turns. These are obtained by setting $m=3$ and applying the following three-phase currents 
 \begin{equation}
   \label{eqn:3ph_i}
-  \begin{aligned}
-   i_1 &= \hat{I}\cos\left(\omega t \right) \\
-   i_2 &= \hat{I}\cos\left(\omega t +\frac{2\pi}{3}\right) \\
-   i_3 &= \hat{I}\cos\left(\omega t +\frac{4\pi}{3}\right) \\
-  \end{aligned}
+   i_n = \hat{I}\cos\left(\omega t +(n-1)\frac{2\pi}{m}\right),
+  \qquad
+  1 \leq n \leq m
 \end{equation}
 to the functions in \eqref{eqn:F_theta_t_3}. The resultant mmf will rotate in a counterclockwise direction. At $t=0$ $i_2=i_3=-\frac{1}{2}i_1$, meaning the mmf of $F_2$ and $F_3$ will be half of $F_1$. As time starts to increase, any point on $F_1$ will move downward while points on $F_2$ and $F_3$ will start moving in an upward direction. The points are marked $p_1$ through $p_3$ in the figure. Contrary to this, any point on the resultant mmf will start moving in the right direction (counter-clockwise) as indicated by point $p_4$. As time increases the resultant mmf rotates as shown in Fig.~\ref{fig:rotating_wave}. The fundamental mmf is shown at time equal to zero and a time instant $t=t_1$.
 \begin{figure}
@@ -395,7 +542,7 @@ and the speed of rotation is given by
 \end{equation}
 A positive value of $\nu$ means that the harmonic is rotating counter-clockwise and a negative $\nu$ means it rotates clockwise. This convention is valid for the coil arrangement as given in Fig.~\ref{fig:mmf_2}(a) and the currents in \eqref{eqn:3ph_i}. The rotation speed is proportional to the inverse of the harmonic order.
 
-\section{Matrix representation of a winding}
+\chapter{Matrix representation of a winding}
 In this section it will be shown that the winding layouts can be represented by means of two matrices. The first matrix will contain information on the ingoing coil sides of the coils while the second matrix will be that of the outgoing coil sides. The matrices are referred to as $\mathbf{M_1}$ and $\mathbf{M_{2}}$ for the ingoing and outgoing coil sides respectively. Both matrices have $n$ columns and $m$ rows. In addition, the number of columns equals the number of stator slots and the rows are equal to the number of phases, thus $m=m$\footnote{It is typical in mathematics that the number of rows is represented by $m$. Equally the number of phases of an electrical machine is also represented by $m$. Furthermore, $m_{11}$ is a matrix element while $m$ is the number of phases.} and $n=Q_s$. The matrices can be expressed as
 \begin{equation}
   \label{eqn:M_matrix}
@@ -893,30 +1040,30 @@ In this report an algorithm was derived to present a winding in a matrix form. T
 
 \appendix
 
-\section{Slot assignment \texttt{CDesign.m}}\label{sec:malg}
+\chapter{Slot assignment \texttt{CDesign.m}}\label{sec:malg}
 \verbatiminput{../code/CDesign.m}
 
-\section{Examples \texttt{arun.m}}\label{sec:mex}
+\chapter{Examples \texttt{arun.m}}\label{sec:mex}
 \verbatiminput{../code/arun.m}
 
 \begin{figure}[htbp]
 \centering
 \fontsize{8}{0}\selectfont
-\setlength\fwidth{0.47\textwidth}
+\setlength\fwidth{0.45\textwidth}
 \subfloat{
 \input{figs/fig6b.tex}}
 \hfill
-\setlength\fwidth{0.47\textwidth}
+\setlength\fwidth{0.45\textwidth}
 \subfloat{
 \input{figs/fig7b.tex}}
 \\
 \fontsize{8}{0}\selectfont
-\setlength\fwidth{0.47\textwidth}
+\setlength\fwidth{0.45\textwidth}
 \subfloat{
 \input{figs/fig8b.tex}}
 \hfill
 \fontsize{8}{0}\selectfont
-\setlength\fwidth{0.47\textwidth}
+\setlength\fwidth{0.45\textwidth}
 \subfloat{
 \input{figs/fig9b.tex}}
 \caption{Test results using \texttt{arun.m}}
