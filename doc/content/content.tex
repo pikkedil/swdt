@@ -798,9 +798,12 @@ The winding matrix is used to obtain the slot mmf $F_{slot}$ from \eqref{eqn:slo
 Fig.~\ref{fig:Main_non-overlapping_single}\subref{fig:f_Qs30_p10_1}. The dashed line in the mmf plot is the current sheet. In the top part of the figure the winding factors are shown as well. From the figure it is clear that the winding factors are periodic with the number of stator slots. In the example the peripheral slot angle was calculated setting $x=1$ in \eqref{eqn:slot_alpha}. Therefore, this is a regular distribution of the stator slots.
 \begin{figure}[htbp]
 	\centering
-	\input{figs/f_single_layer.tex}
-	\vspace{1cm}
-	\input{figs/f_Qs_30_p_10_1.tex}
+  \fontsize{6}{6}\selectfont
+  \subfloat[Winding layout\label{fig:single_layer}]{
+	\input{figs/f_single_layer.tex}}
+  \hfill
+  \subfloat[Slot mmf and winding factors\label{fig:f_Qs30_p10_1}]{
+	\input{figs/f_Qs_30_p_10_1.tex}}
 	\caption{Non-overlapping single layer winding}
 	\label{fig:Main_non-overlapping_single}
 \end{figure}
@@ -826,9 +829,12 @@ The prototype stator with 30 slots is used with 10 pole pairs. This is a double 
 The winding factors and slot mmf are directly obtained from the winding matrix as shown in Fig.~\ref{fig:Main_non-overlapping_double}\subref{fig:f_Qs30_p10_2}. The current sheet that corresponds to the working harmonic is included.
 \begin{figure}[htbp]
 	\centering
-	\input{figs/f_double_layer_type2.tex}
-	\vspace{1cm}
-  \input{figs/f_Qs_30_p_10_2.tex}
+  \fontsize{6}{6}\selectfont
+  \subfloat[Winding layout\label{fig:dlw_yd_eq_1}]{%
+	\input{figs/f_double_layer_type2.tex}}
+	\hfill
+  \subfloat[Slot mmf and winding factors\label{fig:f_Qs30_p10_2}]{%	
+  \input{figs/f_Qs_30_p_10_2.tex}}
 	\caption{Non-overlapping double layer winding}
 	\label{fig:Main_non-overlapping_double}
 \end{figure}
@@ -855,9 +861,12 @@ The example to illustrate the slot mmf and current sheet has 30 slots and a pole
 The calculated winding factor along with the slot mmf and current sheet are shown in Fig.~\ref{fig:Main_single_overlapping}\subref{fig:f_Qs30_5_1}. It is important to mention that the coil sides are distributed in such a way as to obtain a sinusoidal slot mmf distribution. The number of slots per pole and phase can be increased to obtain a better sinusoidal distribution. In doing so, the harmonic content will become less.
 \begin{figure}[htbp]
 	\centering
-	\input{figs/f_single_layer_type1.tex}
-	\vspace{1cm}
-	\input{figs/f_Qs_30_p_5_1.tex}
+  \fontsize{6}{6}\selectfont
+  \subfloat[Single layer overlapping winding layout\label{fig:slw_yd_eq_1}]{%
+	\input{figs/f_single_layer_type1.tex}}
+	\hfill
+  \subfloat[Slot mmf and winding factors\label{fig:f_Qs30_5_1}]{%
+	\input{figs/f_Qs_30_p_5_1.tex}}
 	\caption{Single layer overlapping winding}
 	\label{fig:Main_single_overlapping}
 \end{figure}
@@ -868,9 +877,12 @@ A double layer overlapping winding is commonly used in industrial machines. Over
 Fig.~\ref{fig:f_Qs30_p5_2} shows the slot mmf of a stator with $Q_s=30$ slots and $p=5$ pole pairs. Using the winding properties for this combination given in Tab.~\ref{tab:Example_table}, it is a concentrated winding. The winding has no sub-harmonics. 
 \begin{figure}[htbp]
 	\centering
-	\input{figs/f_double_layer.tex}
-	\vspace{1cm}
-	\input{figs/f_Qs_30_p_5_2.tex}
+  \fontsize{6}{6}\selectfont
+  \subfloat[Double layer overlapping winding layout\label{fig:dlw_yd_gt_1}]{%
+	\input{figs/f_double_layer.tex}}
+	\hfill
+  \subfloat[Slot mmf and winding factors\label{fig:f_Qs30_p5_2}]{%
+	\input{figs/f_Qs_30_p_5_2.tex}}
 	\caption{Double layer overlapping winding}
 	\label{Main_double_overlapping}
 \end{figure}
