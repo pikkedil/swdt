@@ -137,7 +137,14 @@ It is commendable that the German terminology on electrical machines allows a ve
 
 The term ``machine'' as used in the present dissertation means it could be a machine that is operated either as a motor or as a generator. In the title the term ``motor'' is used, since only the measured results of motor operation are presented. However, in the theoretical sections, the word ``machine'' is preferred.  
 
-The document is optimised for a two-sided printout. A flip-book shows that the fundamental and fifth harmonic of the mmf rotate in the opposite direction. 
+The discrete Fourier transform has a negative exponent. An explanation for this is given on 
+\href{http://dsp.stackexchange.com/questions/19004/why-is-a-negative-exponent-present-in-fourier-and-laplace-transform}{stackexchange}.
+\begin{equation}
+ X(f)=\sum_{n=0}^{N-1}x(n)e^{-\frac{j2πkn}{N}}
+\end{equation}
+
+See \href{http://octave.1599824.n4.nabble.com/Warning-Matlab-style-short-circuit-operation-performed-for-operator-td4680361.html}{warning}.
+
 
 \section{Design program}
 A Matlab script that implements the algorithm in Fig.~\ref{fig:flowchart} is used to plot the examples given in Tab.~\ref{tab:Example_table}. The complete program listings are given in \ref{sec:malg} and \ref{sec:mex}. Start the script by typing from the Matlab promt:

@@ -1,0 +1,8 @@
+# LaTeX #
+#########
+.log
+.out
+.idx
+.toc
+.aux
+.pdf
