@@ -46,28 +46,15 @@ function Wnd = CDesign(varargin)
 
   Xsi = [];
   fac = m/(2*Wnd.Qc);
-  working_harmonic = C*exp(-i*p*theta_m)'+CRe*exp(-i*p*theta_m)';
-  harmonics = [1 5 7 11];
-  for k = 1:length(harmonics)
-    nu = harmonics(k)*p;
+  for nu = 1:Wnd.Qs
     tmp = C*exp(-i*nu*theta_m)'+CRe*exp(-i*nu*theta_m)';
     Xsi = [Xsi, [nu; fac*abs(tmp(1))]];
   end
   Wnd.Xsi = Xsi;
 
   % Calculate the winding axis in degrees. 
-  z  = 0+i;
-  lo = 1;
-  hi = Wnd.Qbasic;
-  slot_angle_rad = theta_m(lo:hi);
-  M1 = abs(C(1,lo:hi));
-  M2 = abs(CRe(1,lo:hi));
-  tmpA = M1 * exp(z*slot_angle_rad)';
-  tmpB = M2 * exp(z*slot_angle_rad)';
-  Wnd.winding_axis = tmpA+tmpB;
-  tmpx = real(Wnd.winding_axis);
-  tmpy = imag(Wnd.winding_axis);
-  Wnd.winding_axis = -atan2(tmpy,tmpx)*180/pi + 180/Wnd.p + 360/(2*Wnd.Qs);
+  
+  Wnd.winding_axis = winding_axis_deg(Wnd);
 
 return;
 
@@ -329,4 +316,23 @@ function [Winding] = properties(Qs,p,m,yd,nl,x)
   else
       Winding.feasable = false;
   end
+return
+
+function res = winding_axis_deg(Wnd)
+  %
+  % Calculate the winding axis of phase A in degrees.
+  %
+  z  = 0+i;
+  lo = 1;
+  hi = Wnd.Qbasic;
+  slot_angle_rad = Wnd.theta_m(lo:hi);
+  M1 = abs(Wnd.C(1,lo:hi));
+  M2 = abs(Wnd.CRe(1,lo:hi));
+  tmpA = M1 * exp(z*slot_angle_rad)';
+  tmpB = M2 * exp(z*slot_angle_rad)';
+  axis = tmpA+tmpB;
+  tmpx = real(axis);
+  tmpy = imag(axis);
+  res  = -atan2(tmpy,tmpx)*180/pi + 180/Wnd.p + 360/(2*Wnd.Qs);
+
 return
