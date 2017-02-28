@@ -47,8 +47,12 @@ function Wnd = CDesign(varargin)
   Xsi = [];
   fac = m/(2*Wnd.Qc);
   for nu = 1:Wnd.Qs
-    tmp = C*exp(-i*nu*theta_m)'+CRe*exp(-i*nu*theta_m)';
-    Xsi = [Xsi, [nu; fac*abs(tmp(1))]];
+    tmp = C*exp(-i*(nu-1)*theta_m)'+CRe*exp(-i*(nu-1)*theta_m)';
+    if mod((nu-1)/Wnd.p,3) == 0
+      Xsi = [Xsi, [nu-1; 0]];
+    else
+      Xsi = [Xsi, [nu-1; fac*abs(tmp(1))]];
+    end
   end
   Wnd.Xsi = Xsi;
 

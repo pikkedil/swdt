@@ -65,6 +65,9 @@ function wdt = arun(val)
     basic.Qb = wdt.Qbasic;
     basic.pb = wdt.p/wdt.t;
     
+    % Construct the winding factor
+    kw = abs(wdt.Xsi(2,basic.p+1));
+    
     if basic.nl == 1
         bot = zeros(1,basic.Qb);
         mmf = zeros(1,basic.Qb); 
@@ -143,7 +146,6 @@ function wdt = arun(val)
         wnd.axis = wdt.winding_axis;
         phi = wnd.axis*basic.p*pi/180+pi/2;
         xw = linspace(0,basic.pb*2*pi,100*basic.pb);
-        kw = wdt.Xsi_p;
         yw = kw*cos(xw-phi);
         fac = 180/pi*basic.Qb/basic.Q/basic.pb;
         plot(xw*fac,yw,'k--');
