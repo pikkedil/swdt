@@ -1,6 +1,7 @@
 \chapter{Introduction}
 Analysis of electrical machines is a very well-known subject in electrical engineering and at a first glance one might think that this field cannot be embarked on any further. However, this is not the case, since advances in materials such as permanent magnets offer new possibilities which might not have been economical a few years ago. In addition to the development of the materials used in electrical machines, the mathematical and physics software tools for solving complex problems and the visualisation of the results have also improved. Furthermore, the technologies driving the microprocessors and storage devices used in personal computers have contributed to solve difficult mathematical functions by means of numerical methods. All these factors have influenced the way electrical machines are designed and will be designed in the future. The research presented in this book is a typical example of how advances in other fields can lead to new ideas in electrical engineering, and especially electrical machines. 
 
+
 \section{Problem statement}
 \label{sec:problem_statement}
 Designing the winding is from an electromagnetic point of view the most important part in machine design. In this step the coil sides of the phases need to be assigned to an appropriate stator slot which allows a rotating magnetic field when phase displaced currents are applied to the winding. Once the assignment is done, adjacent coil sides belonging to the same phase are called a phase belt. This is the definition used in modern textbooks such as that written by \cite{REF-00330} and was already in use in early papers by \cite{REF-00835}.
@@ -16,26 +17,41 @@ Another sub-question arises from the requirement to allocate the slots that belo
 \end{quote}
 
 \section{Overlapping and non-overlapping windings}\label{sec:def_con}  
-Fig.~\ref{fig:flux_coils}(a) shows a double layer overlapping winding. In the drawing some of the coils are removed which makes it easier to identify the two layers. In (b) a non-overlapping single layer winding is shown. Only each second stator tooth has a coil wound around it. 
+Fig.~\ref{fig:flux_coils}\subref{fig:dow} shows a double layer overlapping winding. In the drawing some of the coils are removed which makes it easier to identify the two layers. A non-overlapping single layer winding is shown in Fig.~\ref{fig:flux_coils}\subref{fig:snow}. Only each second stator tooth has a coil wound around it. 
 \begin{figure}[htbp]
-	\centering
-		\input{figs/f_coils.tex}
-	\caption{Double layer overlapping and single layer non-overlapping windings}
-	\label{fig:flux_coils}
+  \fontsize{6}{8}\selectfont
+  \centering
+  \subfloat[Overlapping winding\label{fig:dow}]{
+  \begin{overpic}[scale=0.55]
+  {figs/DOW.eps}
+  \put(20,10){\vector(1,1){12}}
+  \put(5,7){double layer coil}
+  \end{overpic}}
+  \hfill
+  \subfloat[Non-overlapping\label{fig:snow}]{
+  \begin{overpic}[scale=0.55]
+  {figs/SNOW.eps}
+  \put(12,10){\vector(1,1){12}}
+  \put(5,7){single layer coil}
+  \put(50,40){\vector(-2,-1){14}}
+  \put(45,41){stator tooth}
+  \end{overpic}}
+  \caption{Double layer overlapping and single layer non-overlapping windings}
+  \label{fig:flux_coils}
 \end{figure}
 \index{overlapping}
 \index{non-overlapping}
 
 Non-overlapping windings are a sub-set of fractional slot windings and need some extra discussion. It is often categorised as concentrated. This is not necessarily wrong but is incongruent with the formal definition. The opposite of a concentrated winding is a distributed winding. In the latter case a the coils of a given phase are distributed in several slots. When referring to overlapping and non-overlapping windings a concentrated winding could be defined as follows:
 \begin{enumerate}
-	\item Formally a concentrated winding is one where the number of slots per pole and~%
-	phase equals one. In this case the coil pitch equals the pole pitch and it is~%
-	categorised as overlapping. This means that each coil side of the winding is~%
-	placed in a single slot. If the coil spans a pole pitch, it is called a full-pitch~%
-	concentrated winding.
-	\item Non-overlapping could also be classified as concentrated, but then it is not~%
-	done in terms of the formal definition. Concentrated in this case means that a coil~%
-	is concentrated around a stator tooth as shown in Fig.~\ref{fig:flux_coils}(b).
+  \item Formally a concentrated winding is one where the number of slots per pole and~%
+  phase equals one. In this case the coil pitch equals the pole pitch and it is~%
+  categorised as overlapping. This means that each coil side of the winding is~%
+  placed in a single slot. If the coil spans a pole pitch, it is called a full-pitch~%
+  concentrated winding.
+  \item Non-overlapping could also be classified as concentrated, but then it is not~%
+  done in terms of the formal definition. Concentrated in this case means that a coil~%
+  is concentrated around a stator tooth as shown in Fig.~\ref{fig:flux_coils}\subref{fig:snow}.
 \end{enumerate}
 
 A simplified illustration of single and double layer non-overlapping windings\footnote{In German these winding types are commonly referred to as ``Zahnspulen'' which means ``tooth coils''. Although tooth coils seem to be a very descriptive name for these windings, it is often called ``concentrated coils'' in the literature.} is shown in Fig.~\ref{fig:concen_coils} and the difference between them is given in Tab.~\ref{tab:single_vs_double}. For the purposes of the present dissertation a double layer winding is defined as follows:
@@ -52,18 +68,23 @@ A simplified illustration of single and double layer non-overlapping windings\fo
     \toprule
     \textbf{Single layer}  & \textbf{Double layer} \\\toprule
     In the case of the single layer winding each stator slot has only one coil side
-    assigned to it as shown in Fig.~\ref{fig:concen_coils}(a).
+    assigned to it as shown in Fig.~\ref{fig:concen_coils}\subref{fig:concen-a}.
     & 
     A double layer winding has two coil sides assigned to a stator slot as shown in
-    Fig.~\ref{fig:concen_coils}(b).\\
+    Fig.~\ref{fig:concen_coils}\subref{fig:concen-b}.\\
     \bottomrule
   \end{tabularx}
 \end{table}
 \begin{figure}[htbp]
-	\centering
-		\input{figs/f_concen_coils.tex}
-	\caption{Double and single layer non-overlapping windings}
-	\label{fig:concen_coils}
+  \centering
+  \fontsize{8}{0}\selectfont
+  \subfloat[Single layer\label{fig:concen-a}]{
+  \input{figs/f_concen_coils-a.tex}}
+  \hfill
+  \subfloat[Double layer\label{fig:concen-b}]{
+  \input{figs/f_concen_coils-b.tex}}
+  \caption{Single and double layer non-overlapping windings}
+  \label{fig:concen_coils}
 \end{figure}
 \index{Zahnspulen}
 \index{double layer}
@@ -72,59 +93,85 @@ A simplified illustration of single and double layer non-overlapping windings\fo
 
 In the literature different definitions of terms are in use for non-overlapping concentrated windings. The most common of them are:
 \begin{itemize}
-	\item \cite{REF-00822}: concentrated windings;
-	\item \cite{REF-00823}: concentrated fractional pitch windings; 
-	\item \cite{REF-00815}: fractional slot wound; and
-	\item \cite{REF-01044}: fractional slot. 
+  \item \cite{REF-00822}: concentrated windings;
+  \item \cite{REF-00823}: concentrated fractional pitch windings; 
+  \item \cite{REF-00815}: fractional slot wound; and
+  \item \cite{REF-01044}: fractional slot. 
 \end{itemize}
 
-If the coils are to be equally in shape, which simplifies manufacturing, it is recognised that a single layer could easily have a variable slot pitch\footnote{The concept of a variable coil pitch is explained in chapter \ref{chap:DesignWindings}. Also refer to Fig.~\ref{fig:f_slotstar} for regular and irregular distributed slots.}. Furthermore, the coils could be implemented as either form-wound or round-wound. Returning to the variable coil pitch of the single layer, it is important to mention that this is an extra degree of freedom that offers to be an attractive design parameter. The air gap flux that links the coil could thus be increased and torque ripple can be improved. 
+If the coils are to be equally in shape, which simplifies manufacturing, it is recognised that a single layer could easily have a variable slot pitch\footnote{The concept of a variable coil pitch is shown in Fig.~\ref{fig:f_slotstar}.} Furthermore, the coils could be implemented as either form-wound or round-wound. Returning to the variable coil pitch of the single layer, it is important to mention that this is an extra degree of freedom that offers to be an attractive design parameter. The air gap flux that links the coil could thus be increased and torque ripple can be improved. 
 \index{regular}
 \index{irregular}
 \index{form-wound}
 \index{round-wound}
 
-It is therefore helpful to classify a concentrated winding either as an overlapping or non-overlapping concentrated winding. \cite{REF-01045} certainly aroused interest in non-overlapping concentrated windings with their paper entitled ``Synthesis of High Performance PM Motors With Concentrated Windings'', since this is a paper which is very often used as a reference on these winding types. This could be a possible explanation for the use of the term ``concentrated windings'' rather than ``tooth coil windings''.
+It is therefore helpful to classify a concentrated winding either as an overlapping or non-overlapping concentrated winding. Reference \cite{REF-00754} certainly aroused interest in non-overlapping concentrated windings with their paper entitled ``Synthesis of High Performance PM Motors With Concentrated Windings'', since this is a paper which is very often used as a reference on these winding types. This could be a possible explanation for the use of the term ``concentrated windings'' rather than ``tooth coil windings''.
 
 The expansion of the classical winding types used in machines by non-overlapping windings offers new possibilities in especially traction machine design. The main research question in section \ref{sec:problem_statement} suggests a design algorithm that takes into account the non-overlapping type. Obviously a method that is valid for all types is required. In addition, it should be easy to integrate into whichever process is in use. 
+
+\section{A historical view of winding design}
+In the first of his two remarkable papers \cite{REF-00835, REF-00836} explains the systematics of stator windings and the calculation of the winding factors. The aim in this work was to determine the parameters that characterise the air gap mmf of the winding. Also in this paper the induced voltage in the coil sides is already mentioned and represented as a vector. The resultant vector diagram was called the star of coil groups (German: ``Spulengruppenstern''). The adjacent vectors on such a diagram that belong to the same phase is called a phase belt (German: ``Zone'').
+\index{star of coil groups}
+\index{Spulengruppenstern}
+\index{Zone}
+
+Two years later, in the second paper by \cite{REF-00837}, the algebraic methods developed in the first paper were visualised by means of Tingley's diagram. The latter could be referred to as a linear representation of the now called star of slots (German: ``Nutenstern''). The star of slots is constructed using the electrical angle between two adjacent slots. Computer technology as we know it today was not available at the time and the use of graph paper certainly was common. Furthermore, such graphical methods definitely contributed to the subject of stator windings.
+\index{Tingley's diagram}
+\index{Nutenstern}
+
+Vil\'em Kl\'ima (Wilhelm Kauders) died on 6 October 1985 and in an obituary by \cite{REF-01054} it is mentioned that Kl\'ima's equation for the distribution factor\footnote{Also known as the breadth factor.} of fractional slot windings is not found in textbooks. Another remark in the obituary is that in some references it is stated that it is not possible to find a closed-form expression for the winding factor of fractional slot windings. In the rest of this literature overview, none of the authors (except Kremser) refers to or makes use of Kl\'ima's closed-form expression. 
+
+More than fifty years later than \cite{REF-00837}, \cite{REF-00266} introduced a comprehensive study of fractional slot windings and the currents in the parallel paths of rotating machines. The reason for this big time gap does not mean that nothing had happened in the mean  time in winding design; it should be kept in mind that this overview only points out some important aspects. In the first part of Kremser's doctoral thesis a detailed algebraic description of single and double layer fractional slot windings is presented. In order to allocate the coils to the stator slots, modular arithmetic, which uses the so-called commutator pitch, is used. This can be seen as a step toward using computer programs to automatically performing winding designs. In the star of slots the vectors start wrapping, and once put on a graph, two vectors having angles of \ang{45} and \ang{405} respectively lie exactly on each other. The star of slots is thus the same as the remainder after dividing an angle by \ang{360} which can easily be implemented by means of the modulo function.  
+\index{modular arithmetic} 
+\index{commutator pitch}  
+
+Reference \cite{REF-00452} explains another algebraic method to design stator windings which has much in common with that presented by \cite{REF-00266}\footnote{It should however be noticed that the authors Wach and Kremser are from Poland and Germany respectively.}.  The methods presented in the paper is characterised by the matrix representation of a winding. The winding matrix simplify the winding factor calculation and avoids complex equations. Basically the vectors of the star of slots is used in matrix form. What is called the winding matrix could be seen as the matrix representation of Tingley's diagram. A drawback of the method is that each matrix entry for double layer windings has two values. In computer programming this should be solved by either a multi-dimensional matrix or two two-dimensional matrices. In another paper by \cite{REF-00454}, the focus is on the optimisation of fractional slot windings. In spite of the fact that this paper is a very good source on the topic of winding design, none of the literature in the rest of this section refers to it.
+ 
+Reference \cite{REF-00754} showed that the use of stator coils wound around the stator teeth has some attractive advantages for manufacturing. The coils do not overlap which means that the manufacturing is simplified and the winding overhang is less than that of overlapping windings. Electrically the shorter winding overhang means the use of less copper. Furthermore, the non-overlapping windings are derived from single or double layer overlapping windings. It is also pointed out that in the case of single layer non-overlapping windings the coil pitch can be increased and used as a design parameter\footnote{See Fig.~\ref{fig:f_slotstar} for regular and irregular distributed slots.}. The latter, however, is not taken into account in the winding factor calculation. This paper is referenced quite often, proving the interest among machine designers in non-overlapping windings.  
+
+Reference \cite{REF-01055} did an extensive study on fractional slot windings for low speed applications. The main objective in the doctoral thesis is to compare different slot combinations of a machine with a fixed air gap diameter in the \SI{45}{kW} range. Although both single and double non-overlapping windings are taken into account, the focus is on the double layer type. Since round wire coils are used in the investigated application it is appropriate to use a double layer rather than single layer. If form-wound coils were used the choice of double layer windings would have caused some difficulties when inserting the coils into the stator slots. Also, the stator had semi-closed slots. The star of slots is referred to as the voltage vector graph in Salminen's thesis. A very important comment by the author is that care should be taken when the winding factors for different winding types are to be calculated. Depending on the winding type the right set of equations should be chosen. 
+
+Reference \cite{REF-00756} proposed a method to calculate the winding factors for concentrated coils without knowledge of the winding layout. This is of course sufficient to quickly compare different slot and pole combinations. Using this method it is shown that the best number of slots per pole and phase should be in the range \textonequarter $\leq q\leq$ \textonehalf. 
+
+The tutorial presented by \cite{REF-01056} is an in-depth study of fractional slot windings in general. In their tutorial notes a distinction is made between overlapping and non-overlapping windings. Here too the non-overlapping type is derived from a double layer overlapping winding. 
 
 \section{Notes to the reader}
 The work presented in this thesis was done in Nürnberg, Germany. Consequently many of the literature used were in German. To name only a few, books by \cite{REF-00004}, \cite{REF-00429} and \cite{REF-00294} are still commonly used in design offices. It is noticeable that even though there exists a list of symbols for various quantities, English and German have in some cases different symbols for the same quantity. This is mainly due to the fact that languages develop individual and of course colloquial language rules. Even a direct translation does not necessarily give the typical word used. An example is the German word \textit{Felderregerkurve}. A direct translation would be ``field excitation curve'', which of course is not wrong. However, the field excitation curve in electrical terms is usually known as the ``magnetomotive force'' (mmf). Tab.~\ref{tab:translation} gives some common electrical machine quantities in English and German, and the different symbols in use.
 \begin{table}[htbp]
-	\caption[Typical machine quantities and their German translation]%
-	{Typical machine quantities, there German translation and~%
-	counterpart symbols}
-	\label{tab:translation}
-	\centering
-	\begin{tabular}{lccl}
-	\toprule
-	Quantity   &  English  & German & Unit \\
-	\toprule
-	magnetomotive force (\textit{Durchflutung}) & 
-	$F$& $\Theta$ & \SI{}{A}\\
-	\midrule
-	flux linkage (\textit{Flussverkettung}) & 
-	$\lambda$& $\psi$ & \SI{}{V.s}   \\
-	\midrule
-	voltage (\textit{Spannung})  & 
-	$V$& $U$ & \SI{}{V} \\
-	\midrule
-	specific resistance (\textit{spezifischer Widerstand})&
-	$\rho$& $\varrho$ & \SI{}{\ohm.m} \\
-	\midrule
-	specific weight (\textit{spezifischer Masse})&
-	$\rho$& $\gamma$& \SI{}{kg.m^{-3}}\\
-	\midrule
-	conductivity (\textit{Leitfähigkeit})&
-	$\sigma$&$\kappa$& \SI{}{S.m^{-1}}\\
-	\midrule
-	cross section area (\textit{Querschnitt})&
-	$A$&$Q$& \SI{}{m^{2}}\\
-	\midrule
-	turn number (\textit{Windungszahl}) & 
-	N& W & - \\
-	\bottomrule
-	\end{tabular}
+  \caption[Typical machine quantities and their German translation]%
+  {Typical machine quantities, there German translation and~%
+  counterpart symbols}
+  \label{tab:translation}
+  \centering
+  \begin{tabular}{lccl}
+  \toprule
+  Quantity   &  English  & German & Unit \\
+  \toprule
+  magnetomotive force (\textit{Durchflutung}) & 
+  $F$& $\Theta$ & \SI{}{A}\\
+  \midrule
+  flux linkage (\textit{Flussverkettung}) & 
+  $\lambda$& $\psi$ & \SI{}{V.s}   \\
+  \midrule
+  voltage (\textit{Spannung})  & 
+  $V$& $U$ & \SI{}{V} \\
+  \midrule
+  specific resistance (\textit{spezifischer Widerstand})&
+  $\rho$& $\varrho$ & \SI{}{\ohm.m} \\
+  \midrule
+  specific weight (\textit{spezifischer Masse})&
+  $\rho$& $\gamma$& \SI{}{kg.m^{-3}}\\
+  \midrule
+  conductivity (\textit{Leitfähigkeit})&
+  $\sigma$&$\kappa$& \SI{}{S.m^{-1}}\\
+  \midrule
+  cross section area (\textit{Querschnitt})&
+  $A$&$Q$& \SI{}{m^{2}}\\
+  \midrule
+  turn number (\textit{Windungszahl}) & 
+  N& W & - \\
+  \bottomrule
+  \end{tabular}
 \end{table}
 \index{magnetomotive force}
 \index{flux linkage}
@@ -137,13 +184,20 @@ It is commendable that the German terminology on electrical machines allows a ve
 
 The term ``machine'' as used in the present dissertation means it could be a machine that is operated either as a motor or as a generator. In the title the term ``motor'' is used, since only the measured results of motor operation are presented. However, in the theoretical sections, the word ``machine'' is preferred.  
 
-The discrete Fourier transform has a negative exponent. An explanation for this is given on 
-\href{http://dsp.stackexchange.com/questions/19004/why-is-a-negative-exponent-present-in-fourier-and-laplace-transform}{stackexchange}.
-\begin{equation}
- X(f)=\sum_{n=0}^{N-1}x(n)e^{-\frac{j2πkn}{N}}
+The discrete Fourier transform has much in common with the winding factor and its definition is given in \eqref{eqn:DFTdef}. Notive that the exponent is a negative number and complex. The reason for the negative exponent is explained in \cite{REF-01048,REF-01049,REF-01050}. For the complex notation a $\i$ and not a $i$ is used. Furthermore, to keep the equations compact the complex exponent will be written as $e^z$ rather than $e^{-\i\theta}$.
+\begin{equation}\label{eqn:DFTdef}
+  X(k)=\sum_{j=1}^{N}x(j)e^z
+  \qquad
+  \begin{cases}
+    j \in \left\{1,\ldots,N  \right\} \rightarrow \; \mbox{sampled data}\\
+  	k \in \left\{1,\ldots,N  \right\} \rightarrow \; \mbox{harmonic order}\\
+    z = -\i\theta   \\
+  	\theta = \frac{2\pi}{N}   \\
+  	e^{-\theta \i} = \cos (-\theta) + \i \sin (-\theta)
+  \end{cases}
 \end{equation}
 
-See \href{http://octave.1599824.n4.nabble.com/Warning-Matlab-style-short-circuit-operation-performed-for-operator-td4680361.html}{warning}.
+%See \href{http://octave.1599824.n4.nabble.com/Warning-Matlab-style-short-circuit-operation-performed-for-operator-td4680361.html}{warning}.
 
 
 \section{Design program}
@@ -153,8 +207,6 @@ A Matlab script that implements the algorithm in Fig.~\ref{fig:flowchart} is use
 wnd = arun(1);
 \end{lstlisting}
 The resulting plots are shown in Fig.~\ref{fig:tests} and the Matlab code is provided in appendix \ref{sec:mex}.
-
-%%%%
 
 \chapter{Classification of symmetrical windings}
 This report\footnote{Text taken from \cite{REF-00014}.} is devoted to a derivation of an algorithmic method to design $m$-phase symmetrical windings and a representation thereof in a compact form. The basic principle of the winding of an electrical machine is to obtain a rotating magnetic field in the stator (the stationary part) that interacts with the moving part (the rotor). This is achieved by arranging the coils of the winding in the stator slots around the air gap periphery in such a way that a rotating field is developed when applying currents. As a result the induced voltage, which arises from flux per pole $\hat{\Phi}$, is obtained from Faraday's law. In general the sinusoidally induced voltage for a winding having $N_s$ series turns per phase is
@@ -176,6 +228,7 @@ The winding design can be quite a difficult task and at this point it is useful 
 
 \subsection{Slots and coils per pole and phase} \label{subsec:slots_coils}
 Any $m$-phase winding could be characterised by its number of slots per pole and phase. However, when comparing different winding designs with each other this number alone is insufficient. It does not take into account the number of layers the winding has. In addition, the number of coils per pole and phase should be defined. For a machine with $Q_s$ stator slots, $p$ pole pairs and $m$ phases the following definitions holds:
+
 \begin{defth}
 Slots per pole and phase: 
 \begin{equation}
@@ -197,17 +250,17 @@ These characteristic numbers give useful information on the winding when they ar
 
 {\renewcommand{\arraystretch}{1.2}
 \begin{table}[htbp]
-	\caption{Winding properties}
-	\label{tab:properties_single_double}
+  \caption{Winding properties}
+  \label{tab:properties_single_double}
   \centering
   \begin{tabular}{|c|c|}
   \hline
-	single layer winding & double layer winding \\
-	\hline
-	$q = 2q_c$ & $q = q_c$ \\
-	$Q_s = 2Q_c$ &  $Q_s = Q_c$ \\
-	\hline
-	\end{tabular}
+  single layer winding & double layer winding \\
+  \hline
+  $q = 2q_c$ & $q = q_c$ \\
+  $Q_s = 2Q_c$ &  $Q_s = Q_c$ \\
+  \hline
+  \end{tabular}
 \end{table}}
 \index{winding properties}
 
@@ -236,41 +289,41 @@ In the case where $y_d=y_p$ it is a full-pitch winding. If $y_d \neq y_p$ it is 
 \subsection{Classification scheme}
 The aim of the classification scheme is to find a way to relate different winding types to each other. It is also a useful guideline to compare windings that belong to the same category. For the design methodology offered in this report, the following winding parameters are chosen for the classification:
 \begin{enumerate}
-	\item the reduced form of the number of coils per pole per phase;
-	\item the average coil pitch; and 
-	\item the number of layers.
+  \item the reduced form of the number of coils per pole per phase;
+  \item the average coil pitch; and 
+  \item the number of layers.
 \end{enumerate}
 Tab.~\ref{fig:classification} shows a possible way to classify symmetrical $m$-phase windings. The reason for choosing the average coil pitch as a second property arises from the construction of the coils and it is valid for all types of windings. It could be seen as the ideal coil pitch. Additionally, the number of layers is a key parameter since the technology for manufacturing and the material used in single layer windings are different from that used in double layer windings. Using this classification scheme, the following definitions are associated with windings:
 \begin{description}
-	\item[Distributed winding:] If the numerator $q_{cn}$ of $q_c$ is greater than~%
-	one, the winding is distributed. This means that the coil sides are distributed~%
-	over $q_{cn}$ slots. The opposite of a distributed winding is a concentrated~%
-	winding.
-	\item[Concentrated winding:] In the case where $q_{c_n}$ equals one, it is called~%
-	a concentrated winding. 
-	\item[Concentrated coil:] When $y_d$ equals one, it is a concentrated coil. In~%
-	this case the coil is concentrated around a stator tooth.
-	a concentrated winding. 
-	\item[Single and double layer:] These windings are differentiated by the number~%
-	of coils compared to the number of stator slots. In single layer windings the~%
-	number of coils equals half the number of stator slots, while for double layer~%
-	windings the number of coils is equal to the number of stator slots. In the~%
-	present dissertation a double layer winding has two coil sides per slot which could~%
-	placed radially in two layers or side by side. 
-	\item[Overlapping and non-overlapping:] In overlapping windings the coils overlap~%
-	and the coil pitch $y_d$ is greater than one. If the coil pitch $y_d$ equals one,~%
-	the coils do not overlap.
-	\item[Integral slot winding:] If the denominator $q_d$ equals one, the phase~%
-	belt has $q_n$ slots over one pole.
-	\item[Fractional slot:] The denominator of $q$ is greater than one. This~%
-	means that the $q_n$ slots are distributed over $q_d$ poles. In addition,~%
-	the average coil pitch $y_p$ is a fraction. 
+  \item[Distributed winding:] If the numerator $q_{cn}$ of $q_c$ is greater than~%
+  one, the winding is distributed. This means that the coil sides are distributed~%
+  over $q_{cn}$ slots. The opposite of a distributed winding is a concentrated~%
+  winding.
+  \item[Concentrated winding:] In the case where $q_{c_n}$ equals one, it is called~%
+  a concentrated winding. 
+  \item[Concentrated coil:] When $y_d$ equals one, it is a concentrated coil. In~%
+  this case the coil is concentrated around a stator tooth.
+  a concentrated winding. 
+  \item[Single and double layer:] These windings are differentiated by the number~%
+  of coils compared to the number of stator slots. In single layer windings the~%
+  number of coils equals half the number of stator slots, while for double layer~%
+  windings the number of coils is equal to the number of stator slots. In the~%
+  present dissertation a double layer winding has two coil sides per slot which could~%
+  placed radially in two layers or side by side. 
+  \item[Overlapping and non-overlapping:] In overlapping windings the coils overlap~%
+  and the coil pitch $y_d$ is greater than one. If the coil pitch $y_d$ equals one,~%
+  the coils do not overlap.
+  \item[Integral slot winding:] If the denominator $q_d$ equals one, the phase~%
+  belt has $q_n$ slots over one pole.
+  \item[Fractional slot:] The denominator of $q$ is greater than one. This~%
+  means that the $q_n$ slots are distributed over $q_d$ poles. In addition,~%
+  the average coil pitch $y_p$ is a fraction. 
 \end{description}
 {\renewcommand{\arraystretch}{1.2}
 \begin{table}[htbp]
   \centering
   \caption{Classification of symmetrical windings}
-	\label{fig:classification}
+  \label{fig:classification}
   \begin{tabular}{|l|l|l|}
   \hline
   Parameter  & Constraint  &  Classification  \\
@@ -297,10 +350,10 @@ It is important to distinguish between a concentrated winding and a concentrated
 
 Particularly the windings defined as a fractional slot are very attractive for use in permanent magnet synchronous machines. Especially the single layer non-overlapping winding could be used to reduce
 \begin{itemize}
-	\item manufacturing costs compared to overlapping windings;
-	\item the end winding losses;
-	\item torque ripple; and
-	\item the mutual coupling between the phases.
+  \item manufacturing costs compared to overlapping windings;
+  \item the end winding losses;
+  \item torque ripple; and
+  \item the mutual coupling between the phases.
 \end{itemize}
 
 \section{Characteristics of symmetrical windings}
@@ -375,11 +428,11 @@ which relates the pole number, number of stator slots and phase number to each o
 
 \subsection{Reduced number of pole pairs}
 The lowest harmonic generated by a winding is given by $t=\gcd\left(Q_c,p\right)$ and the working harmonic equals $p$. The reduced pole number gives information on the sub-harmonics which are summarised as follows:
-\begin{equation}	
+\begin{equation}  
  \begin{aligned}
-	t &= p \quad \textnormal{the winding has no sub-harmonics} \\
-	t &< p \quad \textnormal{the winding has sub-harmonics}
-	\end{aligned}
+  t &= p \quad \textnormal{the winding has no sub-harmonics} \\
+  t &< p \quad \textnormal{the winding has sub-harmonics}
+  \end{aligned}
 \end{equation} 
 
 The reduced number of pole pairs can be calculated in two different ways. Two greatest common divisors, i.e.~$\gcd\left(Q_c,2\,m\,p\right)$ and $\gcd\left(Q_c,p\right)$, are used to get $q_{c_d}$ and $p_b$ respectively. The relationship between these two factors is as follows:
@@ -388,8 +441,8 @@ The reduced number of pole pairs can be calculated in two different ways. Two gr
   \gcd\left(Q_c,p\right)=\frac{\gcd\left(Q_c,2\,m\,p\right)}{r} \hspace{15pt}
   \textnormal{where} \hspace{15pt} r=
   \begin{cases}
-	 m  & \text{$q_{c_d}$ even}\\
-	 2m & \text{$q_{c_d}$ odd}
+   m  & \text{$q_{c_d}$ even}\\
+   2m & \text{$q_{c_d}$ odd}
   \end{cases}
 \end{equation}
 
@@ -403,9 +456,9 @@ In the theory of three-phase windings the rotating magnetic field is derived fro
 Consider a single coil with $N_t$-turns carrying a current $i$ placed in the stator of a machine with a uniform air gap as shown in Fig.~\ref{fig:mmf_1}(a). Assuming an infinite permeability in the laminated parts, the mmf in the stator and rotor can be neglected. This means the mmf across the air gap will be equal to the total mmf. 
  
 \begin{figure}[htbp]
-	\centering
+  \centering
   \fontsize{9}{10}\selectfont
-	\input{figs/f_mmf_1.tex}
+  \input{figs/f_mmf_1.tex}
   \caption{Spatial mmf distribution for a $N_t$-turn coil}
   \label{fig:mmf_1}
 \end{figure}
@@ -482,11 +535,11 @@ Fig.~\ref{fig:mmf_1}(a) means it is necessary to add two more coils. Using the p
 \end{equation}
 
 \begin{figure}
-	\centering
+  \centering
   \fontsize{9}{10}\selectfont
-		\input{figs/f_mmf_2.tex}
+  	\input{figs/f_mmf_2.tex}
   \caption{The fundamental spatial mmf distribution for a three-phase machine}
-	\label{fig:mmf_2}
+  \label{fig:mmf_2}
 \end{figure}
 
 Fig.~\ref{fig:mmf_2}(b) shows graphically the mmf's of the three coils with $N_t$-turns. These are obtained by setting $m=3$ and applying the following three-phase currents 
@@ -498,11 +551,11 @@ Fig.~\ref{fig:mmf_2}(b) shows graphically the mmf's of the three coils with $N_t
 \end{equation}
 to the functions in \eqref{eqn:F_theta_t_3}. The resultant mmf will rotate in a counterclockwise direction. At $t=0$ $i_2=i_3=-\frac{1}{2}i_1$, meaning the mmf of $F_2$ and $F_3$ will be half of $F_1$. As time starts to increase, any point on $F_1$ will move downward while points on $F_2$ and $F_3$ will start moving in an upward direction. The points are marked $p_1$ through $p_3$ in the figure. Contrary to this, any point on the resultant mmf will start moving in the right direction (counter-clockwise) as indicated by point $p_4$. As time increases the resultant mmf rotates as shown in Fig.~\ref{fig:rotating_wave}. The fundamental mmf is shown at time equal to zero and a time instant $t=t_1$.
 \begin{figure}
-	\centering
-		\input{figs/f_mmf_rotation.tex}
-	\caption[Rotation of the resultant mmf]{Rotation of the resultant mmf by displacing~%
-	the three positive coil sides along the stator periphery}
-	\label{fig:rotating_wave}
+  \centering
+  	\input{figs/f_mmf_rotation.tex}
+  \caption[Rotation of the resultant mmf]{Rotation of the resultant mmf by displacing~%
+  the three positive coil sides along the stator periphery}
+  \label{fig:rotating_wave}
 \end{figure}
 
 \subsection{Definition of the mmf envelope functions}\label{subsec:mmf_def}
@@ -553,44 +606,36 @@ A positive value of $\nu$ means that the harmonic is rotating counter-clockwise 
 In this section it will be shown that the winding layouts can be represented by means of two matrices. The first matrix will contain information on the ingoing coil sides of the coils while the second matrix will be that of the outgoing coil sides. The matrices are referred to as $\mathbf{M_1}$ and $\mathbf{M_{2}}$ for the ingoing and outgoing coil sides respectively. Both matrices have $n$ columns and $m$ rows. In addition, the number of columns equals the number of stator slots and the rows are equal to the number of phases, thus $m=m$\footnote{It is typical in mathematics that the number of rows is represented by $m$. Equally the number of phases of an electrical machine is also represented by $m$. Furthermore, $m_{11}$ is a matrix element while $m$ is the number of phases.} and $n=Q_s$. The matrices can be expressed as
 \begin{equation}
   \label{eqn:M_matrix}
-  \mathbf{M_1} = \left[
+  \mathbf{M}_k = \left[
   \begin{array}{cccc}
      m_{11} & m_{12} & \ldots & m_{1n}\\
      m_{21} & m_{22} & \ldots & m_{2n}\\
      \vdots & \vdots & \ddots & \vdots\\
      m_{m1} & m_{m2} & \ldots & m_{mn}\\
   \end{array} \right]
-  \quad
-  \mathbf{M_2} = \left[
-  \begin{array}{c c c c}
-     m_{11} & m_{12} & \ldots & m_{1n}\\
-     m_{21} & m_{22} & \ldots & m_{2n}\\
-     \vdots & \vdots & \ddots & \vdots\\
-     m_{m1} & m_{m2} & \ldots & m_{mn}\\
-  \end{array} \right]  
-\end{equation}
-where
-\begin{equation}
-  \label{eqn:cij_set}
-  m_{ij} \in \left\{-1,0,1\right\}
+  \qquad \mbox{where} \qquad
+  \begin{cases}
+     k = 1,2\\
+     m_{ij} \in \left\{-1,0,1\right\}\\
+  \end{cases}
 \end{equation}
 and depends on the winding layout. In the rest of this section an algebraic method is derived to determine the matrix elements. The variables $n_1$ and $n_2$ are integers and will be used as loop variables later on in this chapter where the algorithm flowchart is explained. The subscripts $1$ and $2$ refer to the outer and inner loop respectively. 
 
-\subsection{Slot vector}
-For assigning the $Q_s$ slots to phase belts, the peripheral slot angle $\alpha$ needs to be defined in terms of the slot pitch $\tau_s$. If the slots have a regular distribution the angle between any two adjacent slots equals $\tau_s$. In the case of irregular distributed slots the average slot pitch will equal $\tau_s$. A regular and irregular distribution are shown in Fig.~\ref{fig:f_slotstar}. A vector is assigned to the centre of each stator slot. The exponential representation\footnote{Also known as Euler's formula.} of a vector is used, i.e.
+\section{Slot vector}
+For assigning the $Q_s$ slots to phase belts, the peripheral slot angle $\alpha$ needs to be defined in terms of the slot pitch $\tau_s$. If the slots have a regular distribution the angle between any two adjacent slots equals $\tau_s$. In the case of irregular distributed slots the average slot pitch will equal $\tau_s$. A regular and irregular distribution are shown in Fig.~\ref{fig:f_slotstar}. A vector is assigned to the centre of each stator slot. The exponential representation\footnote{Also known as Euler's formula, \cite{REF-01047}.} of a vector is used, i.e.
 \begin{equation} 
-  e^{j\nu \alpha}=\cos(\nu \alpha)+j\sin(\nu \alpha)
+  e^{\i\nu \alpha}=\cos(\nu \alpha)+\i\sin(\nu \alpha)
 \end{equation}
-The variables $\nu$ and $\alpha$ are the harmonic order and slot peripheral angle respectively. All the vectors as shown in Fig.~\ref{fig:f_slotstar} are represented as a column matrix $\mathbf{v_{\nu}}$. The number of rows is equal to the number of slots, i.e.
+The variables $\nu$ and $\alpha$ are the harmonic order and slot peripheral angle respectively. All the vectors as shown in Fig.~\ref{fig:f_slotstar} are represented as a column matrix $\mathbf{v}_{\nu}$. The number of rows is equal to the number of slots, i.e.
 \begin{equation}
   \label{eqn:slot_vector}
-  \mathbf{v_{\nu}}=\left[
-                         e^{j\nu\alpha_1} 
+  \mathbf{v}_{\nu}=\left[
+                         e^{\i\nu\alpha_1} 
                          \: 
-                         e^{j\nu\alpha_{n_2}} 
+                         e^{\i\nu\alpha_{n_2}} 
                          \:
                          \ldots 
-                         \: e^{j\nu\alpha_{Q_s}}
+                         \: e^{\i\nu\alpha_{Q_s}}
                     \right]^{T}
    \qquad 1 \leq n_2 \leq Q_s                 
 \end{equation}
@@ -598,23 +643,24 @@ where
 \begin{equation}
   \label{eqn:slot_alpha}
   \alpha_{n_2} = \left\{ \begin{array}{lll}
-	  \tau_s\left(n_2-1\right) && n_2 \;\text{odd}\\
-	  \alpha_{n_2-1}+x\tau_s & 0<x<2 & n_2\;\text{even}
-	\end{array} \right.
-	\quad
-	1 \leq n_2 \leq Q_s
+    \tau_s\left(n_2-1\right) && n_2 \;\text{odd}\\
+    \alpha_{n_2-1}+x\tau_s & 0<x<2 & n_2\;\text{even}
+  \end{array} \right.
+  \quad
+  1 \leq n_2 \leq Q_s
 \end{equation}
 where the $\alpha$ accounts for both regular and irregular distributed stator slots. Setting $\nu=p$ means that the electrical slot angles\footnote{The electrical and mechanical slot have the following relationship: $\theta_e=p \theta_m$} for the working harmonic are obtained. 
 \begin{figure}
-	\centering
-		\input{figs/f_slotstar.tex}
-	\caption{Star of slots}
-	\label{fig:f_slotstar}
+\fontsize{8}{0}\selectfont
+  \centering
+  	\input{figs/f_slotstar.tex}
+  \caption{Star of slots}
+  \label{fig:f_slotstar}
 \end{figure}
 
 \subsection{Phase belt constraint}
 The phase belt constraint is used to determine the matrix elements $m_{ij}$ in \eqref{eqn:M_matrix}. From the slot angle $\alpha$ in \eqref{eqn:slot_vector} the corresponding electrical angle $\theta_e$ is obtained. A stator slot is assigned to the phase belt if the following constraint is true:
-\begin{equation}	
+\begin{equation}  
  \label{eqn:phase_belt_constraint}
   \theta_1 \leq \theta_e  < \theta_2
   \quad
@@ -637,13 +683,13 @@ The phase belt constraint is used to determine the matrix elements $m_{ij}$ in \
 \end{equation} 
 The phase belt constraint as given in \eqref{eqn:phase_belt_constraint} is characterised by the phase belt boundaries and the electrical slot angle, which are summerised as follows:
 \begin{description}
-	\item[Phase belt boundaries:] The total number of phase belts around the air gap~%
-	periphery is given by \eqref{eqn:Np}. Each of the phase belts is bounded the by~%
-	the angles $\theta_1$ and $\theta_2$.
-	\item[Electrical slot angle:] The electrical slot angle is obtained by multiplying~%
-	the peripheral slot angle in \eqref{eqn:slot_alpha} by the pole pair number. If~%
-	the electrical angle for a given slot lies within the phase belt boundaries, it~%
-	belongs to that phase belt.   
+  \item[Phase belt boundaries:] The total number of phase belts around the air gap~%
+  periphery is given by \eqref{eqn:Np}. Each of the phase belts is bounded the by~%
+  the angles $\theta_1$ and $\theta_2$.
+  \item[Electrical slot angle:] The electrical slot angle is obtained by multiplying~%
+  the peripheral slot angle in \eqref{eqn:slot_alpha} by the pole pair number. If~%
+  the electrical angle for a given slot lies within the phase belt boundaries, it~%
+  belongs to that phase belt.   
 \end{description}
 In order to assign the slot to a phase, it is necessary to know to which phase a given phase belt belongs. The phase can be determined in terms of the given phase belt number $n_1$ and the number of phases, i.e.
 \begin{equation}
@@ -664,82 +710,84 @@ The value of $k$ as calculated in \eqref{eqn:phase_belt_number} corresponds to t
   \mbox{phase}&= 
     \left\{
     \begin{array}{ll}
-	    k   & k \leq m\\
-	    k-m & k > m
-	  \end{array}
-	  \right.
-	  \\
-	\mbox{sign}&=(-1)^{(k-1)} 
+      k   & k \leq m\\
+      k-m & k > m
+    \end{array}
+    \right.
+    \\
+  \mbox{sign}&=(-1)^{(k-1)} 
   \end{aligned}
-\end{equation}	
+\end{equation}  
 If $m=3$ and $p=1$ the number of phase belts equals 6. Applying \eqref{eqn:phase_belt_number} and \eqref{eqn:phase_belt_number_2} will result in the phase belt sequence as given in \eqref{eqn:phasebelt_sequence}. 
 
 \subsection{Algorithm flowchart}
 The explanation of the algorithm is accompanied by the flowchart in Fig.~\ref{fig:flowchart} and greatly simplifies the understanding. For convenience the relevant equations or tables are included which makes it easier to follow the description. The algorithm only applies to symmetrical windings and the three major parts are summerised as follows:
 \begin{description}
-	\item[Outer loop:] The outer loop of the flowchart is used for the total number of phase belts as given in \eqref{eqn:Np}. The loop index $n_1$ (in the range $1\leq n_1 \leq N_p$) is used to calculate the given phase belt boundaries $\theta_1$ and $\theta_2$ as given in \eqref{eqn:phase_belt_constraint}. Since the $2m$ phase belts repeat themselves along the air gap periphery, the actual phase belt number $k$ in the phase belt sequence can be determined from $n_1$ as given in \eqref{eqn:phase_belt_number} and \eqref{eqn:phase_belt_number_2}.
-	\item[Inner loop:] The inner loop has $n_2$ as index and is used to calculate the electrical angle for a given slot. If a slot is already assigned to a phase belt, the winding matrix will have an entry in the set $\{-1,1\}$. In this case the loop is skipped.   
-	\item[Phase belt constraint:] This is the key step to allocate a stator slot. If the electrical angle lies within the phase belt boundaries, it belongs to the given phase belt. The row and column number for the ingoing matrix $\mathbf{M_1}$ are determined from the inner loop index $n_2$ and the given phase belt number. The row number for $\mathbf{M_2}$ is the same as for $\mathbf{M_1}$ and the column number is obtained from the coil pitch $y_d$.
+  \item[Outer loop:] The outer loop of the flowchart is used for the total number of phase belts as given in \eqref{eqn:Np}. The loop index $n_1$ (in the range $1\leq n_1 \leq N_p$) is used to calculate the given phase belt boundaries $\theta_1$ and $\theta_2$ as given in \eqref{eqn:phase_belt_constraint}. Since the $2m$ phase belts repeat themselves along the air gap periphery, the actual phase belt number $k$ in the phase belt sequence can be determined from $n_1$ as given in \eqref{eqn:phase_belt_number} and \eqref{eqn:phase_belt_number_2}.
+  \item[Inner loop:] The inner loop has $n_2$ as index and is used to calculate the electrical angle for a given slot. If a slot is already assigned to a phase belt, the winding matrix will have an entry in the set $\{-1,1\}$. In this case the loop is skipped.   
+  \item[Phase belt constraint:] This is the key step to allocate a stator slot. If the electrical angle lies within the phase belt boundaries, it belongs to the given phase belt. The row and column number for the ingoing matrix $\mathbf{M_1}$ are determined from the inner loop index $n_2$ and the given phase belt number. The row number for $\mathbf{M_2}$ is the same as for $\mathbf{M_1}$ and the column number is obtained from the coil pitch $y_d$.
 \end{description}
 The assignment of the stator slots as offered in this dissertation is unique and not presented in this way by any of the references consulted. 
 \begin{figure}
-	\centering
+  \centering
   \fontsize{9}{10}\selectfont
-	\input{figs/f_flowchart.tex}
-	\caption{Flowchart to allocate the stator slots}
-	\label{fig:flowchart}
+  \input{figs/f_flowchart.tex}
+  \caption{Flowchart to allocate the stator slots}
+  \label{fig:flowchart}
 \end{figure}
 
 \subsection{Matrix element assignment}\label{sec:m_assignment}
-Once the phase belt constraint is fulfilled, the slot is allocated and the next step is to assign one of the values in the set given in \eqref{eqn:cij_set}. Actually only the sign needs to be determined. Since the phase belt sequence is alternating, the sign can be obtained from the phase belt itself. Following the flowchart through to the point where the test is performed, it is noticed that the matrix column number for $\mathbf{M}_1$ is given by the loop index variable $n_2$. The entry has the value  $(-1)^{(k-1)}$, where $k$ is given in \eqref{eqn:phase_belt_number}. The determination of the row, column and matrix element are summerised as follows\footnote{The method was only tested for $m=3,5,7,\ldots$}: 
+Once the phase belt constraint is fulfilled, the slot is allocated and the next step is to assign one of the values in the set given in \eqref{eqn:M_matrix}. Actually only the sign needs to be determined. Since the phase belt sequence is alternating, the sign can be obtained from the phase belt itself. Following the flowchart through to the point where the test is performed, it is noticed that the matrix column number for $\mathbf{M}_1$ is given by the loop index variable $n_2$. The entry has the value  $(-1)^{(k-1)}$, where $k$ is given in \eqref{eqn:phase_belt_number}. The determination of the row, column and matrix element are summerised as follows\footnote{The method was only tested for $m=3,5,7,\ldots$}: 
 \begin{equation}
   \label{eqn:matrix_element}
   \begin{aligned}
   i &= 
   \left\{ 
     \begin{array}{ll}
-	    k   & k \leq m\\
-	    k-m & k > m
-	  \end{array}
-	  \qquad 
-	\right\}
-	\mbox{row number}
-	\\
-	h &= (-1)^{(k-1)} 
-	\quad 
-	\mbox{matrix element sign} 
-	\\
-	j &= 
+      k   & k \leq m\\
+      k-m & k > m
+    \end{array}
+    \qquad 
+  \right\}
+  \mbox{row number}
+  \\
+  h &= (-1)^{(k-1)} 
+  \quad 
+  \mbox{matrix element sign} 
+  \\
+  j &= 
   \left\{ 
     \begin{array}{ll}
-	    n_2+y_d   & n_2+y_d \leq Q_s \\
-	    \mbox{mod}\bigl((n_2+y_d),Q_s\bigr) & n_2+y_d > Q_s
-	  \end{array} 
-	  \quad
-	\right\}
-	\mbox{column number}
-	\end{aligned}
+      n_2+y_d   & n_2+y_d \leq Q_s \\
+      \mbox{mod}\bigl((n_2+y_d),Q_s\bigr) & n_2+y_d > Q_s
+    \end{array} 
+    \quad
+  \right\}
+  \mbox{column number}
+  \end{aligned}
 \end{equation}
 
 \section{Properties of the winding matrix}
 Presenting the winding in matrix form is very compact and has advantages in machine analysis. The matrix contains all the information of the winding arrangement in the stator slots. This allows the construction of the voltage phasor which is necessary to calculate the winding factor. In addition, the slot mmf can be obtained from the column data. The properties of the matrix are summerised as follows:
 \begin{itemize}
-	\item if the winding is symmetrical, the number of assigned elements in all~%
-	the rows are equal;
-	\item the number of columns is equal to the number of stator slots;
-	\item the number of rows is equal to the number of phases;
-	\item for a single layer winding there is only one nonzero element in a column;
-	\item a double layer winding has two nonzero elements in a row; and
-	\item the matrix is valid for both a fixed and variable slot pitch.
+  \item if the winding is symmetrical, the number of assigned elements in all~%
+  the rows are equal;
+  \item the number of columns is equal to the number of stator slots;
+  \item the number of rows is equal to the number of phases;
+  \item for a single layer winding there is only one nonzero element in a column;
+  \item a double layer winding has two nonzero elements in a row; and
+  \item the matrix is valid for both a fixed and variable slot pitch.
 \end{itemize}
 In the rest of this section the winding matrix is used to calculate the winding factor and the slot mmf.
 
 \subsection{Winding factor}
-With $\mathbf{M}_1$ and $\mathbf{M}_2$ assigned, the winding factor for any harmonic can be calculated as the product between the matrices and the slot vector as given in \eqref{eqn:slot_vector}. This means that a row of the winding matrix is multiplied by the slot vector column matrix. The matrix product means that all the vectors belonging to the same phase are added and for the case $\nu=p$ equals
+With $\mathbf{M}_1$ and $\mathbf{M}_2$ assigned, the winding factor for any harmonic can be calculated as the product between the matrices and the slot vector as given in \eqref{eqn:slot_vector}. This means that a row of the winding matrix is multiplied by the slot vector column matrix. The matrix product means that all the vectors belonging to the same phase are added and for the case $\nu=p$ equals\footnote{$j$ as imaginary number and $j$ as column number can be confusing.}
 \begin{equation}
   \label{eqn:m1_m2_exp}
-  (m_{1,i1}+m_{2,i1})e^{jp\alpha_1}+(m_{1,i2}+m_{2,i2})e^{jp\alpha_2}+\ldots+
-  (m_{1,iQ_s}+m_{2,iQ_s})e^{jp \alpha_{Q_s}}
+  c_{i1}e^{\i p\alpha_1}+c_{i2}e^{\i p\alpha_2}+\ldots+
+  c_{iQ_s}e^{\i p \alpha_{Q_s}} = \sum_{j=1}^{Q_s}c_{ij}e^{\i p\alpha_k}
+  \quad \mbox{where} \quad
+  c_{ij} = m_{1,ij}+m_{2,ij}
 \end{equation}
 If the slot vector does not belong to the current phase, the coefficient
 \begin{equation} 
@@ -756,18 +804,24 @@ is zero. Furthermore, the product should be normalised. Since the total number o
 \end{equation}
 The result \eqref{eqn:winding_factor} present the winding factor as a complex number and the absolute value is to be used as a reduction factor for the sinusoidally induced voltage in \eqref{eqn:ui}. Writing $\xi_{\nu}$ as
 \begin{equation}
-  \xi_{\nu} = a_{\nu}+jb_{\nu}
+  \xi_{\nu} = a_{\nu}+\i b_{\nu}
 \end{equation}
 the phase angle is calculated as 
 \begin{equation}
   \theta_{\nu} = \arctan\left(\frac{b_{\nu}}{a_{\nu}}\right)
 \end{equation}
-The phase angle (in electrical radians) gives information on the position of the winding axes\footnote{The winding axes in the present dissertation refer to the current anti-node axis and the magnetic axis. This is shown in Fig.~\ref{fig:determ_axis}.} relative to the first slot. The two winding axes associated with each phase are called
+The phase angle (in electrical radians) gives information on the position of the winding axes\footnote{The winding axes in the present dissertation refer to the current anti-node axis and the magnetic axis.} relative to the first slot. The two winding axes associated with each phase are called
 \begin{itemize}
-	\item the current sheet anti-node axis and
-	\item the magnetic axis
+  \item the current sheet anti-node axis and
+  \item the magnetic axis
 \end{itemize}
 of the winding. A positive phase angle means that both winding axes have moved clockwise with respect to the first slot. The winding axes are a very import quantities in machine design. When the machine is supplied with a source, a rotating magnetic flux wave is generated. This reacts with the flux generated by the flux of the permanent magnets on the rotor. In order to control the resultant flux, it is necessary to know the exact position of the winding axes.  
+
+\begin{equation}\label{eqn:dft}
+  X(k) = \sum_{j=1}^N \; x(j) \; e^{-(j-1)(k-1)\theta i}
+  \qquad
+  \xi(\nu) = \sum_{k=1}^{Q_s}c_{ik}e^{jp\alpha_k}
+\end{equation}
 
 \subsection{Current sheet anti-node axis}\label{subsec:current_sheet}
 Equation \eqref{eqn:F_theta_t_1} describes the space fundamental component of the mmf produced by the current in phase 1. It can be seen as the mmf wave produced by a finely divided sinusoidally distributed current sheet placed on the inner periphery of the stator. The position of the anti-node with maximum deviation is given by $\theta_{an}$. The relative position of $\theta_{an}$ with respect to the first slot is given by
@@ -802,8 +856,8 @@ The amp\`ere-turns in each slot can be obtained from the matrix winding columns.
 \section{Examples}
 The derived theory presented in this chapter is now illustrated by means of examples. The examples are summerised as follows:
 \begin{description}
-	\item[Winding factor tables:] The winding factors for different slot and pole pair combinations are calculated for single and double layer non-overlapping windings. The results presented are used to derive an expression to find the feasible range for the number of pole pairs, given the number of stator slots. 
-	\item[Slot mmf and current sheet:] The prototype stator with 30 slots is used as an example. By choosing different pole pair numbers, it is shown how to obtain both a single and double layer winding. In each case a non-overlapping and overlapping winding are explained.
+  \item[Winding factor tables:] The winding factors for different slot and pole pair combinations are calculated for single and double layer non-overlapping windings. The results presented are used to derive an expression to find the feasible range for the number of pole pairs, given the number of stator slots. 
+  \item[Slot mmf and current sheet:] The prototype stator with 30 slots is used as an example. By choosing different pole pair numbers, it is shown how to obtain both a single and double layer winding. In each case a non-overlapping and overlapping winding are explained.
 \end{description}
   
 \subsection{Winding factor table}\label{subsec:wind_fac_table}
@@ -811,65 +865,65 @@ The results are given in Tab.~\ref{tab:xi_single} Tab.~\ref{tab:xi_double} for s
 
 The winding factors for single windings are calculated for pole pairs in the range from 4 to 28, whereas the number of stator slots range from 12 to 84. Although the focus in the present dissertation is on single layer non-overlapping windings, the winding factors for double layer windings are given as well. The winding factors are calculated for pole pairs in the range from 4 to 16, whereas the number of stator slots ranges from 12 to 48.
 \begin{table}[htbp]
-	\caption{$\xi_p \times \num{e-3}$ for single layer non-overlapping windings}
-	\label{tab:xi_single}
-	\centering
-	 \begin{tabular}
-		{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|}\cline{2-14}
-		\multicolumn{1}{c}{}& \multicolumn{13}{|c|}{$Q_s$}
-		\\\hline
-		$p$&12 &18 &24 &30 &36 &42 &48 &54 &60 &66 &72 &78 &84  \\\hline
-		4  &866&   &   &   &   &   &   &   &   &   &   &   &    \\
-		5  &966&   &   &   &   &   &   &   &   &   &   &   &    \\
-		6  &na &866&   &   &   &   &   &   &   &   &   &   &    \\
-		7  &966&902&   &   &   &   &   &   &   &   &   &   &    \\
-		8  &866&945&866&   &   &   &   &   &   &   &   &   &    \\
-		9  &   &na &na &   &   &   &   &   &   &   &   &   &    \\
-		10 &   &945&966&866&   &   &   &   &   &   &   &   &    \\
-		11 &   &902&958&874&   &   &   &   &   &   &   &   &    \\
-		12 &   &866&na &na &866&   &   &   &   &   &   &   &    \\
-		13 &   &   &958&940&870&   &   &   &   &   &   &   &    \\
-		14 &   &   &966&950&na &866&   &   &   &   &   &   &    \\
-		15 &   &   &na &na &966&na &   &   &   &   &   &   &    \\
-		16 &   &   &866&950&na &na &866&   &   &   &   &   &    \\
-		17 &   &   &   &940&956&na &859&   &   &   &   &   &    \\
-		18 &   &   &   &na &na &na &na &866&   &   &   &   &    \\
-		19 &   &   &   &866&956&na &907&na &   &   &   &   &    \\
-		20 &   &   &   &866&na &na &966&na &866&   &   &   &    \\
-		21 &   &   &   &   &966&na &na &na &na &   &   &   &    \\
-		22 &   &   &   &   &na &na &958&na &954&866&   &   &    \\
-		23 &   &   &   &   &870&na &956&na &893&na &   &   &    \\
-		24 &   &   &   &   &866&na &na &na &na &na &866&   &    \\
-		25 &   &   &   &   &   &na &956&na &966&na &848&   &    \\
-		26 &   &   &   &   &   &na &958&na &na &na &870&866&    \\	
-		27 &   &   &   &   &   &na &na &na &na &na &na &na &    \\	
-		28 &   &   &   &   &   &866&966&na &na &na &na &na &866 \\\hline			
-	\end{tabular}
+  \caption{$\xi_p \times \num{e-3}$ for single layer non-overlapping windings}
+  \label{tab:xi_single}
+  \centering
+   \begin{tabular}
+  	{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|}\cline{2-14}
+  	\multicolumn{1}{c}{}& \multicolumn{13}{|c|}{$Q_s$}
+  	\\\hline
+  	$p$&12 &18 &24 &30 &36 &42 &48 &54 &60 &66 &72 &78 &84  \\\hline
+  	4  &866&   &   &   &   &   &   &   &   &   &   &   &    \\
+  	5  &966&   &   &   &   &   &   &   &   &   &   &   &    \\
+  	6  &na &866&   &   &   &   &   &   &   &   &   &   &    \\
+  	7  &966&902&   &   &   &   &   &   &   &   &   &   &    \\
+  	8  &866&945&866&   &   &   &   &   &   &   &   &   &    \\
+  	9  &   &na &na &   &   &   &   &   &   &   &   &   &    \\
+  	10 &   &945&966&866&   &   &   &   &   &   &   &   &    \\
+  	11 &   &902&958&874&   &   &   &   &   &   &   &   &    \\
+  	12 &   &866&na &na &866&   &   &   &   &   &   &   &    \\
+  	13 &   &   &958&940&870&   &   &   &   &   &   &   &    \\
+  	14 &   &   &966&950&na &866&   &   &   &   &   &   &    \\
+  	15 &   &   &na &na &966&na &   &   &   &   &   &   &    \\
+  	16 &   &   &866&950&na &na &866&   &   &   &   &   &    \\
+  	17 &   &   &   &940&956&na &859&   &   &   &   &   &    \\
+  	18 &   &   &   &na &na &na &na &866&   &   &   &   &    \\
+  	19 &   &   &   &866&956&na &907&na &   &   &   &   &    \\
+  	20 &   &   &   &866&na &na &966&na &866&   &   &   &    \\
+  	21 &   &   &   &   &966&na &na &na &na &   &   &   &    \\
+  	22 &   &   &   &   &na &na &958&na &954&866&   &   &    \\
+  	23 &   &   &   &   &870&na &956&na &893&na &   &   &    \\
+  	24 &   &   &   &   &866&na &na &na &na &na &866&   &    \\
+  	25 &   &   &   &   &   &na &956&na &966&na &848&   &    \\
+  	26 &   &   &   &   &   &na &958&na &na &na &870&866&    \\  
+  	27 &   &   &   &   &   &na &na &na &na &na &na &na &    \\  
+  	28 &   &   &   &   &   &866&966&na &na &na &na &na &866 \\\hline  	  
+  \end{tabular}
 \end{table}
  
 \begin{table}[htbp]
-	\caption{$\xi_p \times \num{e-3}$ for double layer non-overlapping windings }
-	\label{tab:xi_double}
-	\centering
+  \caption{$\xi_p \times \num{e-3}$ for double layer non-overlapping windings }
+  \label{tab:xi_double}
+  \centering
   \begin{tabular}
-		{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|}\cline{2-14}
-		\multicolumn{1}{c}{}& \multicolumn{13}{|c|}{$Q_s$}
-		\\\hline
-		$p$&12 &15 &18 &21 &24 &27 &30 &33 &36 &39 &42 &45 &48  \\\hline
-		4  &866&   &   &   &   &   &   &   &   &   &   &   &    \\
-		5  &930&866&   &   &   &   &   &   &   &   &   &   &    \\
-		6  &na &na &866&   &   &   &   &   &   &   &   &   &    \\
-		7  &930&950&900&866&   &   &   &   &   &   &   &   &    \\
-		8  &866&950&950&890&866&   &   &   &   &   &   &   &    \\
-		9  &   &na &na &na &na &866&   &   &   &   &   &   &    \\
-		10 &   &866&950&950&930&880&866&   &   &   &   &   &    \\
-		11 &   &   &900&950&950&920&870&866&   &   &   &   &    \\
-		12 &   &   &866&na &na &950&na &na &866&   &   &   &    \\
-		13 &   &   &   &890&950&950&940&900&870&866&   &   &    \\
-		14 &   &   &   &866&930&950&950&930&900&860&866&   &    \\
-		15 &   &   &   &   &na &950&na &na &930&na &na &866&    \\
-		16 &   &   &   &   &866&920&950&950&950&920&890&860&866 \\\hline			
-		\end{tabular}
+  	{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|}\cline{2-14}
+  	\multicolumn{1}{c}{}& \multicolumn{13}{|c|}{$Q_s$}
+  	\\\hline
+  	$p$&12 &15 &18 &21 &24 &27 &30 &33 &36 &39 &42 &45 &48  \\\hline
+  	4  &866&   &   &   &   &   &   &   &   &   &   &   &    \\
+  	5  &930&866&   &   &   &   &   &   &   &   &   &   &    \\
+  	6  &na &na &866&   &   &   &   &   &   &   &   &   &    \\
+  	7  &930&950&900&866&   &   &   &   &   &   &   &   &    \\
+  	8  &866&950&950&890&866&   &   &   &   &   &   &   &    \\
+  	9  &   &na &na &na &na &866&   &   &   &   &   &   &    \\
+  	10 &   &866&950&950&930&880&866&   &   &   &   &   &    \\
+  	11 &   &   &900&950&950&920&870&866&   &   &   &   &    \\
+  	12 &   &   &866&na &na &950&na &na &866&   &   &   &    \\
+  	13 &   &   &   &890&950&950&940&900&870&866&   &   &    \\
+  	14 &   &   &   &866&930&950&950&930&900&860&866&   &    \\
+  	15 &   &   &   &   &na &950&na &na &930&na &na &866&    \\
+  	16 &   &   &   &   &866&920&950&950&950&920&890&860&866 \\\hline  	  
+  	\end{tabular}
 \end{table}
 
 From the results in Tab.~\ref{tab:xi_single} and Tab.~\ref{tab:xi_double} the number of slots per pole and phase which results in a winding with suitable winding factors is given by
@@ -892,33 +946,33 @@ The result is the same as presented by \cite{REF-00754} and \cite{REF-00756}. Us
 \subsection{Slot mmf and current sheet}
 This section entails examples of overlapping and non-overlapping windings with 30 stator slots. The classification parameters $q$, $q_c$ and $y_d$ (as given in Tab.~\ref{tab:Example_table}) are used to classify the windings according to the scheme in Fig.~\ref{fig:classification}. Additionally, for the selected number of pole pairs the winding factor, slot mmf and current sheet are calculated. It is important to mention that the choice of the position of the reference slot will determine the rotation direction of the resulting rotating field. It is desirable to have a field rotating in a counter-clockwise direction, since this is the positive direction in a polar coordinate system. To achieve this, the stator is rolled flat with the top part of the slots facing upwards. 
 \begin{table}[htbp]
-	\caption{Different pole pair combinations with $Q_s = 30$}
-	\label{tab:Example_table}
-	\centering	
-	 \begin{tabular}{ccccccccccccccccc}
-	  \toprule
-		$Q_s$ &$p$ &$Q_c$ &$n_l$& $y_p$ &$y_d$ &$q$ &$q_c$ & $Q_b$ & $t$ &
-		$\xi_p$ &$\xi_{5p}$ &$\xi_{7p}$ &Figure
-		\\
-		\midrule
-		30    &10  &15  &1   &$\frac{3}{2}$   &1   &$\frac{1}{2}$ &  $\frac{1}{4}$& 6 & 5 &
-		0.866   &0.866      &0.866      &%
-		\ref{fig:Main_non-overlapping_single}\subref{fig:f_Qs30_p10_1}
-		\\
-		30    &10  &30  &2    &$\frac{3}{2}$  &1   &$\frac{1}{2}$ &  $\frac{1}{2}$ & 3&10 &
-		0.866   &0.866      &0.866      &%
-		\ref{fig:Main_non-overlapping_double}\subref{fig:f_Qs30_p10_2}
-		\\    
-		30    &5   &15  &1    &3 &3  &1 &  $\frac{1}{2}$ & 6 & 5  &
-		1.0     &1.0        &1.0        &%
-		\ref{fig:Main_single_overlapping}\subref{fig:f_Qs30_5_1}
-		\\
-		30    &5   &30  &2    &3 &3  &1 &  1 & 6 & 5  &
-		1.0     &1.0        &1.0        &%
-		\ref{Main_double_overlapping}\subref{fig:f_Qs30_p5_2}   
-		\\
-		\bottomrule			
-	 \end{tabular}
+  \caption{Different pole pair combinations with $Q_s = 30$}
+  \label{tab:Example_table}
+  \centering  
+   \begin{tabular}{ccccccccccccccccc}
+    \toprule
+  	$Q_s$ &$p$ &$Q_c$ &$n_l$& $y_p$ &$y_d$ &$q$ &$q_c$ & $Q_b$ & $t$ &
+  	$\xi_p$ &$\xi_{5p}$ &$\xi_{7p}$ &Figure
+  	\\
+  	\midrule
+  	30    &10  &15  &1   &$\frac{3}{2}$   &1   &$\frac{1}{2}$ &  $\frac{1}{4}$& 6 & 5 &
+  	0.866   &0.866      &0.866      &%
+  	\ref{fig:Main_non-overlapping_single}\subref{fig:f_Qs30_p10_1}
+  	\\
+  	30    &10  &30  &2    &$\frac{3}{2}$  &1   &$\frac{1}{2}$ &  $\frac{1}{2}$ & 3&10 &
+  	0.866   &0.866      &0.866      &%
+  	\ref{fig:Main_non-overlapping_double}\subref{fig:f_Qs30_p10_2}
+  	\\    
+  	30    &5   &15  &1    &3 &3  &1 &  $\frac{1}{2}$ & 6 & 5  &
+  	1.0     &1.0        &1.0        &%
+  	\ref{fig:Main_single_overlapping}\subref{fig:f_Qs30_5_1}
+  	\\
+  	30    &5   &30  &2    &3 &3  &1 &  1 & 6 & 5  &
+  	1.0     &1.0        &1.0        &%
+  	\ref{Main_double_overlapping}\subref{fig:f_Qs30_p5_2}   
+  	\\
+  	\bottomrule  	  
+   \end{tabular}
 \end{table} 
 
 \subsubsection{Single layer non-overlapping}
@@ -951,15 +1005,15 @@ To obtain the complete winding matrix, the matrix of the basic winding is repeat
 The winding matrix is used to obtain the slot mmf $F_{slot}$ from \eqref{eqn:slot_mmf} as shown in the lower part of~%
 Fig.~\ref{fig:Main_non-overlapping_single}\subref{fig:f_Qs30_p10_1}. The dashed line in the mmf plot is the current sheet. In the top part of the figure the winding factors are shown as well. From the figure it is clear that the winding factors are periodic with the number of stator slots. In the example the peripheral slot angle was calculated setting $x=1$ in \eqref{eqn:slot_alpha}. Therefore, this is a regular distribution of the stator slots.
 \begin{figure}[htbp]
-	\centering
+  \centering
   \fontsize{6}{6}\selectfont
   \subfloat[Winding layout\label{fig:single_layer}]{
-	\input{figs/f_single_layer.tex}}
+  \input{figs/f_single_layer.tex}}
   \hfill
   \subfloat[Slot mmf and winding factors\label{fig:f_Qs30_p10_1}]{
-	\input{figs/f_Qs_30_p_10_1.tex}}
-	\caption{Non-overlapping single layer winding}
-	\label{fig:Main_non-overlapping_single}
+  \input{figs/f_Qs_30_p_10_1.tex}}
+  \caption{Non-overlapping single layer winding}
+  \label{fig:Main_non-overlapping_single}
 \end{figure}
 
 \subsubsection{Double layer non-overlapping}
@@ -982,15 +1036,15 @@ The prototype stator with 30 slots is used with 10 pole pairs. This is a double 
 \end{equation}
 The winding factors and slot mmf are directly obtained from the winding matrix as shown in Fig.~\ref{fig:Main_non-overlapping_double}\subref{fig:f_Qs30_p10_2}. The current sheet that corresponds to the working harmonic is included.
 \begin{figure}[htbp]
-	\centering
+  \centering
   \fontsize{6}{6}\selectfont
   \subfloat[Winding layout\label{fig:dlw_yd_eq_1}]{%
-	\input{figs/f_double_layer_type2.tex}}
-	\hfill
-  \subfloat[Slot mmf and winding factors\label{fig:f_Qs30_p10_2}]{%	
+  \input{figs/f_double_layer_type2.tex}}
+  \hfill
+  \subfloat[Slot mmf and winding factors\label{fig:f_Qs30_p10_2}]{%  
   \input{figs/f_Qs_30_p_10_2.tex}}
-	\caption{Non-overlapping double layer winding}
-	\label{fig:Main_non-overlapping_double}
+  \caption{Non-overlapping double layer winding}
+  \label{fig:Main_non-overlapping_double}
 \end{figure}
 
 \subsubsection{Single layer overlapping}
@@ -1014,15 +1068,15 @@ The example to illustrate the slot mmf and current sheet has 30 slots and a pole
 \end{equation}
 The calculated winding factor along with the slot mmf and current sheet are shown in Fig.~\ref{fig:Main_single_overlapping}\subref{fig:f_Qs30_5_1}. It is important to mention that the coil sides are distributed in such a way as to obtain a sinusoidal slot mmf distribution. The number of slots per pole and phase can be increased to obtain a better sinusoidal distribution. In doing so, the harmonic content will become less.
 \begin{figure}[htbp]
-	\centering
+  \centering
   \fontsize{6}{6}\selectfont
   \subfloat[Single layer overlapping winding layout\label{fig:slw_yd_eq_1}]{%
-	\input{figs/f_single_layer_type1.tex}}
-	\hfill
+  \input{figs/f_single_layer_type1.tex}}
+  \hfill
   \subfloat[Slot mmf and winding factors\label{fig:f_Qs30_5_1}]{%
-	\input{figs/f_Qs_30_p_5_1.tex}}
-	\caption{Single layer overlapping winding}
-	\label{fig:Main_single_overlapping}
+  \input{figs/f_Qs_30_p_5_1.tex}}
+  \caption{Single layer overlapping winding}
+  \label{fig:Main_single_overlapping}
 \end{figure}
 
 \subsubsection{Double layer overlapping}
@@ -1030,22 +1084,22 @@ A double layer overlapping winding is commonly used in industrial machines. Over
 
 Fig.~\ref{fig:f_Qs30_p5_2} shows the slot mmf of a stator with $Q_s=30$ slots and $p=5$ pole pairs. Using the winding properties for this combination given in Tab.~\ref{tab:Example_table}, it is a concentrated winding. The winding has no sub-harmonics. 
 \begin{figure}[htbp]
-	\centering
+  \centering
   \fontsize{6}{6}\selectfont
   \subfloat[Double layer overlapping winding layout\label{fig:dlw_yd_gt_1}]{%
-	\input{figs/f_double_layer.tex}}
-	\hfill
+  \input{figs/f_double_layer.tex}}
+  \hfill
   \subfloat[Slot mmf and winding factors\label{fig:f_Qs30_p5_2}]{%
-	\input{figs/f_Qs_30_p_5_2.tex}}
-	\caption{Double layer overlapping winding}
-	\label{Main_double_overlapping}
+  \input{figs/f_Qs_30_p_5_2.tex}}
+  \caption{Double layer overlapping winding}
+  \label{Main_double_overlapping}
 \end{figure}
 
 \clearpage
 \section{Summary}
 In this report an algorithm was derived to present a winding in a matrix form. This compact form allows the calculation of the winding factors for all harmonics. The basis of the algorithm is the phase belt sequence and the phase belt constraint which are derived from the air gap mmf envelope functions. 
 
-\appendix
+\begin{appendices}
 
 \chapter{Discrete Fourier Transform}
 In this report it is assumed that the harmonic order of the spatial signal is known. The DFT is primarily used to identify the amplitude of the harmonics. Furthermore, the considered function is periodic: $f(x_1)=f(x_{N+1})$.
@@ -1056,52 +1110,48 @@ The base function used in the analysis is the $\cos(\theta-\phi)$ function, wher
   \centering
   \fontsize{6}{0}\selectfont
   \setlength\fwidth{0.26\textwidth}
-	\subfloat[$\cos\bigl(\theta-(-30)\bigr)$]{
-	\input{figs/cosA.tex}}
-	\hfill
-	\subfloat[$\cos(\theta)$]{
-	\input{figs/cosB.tex}}
-	\hfill
-	\subfloat[$\cos\bigl(\theta-(+30)\bigr)$]{
-	\input{figs/cosC.tex}}
-	\caption{Base function}
-	\label{fig:base}
+  \subfloat[$\cos\bigl(\theta-(-30)\bigr)$]{
+  \input{figs/cosA.tex}}
+  \hfill
+  \subfloat[$\cos(\theta)$]{
+  \input{figs/cosB.tex}}
+  \hfill
+  \subfloat[$\cos\bigl(\theta-(+30)\bigr)$]{
+  \input{figs/cosC.tex}}
+  \caption{Base function}
+  \label{fig:base}
 \end{figure}
 
 It is very important to mention that any initial phase shift (or offset) should be accounted for. Typically a function will be defined between $\theta_1$ and $\theta_2$ where $\theta_1\neq 0$. The difference between $\theta_1$ and $0$ should be accounted for since the phase from the DFT assumes that the sampled data has it origin at $(0,0)$. Neglecting this may leads to inaccurate results. 
 
-The DFT of a vector $x$ of length $N$ is another vector $X$ of length $N$. This notation uses $j$ and $k$ for indices that run from 1 to $N$. The vector $x$ is sampled at sampling wave length $d\lambda=\lambda_s$ and is a multiple of the fundamental (or the working harmonic), i.e.~$\lambda_1 = N\lambda_s$. The basic definition of the DFT\footnote{See \cite{REF-01048, REF-01049, REF-01050}}
-\href{http://math.stackexchange.com/questions/236461/negative-exponent-fourier-transform-of-sequences}{stackexchange},
-\href{http://dsp.stackexchange.com/questions/19004/why-is-a-negative-exponent-present-in-fourier-and-laplace-transform}{stackexchange},
-\href{http://math.stackexchange.com/questions/58163/dft-why-are-the-definitions-for-inverse-and-forward-commonly-switched}{}
-for some reasons why the exponent is negative.} and its inverse are given as
+The DFT of a vector $x$ of length $N$ is another vector $X$ of length $N$. This notation uses $j$ and $k$ for indices that run from 1 to $N$. The vector $x$ is sampled at sampling wave length $d\lambda=\lambda_s$ and is a multiple of the fundamental (or the working harmonic), i.e.~$\lambda_1 = N\lambda_s$. The basic definition of the DFT\footnote{See \cite{REF-01048, REF-01049, REF-01050} for some reasons why the exponent is negative.} and its inverse are given as
 \begin{equation}\label{eqn:dft}
   \begin{aligned}
   X(k) &= \sum_{j=1}^N \; x(j) \; \omega_N^{(j-1)(k-1)}\\
-	x(j) &= \cfrac{1}{N}\sum_{k=1}^N \; X(k) \; \omega_N^{-(j-1)(k-1)}
-	\end{aligned}
-	\qquad
-	\begin{cases}
-	  j \in \left\{1,\ldots,N  \right\} \rightarrow \; \mbox{sampled data}\\
-		k \in \left\{1,\ldots,N  \right\} \rightarrow \; \mbox{harmonic order}\\
-	  \omega_N = e^{-\theta i}  \\
-		\theta = \frac{2\pi}{N}   \\
-		e^{-\theta i} = \cos (-\theta) + i \sin (-\theta)
-	\end{cases}
+  x(j) &= \cfrac{1}{N}\sum_{k=1}^N \; X(k) \; \omega_N^{-(j-1)(k-1)}
+  \end{aligned}
+  \qquad
+  \begin{cases}
+    j \in \left\{1,\ldots,N  \right\} \rightarrow \; \mbox{sampled data}\\
+  	k \in \left\{1,\ldots,N  \right\} \rightarrow \; \mbox{harmonic order}\\
+    \omega_N = e^{-\theta i}  \\
+  	\theta = \frac{2\pi}{N}   \\
+  	e^{-\theta i} = \cos (-\theta) + i \sin (-\theta)
+  \end{cases}
 \end{equation}
 The user defined function is given at the end of this section. An example that verify the function is given in Fig.~\ref{fig:user}. This basic function, for example, can now be used to determine the direct and quadrature axes in an electrical machine. 
 
 \begin{figure}[htbp]
-  \centering	
+  \centering  
   \fontsize{6}{0}\selectfont
   \setlength\fwidth{0.43\textwidth}
-	\subfloat[$\phi = \SI{-60}{\arcdeg}$]{
-	\input{figs/cosD.tex}}
-	\hfill
-	\subfloat[$\phi = \SI{33}{\arcdeg}$]{
-	\input{figs/cosE.tex}}
-	\caption{Test examples}
-	\label{fig:user}
+  \subfloat[$\phi = \SI{-60}{\arcdeg}$]{
+  \input{figs/cosD.tex}}
+  \hfill
+  \subfloat[$\phi = \SI{33}{\arcdeg}$]{
+  \input{figs/cosE.tex}}
+  \caption{Test examples}
+  \label{fig:user}
 \end{figure}
 
 \verbatiminput{../code/test_dft.m}
@@ -1135,3 +1185,5 @@ The user defined function is given at the end of this section. An example that v
 \caption{Test results using \texttt{arun.m}}
 \label{fig:tests}
 \end{figure}
+
+\end{appendices}

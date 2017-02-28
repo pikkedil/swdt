@@ -35,11 +35,7 @@
 \usepackage{sistyle}
 \usepackage{cases}
 \usepackage{color}
-\usepackage[iso,english]{isodate}
-\usepackage{lastpage}
 \usepackage{multirow}
-\usepackage{longtable}
-\usepackage{pdfpages}
 \usepackage{booktabs}
 \usepackage[percent]{overpic}
 \usepackage{verbatim}
@@ -47,7 +43,7 @@
 \usepackage{tikz}
 \usepackage{pgfplots} 
 \usepackage{pgfgantt}
-\usepackage{pdflscape}
+\usepackage[totoc]{idxlayout}
 %%
 
 \pgfplotsset{
@@ -64,23 +60,13 @@
 \newcommand{\kT}[1]{\tiny{\textsf{#1}}}
 \newcommand{\msub}[1]{\mbox{\tiny{#1}}}
 \newtheorem{defth}{Definition}[section]
+\renewcommand{\i}{{\mathrm{i}}}
 
 \title{Design and analysis of stator windings}
 \author{J.J.~Germishuizen}
 \newcommand{\thetitle}{Think Python: How to Think Like a Computer Scientist}
 \newcommand{\theversion}{0.0.1}
 \newcommand{\thedate}{}
-
-% these styles get translated in CSS for the HTML version
-%\newstyle{a:link}{color:black;}
-%\newstyle{p+p}{margin-top:1em;margin-bottom:1em}
-%\newstyle{img}{border:0px}
-
-% change the arrows
-%\setlinkstext
-%  {\imgsrc[ALT="Previous"]{back.png}}
-%  {\imgsrc[ALT="Up"]{up.png}}
-%  {\imgsrc[ALT="Next"]{next.png}}
 
 \makeindex
 
@@ -90,19 +76,7 @@
 
 \newtheorem{exercise}{Exercise}[chapter]
 
-% LATEXONLY
-
 \sloppy
-%\setlength{\topmargin}{-0.375in}
-%\setlength{\oddsidemargin}{0.0in}
-%\setlength{\evensidemargin}{0.0in}
-
-% Uncomment these to center on 8.5 x 11
-%\setlength{\topmargin}{0.625in}
-%\setlength{\oddsidemargin}{0.875in}
-%\setlength{\evensidemargin}{0.875in}
-
-%\setlength{\textheight}{7.2in}
 
 \setlength{\headsep}{3ex}
 \setlength{\parindent}{0.0in}
@@ -114,10 +88,6 @@
 \setlength{\partopsep}{-0.5\parskip}
 \setlength{\itemindent}{0.0in}
 \setlength{\listparindent}{0.0in}
-
-% see LaTeX Companion page 26
-% these are copied from /usr/local/teTeX/share/texmf/tex/latex/base/book.cls
-% all I changed is afterskip
 
 \makeatletter
 
@@ -140,6 +110,11 @@
 \renewcommand{\l@section}{\@dottedtocline{1}{1.5em}{3.0em}}
 \setcounter{tocdepth}{1}
 
+\def\thm@space@setup{%
+  \thm@preskip=0.35cm plus 0.2cm minus 0.2cm
+  \thm@postskip=\thm@preskip % or whatever, if you don't want them to be equal
+}
+
 \makeatother
 
 \newcommand{\beforefig}{\vspace{1.3\parskip}}
@@ -151,16 +126,9 @@
 \newcommand{\adjustpage}[1]{\enlargethispage{#1\baselineskip}}
 
 
-% Note: the following command seems to cause problems for Acroreader
-% on Windows, so for now I am overriding it.
-%\newcommand{\clearemptydoublepage}{
-%            \newpage{\pagestyle{empty}\cleardoublepage}}
 \newcommand{\clearemptydoublepage}{\cleardoublepage}
 
-%\newcommand{\blankpage}{\pagestyle{empty}\vspace*{1in}\newpage}
 \newcommand{\blankpage}{\vspace*{1in}\newpage}
-
-% HEADERS
 
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}{}}
@@ -195,18 +163,8 @@
 
 \theoremstyle{myex}
 
-%
-
-%\begin{latexonly}
-
 \renewcommand{\blankpage}{\thispagestyle{empty} \quad \newpage}
 
-%\blankpage
-%\blankpage
-
-% TITLE PAGES FOR LATEX VERSION
-
-%-half title--------------------------------------------------
 \thispagestyle{empty}
 
 \begin{flushright}
@@ -264,11 +222,6 @@ J.J.~Germishuizen\\
 
 \vspace{0.5in}
 
-%{\Large Green Tea Press}
-
-%{\small Needham, Massachusetts}
-
-%\includegraphics[width=1in]{figs/logo1.pdf}
 \vfill
 
 \end{flushright}
@@ -283,16 +236,6 @@ Copyright \copyright ~2017 J.J.~Germishuizen.
 
 
 \vspace{0.2in}
-
-%\begin{flushleft}
-%Green Tea Press       \\
-%9 Washburn Ave        \\
-%Needham MA 02492
-%\end{flushleft}
-
-%Permission is granted to copy, distribute, and/or modify this document
-%under the terms of the Creative Commons Attribution-NonCommercial 3.0 Unported
-%License, which is available at \url{http://creativecommons.org/licenses/by-nc/3.0/}.
 
 The original form of this book is \LaTeX\ source code.  Compiling this
 \LaTeX\ source has the effect of generating a device-independent
