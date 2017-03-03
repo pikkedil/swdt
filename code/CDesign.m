@@ -41,24 +41,26 @@ function Wnd = CDesign(varargin)
   Wnd.theta_m = theta_m;
 
   % The winding factor properties depends wheter the denominator qcn
-  % is odd or even. the harmonic that corresponds to the working harmonic
+  % is odd or even. The harmonic that corresponds to the working harmonic
   % equals nu=p. theta_m is in radians.
 
-  Xsi = [];
-  fac = m/(2*Wnd.Qc);
-  for nu = 1:Wnd.Qs
-    tmp = C*exp(-i*(nu-1)*theta_m)'+CRe*exp(-i*(nu-1)*theta_m)';
-    if mod((nu-1)/Wnd.p,3) == 0
-      Xsi = [Xsi, [nu-1; 0]];
-    else
-      Xsi = [Xsi, [nu-1; fac*abs(tmp(1))]];
-    end
+  Xsi = [];  
+  for nu = 0:Wnd.Qs-1
+    z   = 0+i*nu;
+    mij = C*exp(z*theta_m)'+CRe*exp(z*theta_m)';
+    Xsi = [Xsi, mij];
   end
   Wnd.Xsi = Xsi;
 
-  % Calculate the winding axis in degrees. 
+  % Calculate the winding axes in degrees. 
   
-  Wnd.winding_axis = winding_axis_deg(Wnd);
+  tmpx = real(Xsi(1,p+1));
+  tmpy = imag(Xsi(1,p+1));
+  theta = atan2(tmpy,tmpx);
+  theta_an = -theta/p*180/pi;
+  theta_ma = -(theta+pi/2)/p*180/pi;
+  Wnd.theta_an = theta_an;
+  Wnd.theta_ma = theta_ma;
 
 return;
 
@@ -320,23 +322,4 @@ function [Winding] = properties(Qs,p,m,yd,nl,x)
   else
       Winding.feasable = false;
   end
-return
-
-function res = winding_axis_deg(Wnd)
-  %
-  % Calculate the winding axis of phase A in degrees.
-  %
-  z  = 0+i;
-  lo = 1;
-  hi = Wnd.Qbasic;
-  slot_angle_rad = Wnd.theta_m(lo:hi);
-  M1 = abs(Wnd.C(1,lo:hi));
-  M2 = abs(Wnd.CRe(1,lo:hi));
-  tmpA = M1 * exp(z*slot_angle_rad)';
-  tmpB = M2 * exp(z*slot_angle_rad)';
-  axis = tmpA+tmpB;
-  tmpx = real(axis);
-  tmpy = imag(axis);
-  res  = -atan2(tmpy,tmpx)*180/pi + 180/Wnd.p + 360/(2*Wnd.Qs);
-
 return

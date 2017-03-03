@@ -34,6 +34,8 @@ function wdt = arun(val)
             filename = 'fig9b.tex';
         case 5            
             wdt = CDesign('Qs',54,'p',6, 'x',1,'nl',2,'yd',4,'m',3);
+        case 6
+            wdt = CDesign('Qs',60,'p',2, 'x',1,'nl',2,'yd',13,'m',3);
         otherwise
             disp('Invalid test case numer. Type help arun');
             wdt = NaN;
@@ -66,8 +68,10 @@ function wdt = arun(val)
     basic.pb = wdt.p/wdt.t;
     
     % Construct the winding factor
-    kw = abs(wdt.Xsi(2,basic.p+1));
+    fac = wdt.m/(2*wdt.Qc);
+    kw = fac*abs(wdt.Xsi(1,basic.p+1));
     
+    clf;
     if basic.nl == 1
         bot = zeros(1,basic.Qb);
         mmf = zeros(1,basic.Qb); 
@@ -96,8 +100,10 @@ function wdt = arun(val)
                   + M2(ii,i)*cos((ii-1)*2*pi/wdt.m));
              end
         end    
-    end
-    fac =1/(4*basic.Q)*360;
+    end    
+    %
+    % Generate the slot numbers
+    %
     x_str = {};
     x_str(1) = ' ';
     for i = 2:2*basic.Qb+1
@@ -107,12 +113,20 @@ function wdt = arun(val)
             x_str(i) = ' ';
         end
     end
+    %
+    % A scaling factor is used to map the total number of 
+    % slots to 360 degrees. Each slot has 4 parts.
+    %
+    fac = 1/(4*basic.Q)*360;
     if basic.m == 3
         figure(1);
         clf;
         if ~ishold            
             hold on;
         end
+        %
+        % Plot the coil sides in the slots
+        %
         for ii=1:basic.Qb
             [x,y] = slot(ii);
             plot(x*fac,y);
@@ -126,6 +140,9 @@ function wdt = arun(val)
                 fill(x*fac,y,colour(top(ii)));
             end
         end   
+        %
+        % This part adds the slot mmf.
+        %
         x = [4:4:basic.Qb*4]-2;
         bar(x*fac,mmf,0.5,'k');
         % x-axis
@@ -139,11 +156,12 @@ function wdt = arun(val)
             ' ', ' ', ' ', '0.5', ' ', '1.0'});
         xlabel('Slot number')
         %
-        % add the working harmonic. The calculated winding axis is in
-        % degrees and the half slot pitch is already accounted for. 
+        % Add the working harmonic. The calculated winding axis is in
+        % degrees. Add half slot pitch. 
         %
         wnd = [];
-        wnd.axis = wdt.winding_axis;
+        slotpitch_deg = 360/basic.Q;
+        wnd.axis = wdt.theta_ma+slotpitch_deg/2;
         phi = wnd.axis*basic.p*pi/180+pi/2;
         xw = linspace(0,basic.pb*2*pi,100*basic.pb);
         yw = kw*cos(xw-phi);
@@ -174,14 +192,26 @@ function col = colour(ph)
 end
 
 function [x,y] = slot(n)
-
+    %
+    % Return the coordinates for slot number n. Each slot has
+    % 4 parts, i.e. half-tooth, slot and half-tooth. 
+    % 
+    %   |--|
+    %   |  |
+    %   |  |
+    % --|  |--
+    % 0 1  3 4
+    %
+    %
     offset = 1.75;
     x = [0,1,1,3,3,4]+(n-1)*4;
     y = [0,0,1,1,0,0]*0.5-offset;
 end
 
 function [x,y] = rect(n,nl,p,yd)
-
+    %
+    % Plots the coil side inside the slot.
+    %
     X = [1,1,3,3,1];
     Y = [0,1,1,0,0]*0.5;
     offset = 1.75;
