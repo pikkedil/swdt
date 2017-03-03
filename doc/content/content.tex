@@ -1,6 +1,7 @@
 \chapter{Introduction}
 Analysis of electrical machines is a very well-known subject in electrical engineering and at a first glance one might think that this field cannot be embarked on any further. However, this is not the case, since advances in materials such as permanent magnets offer new possibilities which might not have been economical a few years ago. In addition to the development of the materials used in electrical machines, the mathematical and physics software tools for solving complex problems and the visualisation of the results have also improved. Furthermore, the technologies driving the microprocessors and storage devices used in personal computers have contributed to solve difficult mathematical functions by means of numerical methods. All these factors have influenced the way electrical machines are designed and will be designed in the future. The research presented in this book is a typical example of how advances in other fields can lead to new ideas in electrical engineering, and especially electrical machines. 
-
+\index{microprocessors}
+\index{storage devices}
 
 \section{Problem statement}
 \label{sec:problem_statement}
@@ -15,6 +16,7 @@ Another sub-question arises from the requirement to allocate the slots that belo
 \begin{quote}
 \textbf{How can a winding layout be represented in a compact form?} 
 \end{quote}
+\index{conceptual design phase}
 
 \section{Overlapping and non-overlapping windings}\label{sec:def_con}  
 Fig.~\ref{fig:flux_coils}\subref{fig:dow} shows a double layer overlapping winding. In the drawing some of the coils are removed which makes it easier to identify the two layers. A non-overlapping single layer winding is shown in Fig.~\ref{fig:flux_coils}\subref{fig:snow}. Only each second stator tooth has a coil wound around it. 
@@ -197,9 +199,6 @@ The discrete Fourier transform has much in common with the winding factor and it
   \end{cases}
 \end{equation}
 
-%See \href{http://octave.1599824.n4.nabble.com/Warning-Matlab-style-short-circuit-operation-performed-for-operator-td4680361.html}{warning}.
-
-
 \section{Design program}
 A Matlab script that implements the algorithm in Fig.~\ref{fig:flowchart} is used to plot the examples given in Tab.~\ref{tab:Example_table}. The complete program listings are given in \ref{sec:malg} and \ref{sec:mex}. Start the script by typing from the Matlab promt:
 
@@ -347,6 +346,10 @@ Tab.~\ref{fig:classification} shows a possible way to classify symmetrical $m$-p
 \end{table}}
 
 It is important to distinguish between a concentrated winding and a concentrated coil. The classification scheme in Fig.~\ref{fig:classification} defines a concentrated winding in a unique way. Concentrated windings are defined differently in literature. \cite{REF-00814} refers to it as a traditional single layer winding whereas \cite{REF-00822} refers to it as distributed.
+\index{concentrated winding}
+\index{concentrated coil}
+\index{classification scheme}
+\index{distributed winding}
 
 Particularly the windings defined as a fractional slot are very attractive for use in permanent magnet synchronous machines. Especially the single layer non-overlapping winding could be used to reduce
 \begin{itemize}
@@ -448,18 +451,25 @@ The reduced number of pole pairs can be calculated in two different ways. Two gr
 
 \section{Rotating mmf}
 Distributing the coils around the air gap periphery firstly requires the winding characteristic as explained in section \ref{subsec:slots_coils} and secondly a constraint assuring that the coils are assigned uniquely to the stator slots. Deriving such a constraint is done by means of the magnetomotive force (mmf) produced by a winding. 
+\index{magnetomotive force}
 
 In the theory of three-phase windings the rotating magnetic field is derived from a single coil with $N_t$-turns. The mmf produced by the coil is then written as a Fourier series which allows it to be decomposed in the \textit{working harmonic}, higher order harmonics and sub-harmonics if applicable. A detailed mathematical derivation is given by \cite{REF-01043}. It is also possible to explain the decomposition by means of visualisation as shown in \cite{REF-00004}, \cite{REF-00294} and  \cite{REF-00330}. The visualisation method is preferred and is used in the next sections in order to define the mmf envelope functions. This is necessary to answer the research sub-question which is the mathematical expression that defines a phase belt.
+\index{harmonics}
+\index{sub-harmonics}
 
 \subsection{The mmf of a single turn coil}%
 \label{subsec:nt-turn_coil}
-Consider a single coil with $N_t$-turns carrying a current $i$ placed in the stator of a machine with a uniform air gap as shown in Fig.~\ref{fig:mmf_1}(a). Assuming an infinite permeability in the laminated parts, the mmf in the stator and rotor can be neglected. This means the mmf across the air gap will be equal to the total mmf. 
+Consider a single coil with $N_t$-turns carrying a current $i$ placed in the stator of a machine with a uniform air gap as shown in Fig.~\ref{fig:mmf_1}\subref{fig:sincol}. Assuming an infinite permeability in the laminated parts, the mmf in the stator and rotor can be neglected. This means the mmf across the air gap will be equal to the total mmf. 
  
 \begin{figure}[htbp]
   \centering
-  \fontsize{9}{10}\selectfont
-  \input{figs/f_mmf_1.tex}
-  \caption{Spatial mmf distribution for a $N_t$-turn coil}
+  \fontsize{8}{10}\selectfont
+  \subfloat[Single coil\label{fig:sincol}]{
+  \input{figs/f_mmf_1a.tex}}
+  \hfill
+  \subfloat[Spatial mmf distribution\label{fig:spatmmf}]{
+  \input{figs/f_mmf_1b.tex}}
+  \caption{Single $N_t$-turn coil}
   \label{fig:mmf_1}
 \end{figure}
 
@@ -478,7 +488,7 @@ The spatial mmf distribution around the air gap periphery is obtained by applyin
    \end{array}
  \end{cases}
 \end{equation}
-Since the flux to and from the rotor are equal, the air gap mmf will have an amplitude of $\frac{N_ti}{2}$. Fig.~\ref{fig:mmf_1}(b) shows the spatial of the single coil. This is a square wave and from the Fourier series the fundamental has an amplitude of $\frac{4}{\pi}$. The fundamental mmf can be seen as the result of a sinusoidally distributed current sheet on the stator inner diameter. When the coil is supplied by a current 
+Since the flux to and from the rotor are equal, the air gap mmf will have an amplitude of $\frac{N_ti}{2}$. Fig.~\ref{fig:mmf_1}\subref{fig:spatmmf} shows the spatial of the single coil. This is a square wave and from the Fourier series the fundamental has an amplitude of $\frac{4}{\pi}$. The fundamental mmf can be seen as the result of a sinusoidally distributed current sheet on the stator inner diameter. When the coil is supplied by a current 
 \begin{equation}
   i = \hat{I}\cos\omega t
 \end{equation}
@@ -536,13 +546,17 @@ Fig.~\ref{fig:mmf_1}(a) means it is necessary to add two more coils. Using the p
 
 \begin{figure}
   \centering
-  \fontsize{9}{10}\selectfont
-  	\input{figs/f_mmf_2.tex}
-  \caption{The fundamental spatial mmf distribution for a three-phase machine}
+  \fontsize{8}{10}\selectfont
+  \subfloat[Three coils\label{fig:threecoils}]{
+  \input{figs/f_mmf_2a.tex}}
+  \hfill
+  \subfloat[Spatial mmf distribution\label{fig:nt3mmf}]{
+  \input{figs/f_mmf_2b.tex}}
+  \caption{Three $N_t$-turn coils}
   \label{fig:mmf_2}
 \end{figure}
 
-Fig.~\ref{fig:mmf_2}(b) shows graphically the mmf's of the three coils with $N_t$-turns. These are obtained by setting $m=3$ and applying the following three-phase currents 
+Fig.~\ref{fig:mmf_2}\subref{fig:threecoils} shows graphically the mmf's of the three coils with $N_t$-turns. These are obtained by setting $m=3$ and applying the following three-phase currents 
 \begin{equation}
   \label{eqn:3ph_i}
    i_n = \hat{I}\cos\left(\omega t +(n-1)\frac{2\pi}{m}\right),
@@ -552,14 +566,19 @@ Fig.~\ref{fig:mmf_2}(b) shows graphically the mmf's of the three coils with $N_t
 to the functions in \eqref{eqn:F_theta_t_3}. The resultant mmf will rotate in a counterclockwise direction. At $t=0$ $i_2=i_3=-\frac{1}{2}i_1$, meaning the mmf of $F_2$ and $F_3$ will be half of $F_1$. As time starts to increase, any point on $F_1$ will move downward while points on $F_2$ and $F_3$ will start moving in an upward direction. The points are marked $p_1$ through $p_3$ in the figure. Contrary to this, any point on the resultant mmf will start moving in the right direction (counter-clockwise) as indicated by point $p_4$. As time increases the resultant mmf rotates as shown in Fig.~\ref{fig:rotating_wave}. The fundamental mmf is shown at time equal to zero and a time instant $t=t_1$.
 \begin{figure}
   \centering
-  	\input{figs/f_mmf_rotation.tex}
+  \fontsize{8}{0}\selectfont
+  \subfloat[$t=0$\label{fig:mmfrot0}]{
+  \input{figs/f_mmf_rotationa.tex}}
+  \hfill
+  \subfloat[$t=t_1$\label{fig:mmfrot1}]{
+  \input{figs/f_mmf_rotationb.tex}}
   \caption[Rotation of the resultant mmf]{Rotation of the resultant mmf by displacing~%
   the three positive coil sides along the stator periphery}
   \label{fig:rotating_wave}
 \end{figure}
 
 \subsection{Definition of the mmf envelope functions}\label{subsec:mmf_def}
-As time continues, any point on the standing wave will have a minimum and maximum value between which it oscillates. If $p_2$ is used as an example, it will be bounded as shown in Fig.~\ref{fig:mmf_2}(b), thus forming an envelope. Similarly, the remaining phases will each form envelope functions. The bounding functions for all the phases are given by
+As time continues, any point on the standing wave will have a minimum and maximum value between which it oscillates. If $p_2$ is used as an example, it will be bounded as shown in Fig.~\ref{fig:mmf_2}\subref{fig:mmfrot1}, thus forming an envelope. Similarly, the remaining phases will each form envelope functions. The bounding functions for all the phases are given by
 \begin{equation}
   \label{eqn:f_bound}
   f_n(\theta) = \hat{F_n}\cos\left[\theta+\frac{2\pi}{m}(n-1) \right], 
@@ -1098,6 +1117,33 @@ Fig.~\ref{fig:f_Qs30_p5_2} shows the slot mmf of a stator with $Q_s=30$ slots an
 \clearpage
 \section{Summary}
 In this report an algorithm was derived to present a winding in a matrix form. This compact form allows the calculation of the winding factors for all harmonics. The basis of the algorithm is the phase belt sequence and the phase belt constraint which are derived from the air gap mmf envelope functions. 
+
+\begin{figure}[htbp]
+  \centering
+  \fontsize{8}{6}\selectfont
+  \begin{overpic}[scale=1.5,grid]
+  {figs/f_double_layer_ex}
+  \put(6.3,7.2){+1}  
+  \put(6.3,10.8){+1}
+  \put(16,7.2){-2}
+  \put(16,10.8){-2}
+  \put(25.6,7.2){+3}
+  \put(25.6,10.8){+3}
+  \put(35.2,7.2){-1}  
+  \put(35.2,10.8){-1}
+  \put(44.5,7.2){+2}
+  \put(44.5,10.8){+2}
+  \put(54.1,7.2){-3}
+  \put(54.1,10.8){-3}
+  \put(6.5,3){$\tau_s=\SI{12}{\arcdeg}$}
+  \put(6.5,17){$\SI{0}{\arcdeg}$}  
+  \dashline{1}(7,20)(7.5,78)
+  \put(19.8,17){$\SI{18}{\arcdeg}$}  
+  \dashline{1}(21,20)(21,78)
+  \end{overpic}
+  \caption{Double layer overlapping winding}
+  \label{Main_double_overlapping}
+\end{figure}
 
 \begin{appendices}
 
