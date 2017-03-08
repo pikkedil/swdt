@@ -670,9 +670,13 @@ where
 \end{equation}
 where the $\alpha$ accounts for both regular and irregular distributed stator slots. Setting $\nu=p$ means that the electrical slot angles\footnote{The electrical and mechanical slot have the following relationship: $\theta_e=p \theta_m$} for the working harmonic are obtained. 
 \begin{figure}
-\fontsize{8}{0}\selectfont
   \centering
-  	\input{figs/f_slotstar.tex}
+  \fontsize{8}{0}\selectfont
+  \subfloat[Regular distribution $x=1$\label{fig:slotstara}]{
+  \input{figs/f_slotstara.tex}}
+  \hfill
+  \subfloat[Irregular distribution $0<x<2$\label{fig:slotstarb}]{
+  \input{figs/f_slotstarb.tex}}
   \caption{Star of slots}
   \label{fig:f_slotstar}
 \end{figure}
