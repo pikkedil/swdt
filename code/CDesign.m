@@ -25,12 +25,16 @@ function Wnd = CDesign(varargin)
   %
   % J.J. Germishuizen 2007-2017
 
-  if (nargin < 12)
+  if (nargin == 1)
+    paramPairs = varargin{1};
+    disp(paramPairs)
+    [Qs,p,m,yd,nl,x] = compact_arg(paramPairs);
+  elseif (nargin == 12)
+    paramPairs = varargin(1:end);
+    [Qs,p,m,yd,nl,x] = input_parameter(paramPairs);
+  else
     error('Too few input arguments');
   end
-
-  paramPairs = varargin(1:end);
-  [Qs,p,m,yd,nl,x] = input_parameter(paramPairs);
 
   [Wnd] = properties(Qs,p,m,yd,nl,x);
 
@@ -323,3 +327,44 @@ function [Winding] = properties(Qs,p,m,yd,nl,x)
       Winding.feasable = false;
   end
 return
+
+function [Qs,p,m,yd,nl,x] = compact_arg(arg)
+  %
+  % Extract the parameters: order is important!!
+  %
+  x = 1;
+  par = [findstr(arg,'Q'),...
+         findstr(arg,'p'),...
+         findstr(arg,'nl'),...
+         findstr(arg,'yd'),...
+         findstr(arg,'m')];
+  for i=1:5
+    switch (i)
+      case 1
+        lo = par(i)+1;
+        hi = par(i+1)-1;
+        tmp = str2num(arg(lo:hi));
+        Qs = tmp;
+      case 2
+        lo = par(i)+1;
+        hi = par(i+1)-1;
+        tmp = str2num(arg(lo:hi));
+        p  = tmp;
+      case 3
+        lo = par(i)+2;
+        hi = par(i+1)-1;
+        tmp = str2num(arg(lo:hi));
+        nl = tmp;
+      case 4
+        lo = par(i)+2;
+        hi = par(i+1)-1;
+        tmp = str2num(arg(lo:hi));
+        yd = tmp;
+      case 5
+        lo = par(i)+1;
+        hi = length(arg);
+        tmp = str2num(arg(lo:hi));
+        m  = tmp;
+    end 
+  end
+return  
