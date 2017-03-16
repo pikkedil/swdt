@@ -68,7 +68,7 @@ function Wnd = CDesign(varargin)
 
 return;
 
-function [Qs,p,m,yd,nl,x,plot] = input_parameter(paramPairs)
+function [Qs,p,nl,yd,m,x,plot] = input_parameter(paramPairs)
   %
   % Process param-value pairs (no specific order)
   % 
