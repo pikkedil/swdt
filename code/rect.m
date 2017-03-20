@@ -2,6 +2,11 @@ function [x,y] = rect(n,nl,p,yd)
     %
     % Plots the coil side inside the slot.
     %
+    % n:   slot number
+    % nl:  number of layers
+    % p:   horizontal / vertical double  layer
+    % yd:  coil pitch
+    %
     X = [1,1,3,3,1];
     Y = [0,1,1,0,0]*0.5;
     offset = 1.75;
