@@ -57,6 +57,19 @@ function Winding = properties(Qs,p,nl,yd,m,x)
   Winding.Qbasic = Qs/tc;
   Winding.pbasic = p/tc;
   Winding.Qc = Qc;
+  
+  t  = Winding.t;
+  Qb = Winding.Qbasic;
+  pb = Winding.pbasic;
+  Ql = Winding.nl*Qb/2;
+  
+  for n=1:1000
+    tmp = mod((n*Ql+1), pb);
+    if tmp == 0
+      Winding.yc = (n*Ql+1) / pb;
+      break;
+    end
+  end
 
   if mod(qcd,2) == 0
       r = m;
