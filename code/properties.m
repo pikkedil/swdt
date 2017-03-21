@@ -38,6 +38,8 @@ function Winding = properties(Qs,p,nl,yd,m,x)
 
   % Average coil pitch
   yp = Qs/(2*p);
+  Winding.ypn = Qs/(gcd(Qs,2*p));
+  Winding.ypd = (2*p)/(gcd(Qs,2*p));
 
   % Calculate yd if the user specified yd = 0. Coil span should be at least
   % one.
@@ -58,23 +60,21 @@ function Winding = properties(Qs,p,nl,yd,m,x)
   Winding.pbasic = p/tc;
   Winding.Qc = Qc;
   
-  t  = Winding.t;
-  Qb = Winding.Qbasic;
-  pb = Winding.pbasic;
-  Ql = Winding.nl*Qb/2;
+  Ql = Winding.nl*Winding.Qbasic/2;
   
   for n=1:1000
-    tmp = mod((n*Ql+1), pb);
+    tmp = mod((n*Ql+1), Winding.pbasic);
     if tmp == 0
-      Winding.yc = (n*Ql+1) / pb;
+      Winding.yc = (n*Ql+1) / Winding.pbasic;
+      Winding.n = n;
       break;
     end
   end
 
   if mod(qcd,2) == 0
-      r = m;
+      Winding.r = m;
   else
-      r = 2*m;
+      Winding.r = 2*m;
   end
 
   if ts<p
