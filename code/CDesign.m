@@ -27,8 +27,7 @@ function Wnd = CDesign(strval)
 
   Wnd = properties(Qs,p,nl,yd,m,x);
 
-  [C,CRe,theta_m] = coilassign(Wnd.Qs,Wnd.p, ...
-      Wnd.m,Wnd.yd,Wnd.nl,Wnd.x);
+  [C,CRe,theta_m] = coilassign(Wnd);
   Wnd.C = C;
   Wnd.CRe = CRe;
   Wnd.theta_m = theta_m;
@@ -57,7 +56,7 @@ function Wnd = CDesign(strval)
 
 return;
 
-function [C,CRe,theta_m] = coilassign(Qs,p,varargin)
+function [C,CRe,theta_m] = coilassign(wnd)
   % 
   % Input Qs : Number of stator slots
   %       p  : Pole pairs
@@ -69,18 +68,13 @@ function [C,CRe,theta_m] = coilassign(Qs,p,varargin)
   %
   % The default output is the winding factor. The slot arrangement for
   % a finite element analysis is an optional output.
-  
-  if numel(varargin) == 0
-      m = 3;
-      yd = floor(Qs/(2*p));
-      nl = 2;
-      x = 1;
-  else
-      m = varargin{1};
-      yd = varargin{2};
-      nl = varargin{3};
-      x = varargin{4};
-  end
+
+  Qs = wnd.Qs;
+  p  = wnd.p;
+  nl = wnd.nl;
+  yd = wnd.yd;
+  m  = wnd.m;  
+  x  = wnd.x;
   
   tau_s = 2*pi/Qs;
   phase_belt = 2*pi/(2*m);
@@ -133,6 +127,12 @@ function [C,CRe,theta_m] = coilassign(Qs,p,varargin)
           theta_e = p*theta_m(n2);
           if theta_e > theta_2*1.05 
               break; 
+          end;
+          % Loop in case of a single layer fractional slot
+          if nl==1 & wnd.qcd > 1 & yd > 1
+            if mod(n2,2) == 0
+              continue;
+            end;
           end;
           phase_interval = false;
           % Find the nonzero elements in column of ingoing matrix. 

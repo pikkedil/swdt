@@ -77,7 +77,7 @@ function Winding = properties(Qs,p,nl,yd,m,x)
       Winding.r = 2*m;
   end
 
-  if ts<p
+  if tc<p
       Winding.subharmonic = true;
   else
       Winding.subharmonic = false;

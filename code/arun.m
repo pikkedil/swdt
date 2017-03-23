@@ -3,11 +3,11 @@ function wdt = arun(val)
     % This example m-file is a driver for main function CDesign.m. Test cases
     % given here are for three phases. The test cases are defined as follows:
     %
-    % 1. wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',2,'yd',3,'m',3)
-    % 2. wdt = CDesign('Qs',54,'p',6, 'x',1,'nl',2,'yd',4,'m',3)
-    % 3. wdt = CDesign('Qs',30,'p',10,'x',1,'nl',1,'yd',1,'m',3)
-    % 4. wdt = CDesign('Qs',30,'p',10,'x',1,'nl',2,'yd',1,'m',3)
-    % 5. wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',1,'yd',3,'m',3)
+    % 1. wdt = CDesign('Q30p5nl2yd3m3x1')
+    % 2. wdt = CDesign('Q54p6nl2yd4m3x1')
+    % 3. wdt = CDesign('Q30p10nl1yd1m3x1')
+    % 4. wdt = CDesign('Q30p10nl2yd1m3x1')
+    % 5. wdt = CDesign('Q30p5nl1yd3m3x1')
     % 
     % To run the function:
     %
@@ -21,21 +21,21 @@ function wdt = arun(val)
     end
     switch val
         case 1
-            wdt = CDesign('Qs',30,'p',10,'x',1,'nl',1,'yd',1,'m',3);
+            wdt = CDesign('Q30p10nl1yd1m3x1');
             filename = 'fig6b.tex';
         case 2            
-            wdt = CDesign('Qs',30,'p',10,'x',1,'nl',2,'yd',1,'m',3);
+            wdt = CDesign('Q30p10nl2yd1m3x1');
             filename = 'fig7b.tex';
         case 3
-            wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',1,'yd',3,'m',3);
+            wdt = CDesign('Q30p5nl1yd3m3x1');
             filename = 'fig8b.tex';
         case 4
-            wdt = CDesign('Qs',30,'p',5, 'x',1,'nl',2,'yd',3,'m',3);
+            wdt = CDesign('Q30p5nl2yd3m3x1');
             filename = 'fig9b.tex';
         case 5            
-            wdt = CDesign('Qs',54,'p',6, 'x',1,'nl',2,'yd',4,'m',3);
+            wdt = CDesign('Q54p6nl2yd4m3x1');
         case 6
-            wdt = CDesign('Qs',60,'p',2, 'x',1,'nl',2,'yd',13,'m',3);
+            wdt = CDesign('Q60p2nl2yd13m3x1');
         otherwise
             disp('Invalid test case numer. Type help arun');
             wdt = NaN;
