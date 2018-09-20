@@ -393,7 +393,7 @@ and depends on the winding layout. In the rest of this section an algebraic meth
 \subsection{Slot vector}
 For assigning the $Q_s$ slots to phase belts, the peripheral slot angle $\alpha$ needs to be defined in terms of the slot pitch $\tau_s$. If the slots have a regular distribution the angle between any two adjacent slots equals $\tau_s$. In the case of irregular distributed slots the average slot pitch will equal $\tau_s$. A regular and irregular distribution are shown in Fig.~\ref{fig:f_slotstar}. A vector is assigned to the centre of each stator slot. The exponential representation\footnote{Also known as Euler's formula.} of a vector is used, i.e.
 \begin{equation} 
-  e^{j\nu \alpha}=\cos(\nu \alpha)+j\cos(\nu \alpha)
+  e^{j\nu \alpha}=\cos(\nu \alpha)+j\sin(\nu \alpha)
 \end{equation}
 The variables $\nu$ and $\alpha$ are the harmonic order and slot peripheral angle respectively. All the vectors as shown in Fig.~\ref{fig:f_slotstar} are represented as a column matrix $\mathbf{v_{\nu}}$. The number of rows is equal to the number of slots, i.e.
 \begin{equation}
