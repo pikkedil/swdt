@@ -1,0 +1,731 @@
+\chapter{Nonlinear magnetic circuit analysis}\label{chap:NonlinearAnalysis}
+Due to the nonlinear material behaviour a nonlinear magnetic circuit analysis needs to be carried out in order to determine the machine performance. The nonlinear material properties and the solutions to the nonlinear machine behaviour are the main themes of this chapter. Additionally, the chapter concludes with practical guidelines for a harmonic analysis.
+
+\section{Introductory remarks}
+One aspect in the main research question is the accuracy of the calculated machine performance. For high accuracy it is necessary to perform a nonlinear magnetic circuit analysis. Since the nonlinear machine behaviour arises from the materials, it is appropriate to have a detailed knowledge of the material data. 
+
+The machine performance is calculated using the finite element method. In most documentation the terms \emph{finite element method} and \emph{finite element analysis} seem to be used interchangeably. There is, however, a small difference between the terms:
+\begin{description}
+	\item[The finite element method] is a numerical technique for finding approximate solutions to ordinary and elliptic partial differential equations via a piecewise polynomial interpolation scheme. There are essentially three mathematical ways that FEM can evaluate the values at the nodes: the non-variational method (Ritz), the residual method (Galerkin), and the variational method (Rayleigh-Ritz).
+	\item[Finite element analysis] is an implementation of FEM to solve a certain type of problem. In the case of electrical machines the most common solution type is a 2D magnetostatic problem. Typically the residual method is used to obtain the FEM mathematical solution and a suitable element type is needed for the analysis. The software used in the present dissertation makes use of first order triangular elements. 
+\end{description}
+
+The machine's performance calculations in the analysis of interior permanent magnet machines with non-overlapping concentrated windings are based mainly on the fundamental quantities. In order to get the fundamental quantities, and especially in the case of a spatial harmonic analysis, the discrete Fourier transform is used.
+
+\section{Material properties} \label{sec:mat_properties}
+In the context of electrical machines the importance of magnetic materials is twofold. Through their use it is possible to obtain large flux densities with relatively low levels of magnetisation. In addition, and especially in machines, the laminated steel is used to constrain and direct magnetic fields in well defined paths. The magnetic materials are used to shape the fields to maximise the desired torque producing characteristics. Therefore a knowledgeable design engineer can make use of the material properties to achieve specific desirable results.  
+
+\subsection{Laminated steel}
+Obtaining meaningful loss results in machine design requires accurate representation of the material properties. The saturation level in machines is often beyond the measured data supplied by the manufactures. This means that it is necessary to extrapolate the data. Typically the supplied magnetic polarisation $J$ is in the range from \SI{1.5}{T} to \SI{1.8}{T}, whereas the flux density $B$ in the teeth could be up to \SI{2.1}{T}. In order to calculate flux densities above \SI{2}{T} the following steps need to be taken:
+\begin{itemize*}
+	\item the magnetic polarisation needs to be extrapolated to its saturation~%
+	value $J_s$; and
+	\item the magnetic polarisation needs to be converted to the flux density.
+\end{itemize*}
+The manner in which these two steps are executed will influence the method or way to determine the so-called correction factors for the iron loss. It is important to mention that the iron loss calculations are strongly influenced by the manufacturing process. Once the laminations are punched or lasered the material properties change and lead to higher losses.  
+
+\subsubsection{Epstein frame measurements}
+An Epstein frame is a standardised measurement device for measuring the magnetic properties of soft magnetic materials and especially that of the laminations used in electrical machines. The main properties measured are the polarisation and the specific loss. Fig.~\ref{fig:epstein_frame}(a) shows the measurement setup used to measure the polarisation and specific loss for M470P65A lamination steel. The test sample is prepared as a set consisting of a number of strips. The specimen is then arranged in the Epstein frame as shown in Fig.~\ref{fig:epstein_frame}(b).  
+\begin{figure}[htbp]
+	\centering
+		\input{figs/ch4/f_epstein.tex}
+		\caption{Measurement setup to measure $J(H)$ for laminated steel}
+		\label{fig:epstein_frame}
+\end{figure}
+
+The relationship between $J$ and $H$ for laminated steel is both nonlinear and multivalued. In general, the characteristics of the material cannot be described analytically. They are commonly presented in graphical form or a set of data points. Fig.~\ref{fig:Main_M470P65A}\subref{fig:JH_M470_zoom} shows a graphical presentation of the measured polarisation for M470P65A laminated steel for frequencies in the range \SI{50}{Hz} to \SI{120}{Hz}. From the measured results the frequency dependency of lamination steel comes to the fore.
+
+The second measurement that the Epstein frame is used for is the specific loss. For the specific loss measurement the strips need to be weighed using an accurate scale. Measured results for the specific loss in the range from \SI{50}{Hz} to \SI{120}{Hz} are shown in Fig.~\ref{fig:Main_M470P65A}\subref{fig:P_M470_3D}. The specific loss has a dependency on both the frequency and polarisation. The two-dimensional presentation of the data is not typical, but emphasises the nonlinear and multivalued properties.
+\begin{figure}[htbp]
+  \centering
+  \input{figs/ch4/f_dependancy.tex} 
+  \vspace{1cm}
+  \input{figs/ch4/f_specific_P.tex} 
+  \caption{The measured data for M470P65A lamination steel}
+  \label{fig:Main_M470P65A}
+\end{figure}
+
+\subsubsection{Extrapolation of the \textit{B(H)} Curve}\label{sec:extrapolation}
+Manufacturers of laminated steel usually provide $J(H)$ data but this data may be defined only partly through to the knee point of the curve. For accurate FEA results the $J(H)$ curve needs to be defined well into the saturation region. Above the knee the slope $\frac{dJ}{dH}$ approaches zero when $J$ is plotted against $H$ as $H$ increases indefinitely. The curve conforms more or less to the Fröhlich-Kennelly relation as explained in the book by \cite{Bozorth1993}, i.e.
+\begin{equation}\label{i_mu}
+  \frac{1}{\mu} = a + bH \quad \left(\mu=\mu_0 \mu_r \right)
+\end{equation} 
+and the saturation polarisation is then calculated as 
+\begin{equation}
+  J_{s}=\frac{1}{a}
+\end{equation} 
+In practical engineering problems it is preferred to use $B$ instead of $J$. The flux density and magnetic polarisation have the following relationship: 
+\begin{equation}\label{B}
+  B = \mu_{0}H + J
+\end{equation}
+Equation \eqref{B} adapt the so-called Kennelly convention given in \cite{bertotti_1988}. Here the magnetic polarisation $M$ is used in its alternative form. In the SI system of units the magnetic quantities are related as follows:
+\begin{align}\label{B_gen}
+  B = \mu_{0}\left(H + M\right)
+\end{align}
+Using \eqref{i_mu} and \eqref{B} the $B(H)$ curve can be defined well into the saturation. The material coefficients for M470P65A laminated steel supplied by the manufacturer together with the extrapolation and conversion for M470P65A are shown graphically in Fig.~\ref{fig:bh_curve_M470}. The saturation polarisation $J_s=2.064$ and the coefficients $a$ and $b$ equal \num{0.484} and \num{779.3} respectively.
+\begin{figure}[htbp]
+	\centering
+	\input{figs/ch4/f_extra_BH.tex}
+	\caption{The extrapolation of the $B(H)$ for M470P65A lamination steel}
+	\label{fig:bh_curve_M470}
+\end{figure}
+
+If the $J_{s}$ is not supplied it could be calculated using \eqref{i_mu}. In order to do so the last two measured points from supplier $J(H)$ curve are used. If $J_1<J_2$, the coefficients $a$ and $b$ can then be obtained by solving two simultaneous equations, i.e. 
+\begin{equation}
+  \left.
+  \begin{aligned}
+    \frac{1}{\mu} &= a + bH_1 \\
+    \frac{1}{\mu} &= a + bH_2
+  \end{aligned}
+  \right\}
+  \quad
+  \mu = \frac{J_2 - J_1}{H_2 - H_1}
+\end{equation}
+
+\subsubsection{Three-term core loss model}
+The iron losses are linked with the magnetisation process and consists of three parts. The so-called separation of losses implies that the average power loss per unit volume of any material is decomposed into the sum of hysteresis and a dynamic contribution. For several alloys and sinusoidal excitation, with a given frequency and magnetisation, \cite{bertotti_1988} showed that the specific loss is expressed as the sum of the hysteresis $P_{h}$, classical eddy current $P_{c}$ and excess loss $P_{e}$, i.e. 
+\begin{equation}
+  \label{pfe_bertotti}
+  \begin{aligned}
+  p_{Fe} &= P_{h} + P_{c} + P_{e}   \\
+         &= k_{h}fJ^{2} + k_{c}\left(fJ\right)^{2} + 
+         k_{e}\left(fJ\right)^{1.5}
+  \end{aligned}
+\end{equation}
+
+The specific loss is a function of two variables and it is required to find the unknown  coefficients in \eqref{pfe_bertotti}. The coefficients can be extracted over a family of core loss curves at various frequencies. With the coefficients $k_{h}$, $k_{c}$, and $k_{e}$ the total core loss per unit volume $p_{Fe}$ can be calculated in terms of the peak magnetic polarisation $J$ and the frequency.
+
+The specific loss $p_{Fe}$ as given in \eqref{pfe_bertotti} is a multivariate model with two independent variables. In practical machine design, the unknown coefficients are determined for a given polarisation. Therefore the specific loss becomes a function of frequency and the measured data are used to form a set of $n$ simultaneous equations, i.e. 
+\begin{equation}
+  p_i = f_{i}J^2 + (f_{i}J)^2 + (f_{i}J)^{1.5} 
+  \quad 
+  \begin{cases}
+  1\leq i \leq n\\
+  n\geq3 \\
+  \end{cases}
+\end{equation}
+In order to solve the set of simultaneous equations, it is necessary to construct the regression matrix $\mathbf{X}$ as follows:
+\begin{equation}
+  \label{eqn:regression}
+  \begin{aligned}
+  \left[
+  \begin{array}{c}
+     p_{1}\\
+     p_{2}\\
+     \vdots\\
+     p_{n}\\
+  \end{array} \right]&=\left[
+  \begin{array}{c c c}
+     f_{1}J^2 & (f_{1}J)^2 & (f_{1}J)^{1.5}\\
+     f_{2}J^2 & (f_{2}J)^2 & (f_{2}J)^{1.5}\\
+     \vdots\\
+     f_{n}J^2 & (f_{n}J)^2 & (f_{n}J)^{1.5}\\
+  \end{array} \right]\left[
+  \begin{array}{c}
+     k_h\\
+     k_c\\
+     k_e
+  \end{array} \right]\\ \: \\
+  \mathbf{p} &= \mathbf{X}\mathbf{k}
+  \end{aligned}
+\end{equation}
+The unknown coefficients are solved by performing a least squares fit to the regression equation in \eqref{pfe_bertotti}. This method is the easiest and does not take into account any constraints.
+
+\cite{bertotti_1988} explains in his paper that $k_c$ is a fixed value and can be expressed as
+\begin{equation}
+  k_c = \frac{\pi^{2} \sigma d^{2}}{6}
+\end{equation} 
+where $\sigma$ is the conductivity and $d$ the lamination thickness. If $k_c$ is a constant it means that only $k_h$ and $k_e$ need to be determined. Using the model in \eqref{pfe_bertotti} often results in negative values for $k_e$. A negative value for $k_e$ has no physical sense. 
+
+Another way to show this inconsistency is to calculate the coefficients without any constraint on $k_c$. A regression matrix is formed for each of the polarisation values given in Tab.~\ref{tab:MultipleRegressionResults}. The calculated coefficients for the different polarisation values are given in the corresponding columns. To validate the model, the maximum of the absolute value of the deviation of the data from the model $e_{max}$ is given. In each case this is sufficiently small to be confident that the model reasonably fits the data.
+\begin{table}[htbp]
+  \centering
+  \caption{Multiple regression results for M470P65A lamination steel}
+  \begin{tabular}{lccccccc}
+		\toprule
+    $J$/\SI{}{T}& \num{0.25}  & \num{1.55}  & \num{1.60}   & \num{1.65}   & \num{1.70}%
+             & \num{1.75}   & \num{1.80}   \\
+    \hline
+    $k_h$  & \num{0.0712} & \num{0.0019} & \num{0.0017} & \num{0.0016} & \num{0.0015}%
+         & \num{0.0015} & \num{0.0013}\\
+    \hline
+    $k_c$  & \num{0.0004} & \num{0.0000} & \num{0.0000} & \num{0.0000} & \num{0.0000}%
+         & \num{0.0000} & \num{0.0000}\\
+    \hline
+    $k_e$  & \num{0.0053} & \num{0.0003} & \num{0.0003} & \num{0.0003} & \num{0.0003}%
+         & \num{0.0003} & \num{0.0003}\\
+    \hline
+    $e_{max}/\SI{}{W.kg^{-1}}$&\num{0.0014} &\num{0.0010}& \num{0.0009} & \num{0.0008}%
+           & \num{0.0008} & \num{0.0009} & \num{0.0009}\\
+    \bottomrule	
+	\end{tabular}
+	\label{tab:MultipleRegressionResults}
+\end{table}
+As the polarisation is increased, the coefficient $k_c$ becomes zero. This inconstancy means that the material characteristics cannot be uniquely described analytically. \cite{Neuschl2007} came to the conclusion that, independent of the analytical method used, there is always a difference between the measured and calculated iron loss. \cite{Chen2002} explained in their paper that there is a big discrepancy between the calculation based on \cite{bertotti_1988} and experimental results if the polarisation is over \SI{1}{T} or if the field frequency becomes high. To overcome this discrepancy they have proposed a new modified formula to represent the coefficient changes. 
+
+\subsubsection{Two-term core loss model}
+Even though \cite{bertotti_1988} presented a three-term model, the two-term model is still common amongst machine designers. Practically this means that the coefficient $k_e$ is set equal to zero. This simplifies the loss calculation without loss in accuracy. Fig.~\ref{fig:loss_per_cycle}(a) shows the quadratic nature of the specific loss. In order to determine the coefficients, $\frac{P}{f}$ needs to be plotted as a function frequency. This is called the loss per cycle and shown in Fig.~\ref{fig:loss_per_cycle}(b). The result is an almost linear function with the form $k_h+k_c f$.
+\begin{figure}[htbp]
+  \centering
+    \input{figs/ch4/f_coeff.tex} 
+    \caption{Determination of coefficients $k_h$ and $k_c$}
+    \label{fig:loss_per_cycle}
+\end{figure}
+
+As an example the coefficients are calculated for M470P65A lamination steel. The specific loss at different frequencies at \SI{1}{T} are given in~%
+Tab.~\ref{specific_loss}. The coefficients $k_h$ and $k_c$ are then determined as \num{2.9609e-2} and \num{2.0758e-4} respectively.
+\begin{table}[h]
+	\centering
+	\caption{Specific loss for M470P65A at \SI{1}{T}}
+		\begin{tabular}{lcccccc}
+	  	\toprule
+      $f$/\SI{}{Hz} & 50   & 60   & 100  & 200  & 400  & 700 \\
+      \hline
+      $p_{Fe}$/\SI{}{W.kg^{-1}} & 1.85 & 2.38 & 5.05 & 15.0 & 47.0 & 120.0 \\
+      \bottomrule
+		\end{tabular}
+		\label{specific_loss}
+\end{table}
+
+\subsubsection{Accounting for the stacking factor in 2D FEA}
+Since the laminated steel has a thin insulated coat it means that a small percentage of the total stack length does not comprise laminated steel. Typically the effective iron length is approximately  \SI{97}{\%} to \SI{98}{\%} of the stack. This means that the radial flux sees a parallell path excisting of iron and air and should be acounted for in the analysis.
+
+To account for the stacking factor the $B(H)$ curve needs to be modified by lowering the value of the flux density by the stacking factor $k_{Fe}$, i.e.
+\begin{align}
+ \label{eqn:sf}
+  B_{eq} = k_{Fe}B_{orig}+\left(1-k_{Fe}\right)\mu_{0}H
+\end{align}
+where $B_{eq}$ is the equivalent flux density and $B_{orig}$ the original flux density obtained from the extrapolation as explained in section \ref{sec:extrapolation}. When performing 2D FEA simulations it is required to use both the actual depth of the machine and the magnetic effective length. The actual length is necessary for the calculation of the stator resistance while the magnetic effective length is required for the electromagnetic performance. 
+
+\subsection{Permanent magnets}
+A permanent magnet owes its magnetism to the intrinsic magnetic dipole moment of the electrons and is characterised by the hysteresis loop as shown in Fig.~\ref{fig:f_magnet_BH}(a). The same relationship as for laminated steel as given in \eqref{B} holds for permanent magnets. If the magnetic dipole moments are parallel to the applied field, magnetic polarisation has reached saturation, $J_s$. However, the magnetic induction $B$ increases further with the slope $\mu_0$. The minimum field strength that must be applied to the magnet to reach saturation is called the saturation field strength $H_s$. After magnetisation, i.e.~when the applied field is removed, the magnet has a remanent magnetisation of $B_r$. This residual flux density is the main characteristic of a permanent magnet. It means that in the absence of an external excitation a magnetic flux is present.  
+\begin{figure}
+	\centering
+		\input{figs/ch4/f_magnet_BH.tex}
+	\caption{Permanent magnet material properties}
+	\label{fig:f_magnet_BH}
+\end{figure}
+
+An immediate property that goes along with $B_r$ is the coercivity $H_c$. The latter can be thought of as a measure of the amount of mmf required to demagnetise the material. It is necessary to distinguish between $H_{cB}$ and $H_{cJ}$. The intersection of the $J(H)$ with the magnetic field strength axis is $H_{cJ}$, whereas $H_{cB}$ is the intersection of the $B(H)$ curve. The software used in the present dissertation makes use of the $B(H)$ curve. As an example the properties of the type VAC677AP from \cite{Vacuumschmelze} are given in Tab.~\ref{tab:PropertiesOfVAC677AP}.
+\begin{table}[h]
+	\centering
+	\caption{Properties of VAC677AP}
+	\begin{tabular}{ccccccc}
+	\toprule
+	$B_{r,typ}$&$B_{r,min}$&$H_{cB,typ}$&$H_{cB,min}$&$\alpha$&$\rho$&$\sigma$ \\
+	\SI{}{T} & \SI{}{T} & \SI{}{kA.m^{-1}} & \SI{}{kA.m^{-1}}%
+	& \SI{}{\%.\degC^{-1}} & \SI{}{kg.m^{-3}} & \SI{}{k\Omega.m} \\
+	\toprule
+	1.13 & 1.08 & 960 & 850 & -0.095 & 7700 & 588-909\\
+	\bottomrule
+	\end{tabular}
+	
+	\label{tab:PropertiesOfVAC677AP}
+\end{table}
+
+The preceding paragraph leads to the explanation of the demagnetisation shown in Fig.~\ref{fig:f_magnet_BH}(b). Assume that the normal operating point of a permanent magnet used in a machine is given by $p_1$ which has the coordinates $(H_1,B_1)$. An increase in load, which could be a terminal short circuit, will cause point $p_1$ to move toward the left. If the knee lies in the second quadrant and the excitation causes the load line to go through point $p_2$, it will finally return to point $p_3$. In this case the residual flux density has changed from $B_r$ to $B_{r}^{'}$. 
+
+The negative temperature coefficient means that the induced voltage will decrease as the operating temperature of the machine increases. As a consequence (for the same torque) the stator current will increase to account for the lower flux from the magnets. The operating point where the stator current stays constant is then defined as the steady-state operating point. Since the induced voltage in electrical machines is proportional to the residual flux density it is necessary to have $B_r$ as a function of the temperature coefficient, i.e.
+\begin{equation}
+  \label{eqn:br}
+  B_r = B_{r,20}\bigl(1+\frac{\alpha}{100}(T_c-20)\bigr)
+\end{equation}
+If the knee of the $B(H)$ curve lies in the second quadrant the magnet behaviour is linearised to simplify the analysis. This is done by calculating an equivalent coercivity $H_{cBe}$, i.e.
+\begin{equation}
+  \label{eqn:H_cBe}
+  H_{cBe} = -\frac{B_r}{\mu_0 \mu_r}, \quad 1.0 \leq \mu_r \leq 1.1
+\end{equation}
+where $\mu_r$ is the relative permeability of the permanent magnet material.
+ 
+\section{Nonlinear field solutions}
+The finite element method is used to solve the nonlinear behaviour of the machine. In this section the basic equations and boundary conditions are explained. In addition, the main quantities associated with FEA (flux linkage and inductance) are given. 
+
+\subsection{Magnetostatic fields}
+The proposed method to calculate the machine's performance presented in chapter \ref{chap:design} makes use of FEM and analytical expressions. In this section the accompanying theory to the FEM solutions is given. The basis of the magnetostatic field solutions is the quasistatic laws of Maxwell's equations. In the analysis of electrical machines the magnetostatic equations are obtained by neglecting the displacement current. In differential form they are:
+\begin{equation}
+  \label{eqn:Maxwell}
+  \begin{aligned}
+    &\nabla \times \vec{E} = -\frac{\partial \mu_0 \vec{H}}{\partial t} \quad 
+    \mbox{(Faraday's law)}\\
+    &\nabla \times \vec{H} =-\frac{\partial\epsilon\vec{E}}{\partial t}+\vec{J}
+    \approx \vec{J} \quad \mbox{(Amp\`ere's law)}\\
+    &\nabla \cdot \epsilon\vec{E} = \rho \\
+    &\nabla \cdot \mu_0 \vec{H} = 0
+  \end{aligned}
+\end{equation}
+The source of the magnetic field  intensity $\vec{H}$ is the current density $\vec{J}$. In the rest of this section the first two laws in \eqref{eqn:Maxwell} are discussed. 
+
+\subsubsection{Amp\`ere's law}
+Amp\`ere's law states that for any closed path, the sum of the length elements times the magnetic field in the direction of the length element is equal to the permeability times the electric current enclosed in the loop. Therefore
+\begin{equation}
+  \label{eqn:ampere_1}
+  \vec{J} = \nabla \times \vec{H}=\nabla \times \frac{\vec{B}}{\mu_r \mu_0}
+\end{equation} 
+needs to be solved, and since there is no general scalar potential for the magnetic field $\vec{B}$ it is expressed as the curl of a vector function, i.e.
+\begin{equation}
+  \label{eqn:B_curl_A}
+  \vec{B} = \nabla \times \vec{A}
+\end{equation} 
+and \eqref{eqn:ampere_1} changes to
+\begin{equation}
+  \label{eqn:ampere_2}
+  \vec{J} = \nabla \times 
+  \left[
+  \frac{\nabla \times \vec{B}}{\mu_r \mu_0}
+  \right]
+\end{equation}
+In general both $\vec{J}$ and $\vec{A}$ are vectors. However, in a two-dimensional static solution $\vec{J}$ (and thus $\vec{A}$) is assumed to have only a $z$-component.
+\begin{equation}
+  \label{eqn:ampere_3}
+  J_z(x,y) = \nabla \times 
+  \left[
+  \frac{\nabla \times A_z(x,y)}{\mu_r \mu_0}
+  \right]
+\end{equation}
+
+\subsubsection{Faraday's law}
+Faraday's law states that a time varying $\vec{H}$ implies an induced voltage. This law allows the calculation of the terminal voltage as
+\begin{equation}
+  \label{eqn:Faraday}
+  u = -\frac{d \psi}{dt}
+\end{equation}
+where $\psi$ is the flux linkage
+\begin{equation}
+  \psi = \int_S \mu_0 \vec{H} \cdot d\vec{a}
+\end{equation}
+The flux linkage calculation is explained in section \ref{subsec:fluxlinkage}. In order to apply Faraday's law it is first necessary to solve $A_z(x,y)$ for the distributed currents in the discrete stator slots as given in \eqref{eqn:ampere_3}. It is important to mention that the winding matrix, as defined in \eqref{eqn:M_matrix}, allows the calculation of the amp\`ere-turns in the stator slots ($F_{slot}$) with ease.
+
+\subsection{Boundary setup and sources}
+Fig.~\ref{fig:f_fea_model} shows the initial finite element model of the prototype. In this section the applied boundary conditions and the definition of the current and voltage sources are given.
+\begin{figure}[htbp]
+	\centering
+		\input{figs/ch4/f_fea_model.tex}
+	\caption{Finite element model showing the different materials and boundary~%
+	conditions}
+	\label{fig:f_fea_model}
+\end{figure}
+
+\subsubsection{Dirichlet boundary conditions}
+The Dirichlet boundary conditions are applied to the stator outer and rotor inner  diameter. On these boundaries the vector potential is tangential, and since the vector potential is defined as zero, it is called the homogeneous Dirichlet condition. Fig.~\ref{fig:f_fea_model} shows the position where the vector potential $A_z$ equals zero.
+
+\subsubsection{Periodic boundary conditions}
+In cylindrical machines the periodic boundary conditions are applied to the nodes that lie on $\theta_1$ and $\theta_2$ as shown in Fig.~\ref{fig:f_fea_model}. If the vector potentials at the two boundary nodes have the same value and sign, it is called a positive boundary condition. If the nodes have the same absolute value, but different signs, it is called a negative boundary condition. The periodic boundary conditions are summerised as follows:
+\begin{equation}
+  A_z(\theta_2)=
+  \begin{cases}
+  A_z(\theta_1) & \mbox{positive periodic boundary conditions}\\
+  -A_z(\theta_1) & \mbox{nagative periodic boundary conditions}\\
+  \end{cases} 
+\end{equation}
+The periodic boundaries of the prototype model as shown in Fig.~\ref{fig:f_fea_model} are positive. This means that $A_z(\theta_1)=A_z(\theta_2)$.      
+
+\subsubsection{Current sources}\label{sec:current_sources}
+The main research question endeavors to establish high accuracy calculations to be used in an everyday design environment. When current sources are used in the magnetostatic version of Maxwell's equations, FEA has reasonable solution times. The results include all material nonlinearities and it is suitable for use in an everyday design environment.
+
+The compact representation of the winding in the in- and outgoing matrices is used to calculate the currents in the stator slots as given by \eqref{eqn:ampere_3}. In section \ref{subsec:slot_mmf} the slot mmf (in German this is called the ``Nutdurchflutung'' $\Theta_N$) was explained and can be calculated as presented in \eqref{eqn:slot_mmf}. This equation showed that the slot mmf can be calculated as
+\begin{equation}
+  F_{slot,k} = N_t\sum_{n=1}^{3}i_n \left(m_{1,nk}+m_{2,nk}\right) 
+\end{equation}
+and automatically takes into account the number of coil sides $N_{cs}$ and coil turns $N_t$. The only unknown is the instantaneous currents of the three phases. Using current the vector presentation as explained in Fig.~\ref{fig:qd_transform}(b) the instantaneous currents can be calculated in terms of its components $i_d$ and $i_q$. For $a$ parallel branches, the peak current and the current angle are calculated as 
+\begin{equation}
+    \hat{I} = \frac{1}{a}\sqrt{i_{d}^2+i_{q}^2}
+    \quad \mbox{and} \quad
+    \alpha  = \arctan\left(\frac{i_q}{i_d}\right)
+\end{equation}
+Since the rotor is synchronous to the stator rotating field in steady-state, it is practical to define the currents in terms of the mechanical rotor position of the rotor $\theta_m$. The instantaneous currents are then calculated as 
+\begin{equation}
+\label{eqn:current_sources}
+ \left.
+ \begin{aligned} 
+   i_1 &= \hat{I}\cos\left(\theta \right) \\
+   i_2 &= \hat{I}\cos\left(\theta +\frac{2\pi}{3}\right) \\
+   i_3 &= \hat{I}\cos\left(\theta +\frac{4\pi}{3}\right)
+ \end{aligned} 
+ \quad 
+ \right\} 
+ \quad
+ \theta = p \bigl( \theta_{m}+(\theta_{q}-\theta_{an}) \bigr)+\alpha
+\end{equation}
+where $\theta_q$ is the rotor $q$-axis and $\theta_{an}$ the current sheet anti-node axis as explained in section \ref{subsec:current_sheet}.
+
+For magnetostatic analysis, it is not necessary to model a coil side in the slot to have the same copper area as the actual slot. This makes the model unnecessarily complex. Especially in an optimisation process this means that the model should be adapted after each iteration. This can be avoided if the current is homogenized in such a way that the total current is correct. In this case the current density in the elements of the finite element mesh will be less than the actual current density of the copper. However, the amp\`ere-turns in the slot are the same.
+
+\subsubsection{Voltage sources}
+The use of current sources together with a magnetostatic FEM solver allows the calculation of the steady-state performance of the machine. This steady-state behaviour is based on the interaction between the stator flux wave (which rotates at synchronous speed) and the synchronously rotating rotor flux wave. In the final design stage a transient FEA is used to verify the solution obtained with static solver and current sources.
+
+During transient conditions, various disturbances can cause the stator and rotor fluxes to change magnitude and angular displacement. The electrical winding and solid-iron parts tend to oppose changes in fluxes, and as a consequence, disturbances induce transient currents in the stator winding and permanent magnets of the rotor. 
+
+The transient solution results offered in the present dissertation were obtained with the transient solver from Maxwell 2D. The peak voltage and voltage angle are calculated in terms of the $dq$-variables as   
+\begin{equation}
+    \hat{U} = \sqrt{u_{d}^2+u_{q}^2}
+    \quad \mbox{and} \quad
+    \beta  = \arctan\left(\frac{u_d}{u_q}\right)
+\end{equation}
+where $\beta$ is the angle between the voltage vector and the $q$-axis of the rotor. Similar to the current sources, it is practical to define the voltages in terms of the rotor mechanical position $\theta_m$. The instantaneous voltages are then given as
+\begin{equation}
+\label{eqn:voltage_sources}
+ \left.
+ \begin{aligned} 
+   u_1 &= \hat{U}\cos\left(\theta \right) \\
+   u_2 &= \hat{U}\cos\left(\theta +\frac{2\pi}{3}\right) \\
+   u_3 &= \hat{U}\cos\left(\theta +\frac{4\pi}{3}\right)
+ \end{aligned} 
+ \quad 
+ \right\} 
+ \quad
+ \theta = p \bigl( \theta_{m}+(\theta_{q}-\theta_{a}) \bigr)+\beta
+\end{equation}
+where $\theta_q$ is the rotor $q$-axis and $\theta_a$ the magnetic axis of the reference winding. When using voltage sources it is preferable to use the magnetic axis of the winding rather than the current sheet anti-node axis.  
+
+\subsection{Flux linkage calculation}\label{subsec:fluxlinkage}
+The vector potential is the natural variable for evaluating the flux passing through a surface. Contour $C_1$ in Fig.~\ref{fig:f_flux_linkage} encloses the surface through which the underlying coil's flux passes and is found by the integration of the flux density over the open surface
+\begin{equation}
+  \Phi=\int_S \mu_0 \vec{H}\cdot d \vec{a}=\int_S \nabla \times \vec{A}\cdot d\vec{a} 
+\end{equation}
+It follows from Stoke's theorem that this flux is equal to the line integral of $\vec{A}  \cdot d \vec{s}$ around the contour enclosing the surface, i.e. 
+\begin{equation}
+  \Phi = \oint_{C_1} \vec{A}\cdot d \vec{s}
+\end{equation} 
+The two coil sides denote the coordinates of the corners of the enclosing $S$. The contour path consists of a pair of parallel straight segments of length $l_{Fe}$ parallel to the $z$-axis, one at the location of the ingoing coil side in the $xy$ plane and the other at the outgoing coil side and contours joining the coil sides in the $xy$ plane. Contributions to the contour integral from these latter segments are zero because $A_z$ is perpendicular to $d \cdot \vec{s}$. 
+\begin{figure}
+	\centering
+		\input{figs/ch4/f_flux_linkage.tex}
+	\caption{Contours $C_1$ and $C_2$ to calculate the flux linkage and inductance}
+	\label{fig:f_flux_linkage}
+\end{figure}
+
+Due to the distribution of the vector potential over the coil sides in the stator slots, the elemental vector potentials are averaged and weighted with the element area. Denoting $A_z^a$ and $A_z^b$ as the single valued summation of the vector potentials, the flux linkage of the coil is then calculated as
+\begin{equation}
+  \label{eqn:flux_link}
+  \psi = k_{sym}l_{Fe}\frac{N_t}{a A_{cs}} \left(A_{z}^{a}-A_{z}^{b}\right)
+\end{equation}
+where $k_{sym}$ is the symmetry factor of the model and $A_{cs}$ the cross section area of a single coil side. Using Faraday's law, the terminal voltage is related to the flux linkage as given in \eqref{eqn:Faraday}. 
+
+\subsection{Inductance calculation}
+The stator winding inductance is a primary parameter of the machine and is defined in terms of the flux linkage and the current. In permanent magnet machines the total flux linking a coil consists of two parts. One part arises from the current itself and the other part is due to the permanent magnets. In order to calculate the inductance it is necessary to isolate these parts.
+
+\subsubsection{Definitions for energy calculation}
+The inductance is calculated from the energy which can be expressed in terms of the energy density of the magnetic field integrated over the volume $V$ of the magnetic field. In the two-dimensional FEA solution the volume is defined by the surface enclosed by the contour $C_2$ in Fig.~\ref{fig:f_flux_linkage} and the stack length $l_{Fe}$. In this case
+\begin{equation}
+  \label{eqn:W}
+  W = \frac{1}{2}Li^2 = \frac{1}{2} \int_V \vec{B} \cdot \vec{H} d \vec{V}
+\end{equation}
+is the general expression. Since a two-dimensional solver is used, the integral simplifies to a surface integral over the model cross-section multiplied by the stack length, i.e.
+\begin{equation}
+  W = \frac{l_{Fe}}{2} \int_S \vec{B} \cdot \vec{H} d \vec{a} \\
+\end{equation}
+
+In non-linear circuit analysis three different definitions are associated with the energy. Assuming that $B_0$ and $H_0$ are the coordinates of the final operating point on the $B(H)$ curve the energy densities are defined as follows:
+\begin{equation}
+  \begin{aligned}
+    W_{e} &= \int_{0}^{B_0} H dB \quad \mbox{(energy)}\\ 
+    W_{c} &= \int_{0}^{H_0} B dH \quad \mbox{(co-energy)} \\
+    W_{a} &= \frac{1}{2} H_0 B_0 \quad \mbox{(apparent energy)}
+  \end{aligned}
+\end{equation} 
+where $B_0$ and $H_0$ are shown in Fig.~\ref{fig:f_energy}. In order to calculate the energy the actual path is known. Each of the defined inductances has useful applications. In the present dissertation only apparent inductances are calculated.
+\begin{figure}
+	\centering
+		\input{figs/ch4/f_energy.tex}
+	\caption{Definitions for energy calculation}
+	\label{fig:f_energy}
+\end{figure}
+
+\subsubsection{Inductance matrix}\label{subsec:ind_matrix}
+An inductance matrix represents the magnetic flux linkages between the different current loops in the machine. For a three-phase machine the flux linkages can be expressed in matrix form as
+\begin{equation}
+  \left[ 
+  \begin{array}{c} 
+  \psi_1 \\  \psi_2 \\  \psi_3 \\
+  \end{array} 
+  \right] = 
+  \left[
+  \begin{array}{ccc}
+     L_{11} & L_{12} & L_{13}\\
+     L_{21} & L_{22} & L_{23}\\
+     L_{31} & L_{32} & L_{33}
+  \end{array} 
+  \right]  \left[
+  \begin{array}{c} 
+  i_1 \\  i_2 \\  i_3
+  \end{array} 
+  \right]
+\end{equation}
+The diagonal terms in the matrix ($L_{11}$, $L_{22}$ and $L_{33}$) represent the self-inductance of each phase. The off-diagonal terms in the matrix represent the mutual inductances between the phases. It is important to mention that the entries of the inductance matrix are dependent on the operating point. In order to find the self- and mutual inductances, the following two steps need to be executed:
+\begin{enumerate}
+	\item A nonlinear magnetostatic solution is generated with the sources at values for a given operating point. This establishes the permeability that varies with each mesh element, because of the variable saturation throughout the machine. The permeability is saved as shown in Fig.~\ref{fig:saved_mu}.
+	\item In the second step one amp\`ere is applied to a phase and zero to the remaining phases. A linearised solution (using the saved permeability from the first step) is performed to calculate the self-inductance of the phase where one amp\`ere is flowing.  This procedure is repeated for each of the phases.
+\end{enumerate}
+For each of the solutions as described here, the remanent flux density in the permanent magnets is set equal to zero. This means that the flux linkages as a result of only the currents are taken into account. The self-inductances are calculated as follows:
+\begin{equation}
+  \left.
+  \begin{aligned}
+    L_{11}&=l_{Fe}\int_S \vec{B_1}\cdot \vec{H_1} d \vec{a} \quad &(i_1=1, 
+    \: i_2=i_3=0) \\
+    L_{22}&=l_{Fe}\int_S \vec{B_2}\cdot \vec{H_2} d \vec{a} \quad &(i_2=1, 
+    \: i_1=i_3=0) \\
+    L_{33}&=l_{Fe}\int_S \vec{B_3}\cdot \vec{H_3} d \vec{a} \quad &(i_3=1, 
+    \: i_1=i_2=0)
+  \end{aligned} 
+  \quad
+  \right\} 
+  \begin{aligned}
+    \mu &= \mu_{saved} \\
+    B_r &= 0
+  \end{aligned}
+\end{equation}
+In order to calculate the mutual inductance the solutions for $\vec{B}$ and $\vec{H}$ must be saved. The mutual inductances are then calculated as
+\begin{equation}
+    L_{ij} =  l_{Fe}\int_S \vec{B_i} \cdot \vec{H_j} d \vec{a} \quad
+    \begin{cases}
+    \vec{B_i}\ \mbox{due to the current in the $i^{th}$ phase}\\
+    \vec{H_j}\ \mbox{due to the current in the $j^{th}$ phase}\\
+    i=j \Rightarrow\ \mbox{self-inductance}\\
+    i\neq j \Rightarrow\ \mbox{mutual-inductance}\\
+    \end{cases}
+\end{equation}
+Once the elements of the inductance matrix are known, the phase inductances can be calculated as\footnote{The total flux linkage of a phase is a function of the phase currents and phase inductances, i.e.~$\psi_1 = i_1 L_{11} + i_2 L_{12} + {i_3} L_{13} = i_1 L_1$. The inductance matrix can be obtained directly form vector potential. The phase inductance then becomes a function of the actual phase currents that was used to compute the vector potential.} 
+\begin{equation}
+\begin{aligned}
+  L_1 &= L_{11} + \frac{i_2}{i_1} L_{12} + \frac{i_3}{i_1} L_{13} \\
+  L_2 &= \frac{i_1}{i_2}L_{21} +  L_{22} + \frac{i_3}{i_2} L_{23} \\
+  L_3 &= \frac{i_1}{i_3}L_{c1} + \frac{i_2}{i_3} L_{32} +  L_{33} 
+\end{aligned}
+\end{equation}
+The currents ($i_1$, $i_2$ and $i_3$) are the currents from the operating point. The  operating points should be chosen in such a way that division by zero is avoided.
+\begin{figure}
+	\centering
+		\input{figs/ch4/f_saved_mu.tex}
+	\caption{Saved permeability for a given operating point}
+	\label{fig:saved_mu}
+\end{figure}
+
+\section{Determination of the winding axis: second method}
+In section \ref{sec:axes} the winding axis was determined using the phase angle of the winding factor. This method requires only the winding matrix. Another method to calculate the winding axes is to directly use FEA. In the definition of the current sources as given in \eqref{eqn:current_sources}, the angle $\alpha$ is defined as the current angle. If $\alpha$ is non-zero, then only $d$-current flows and the torque is zero. When $\alpha$ is non-zero $q$-axis current will flow and torque is developed. Therefore, the torque is a function of $\alpha$ and can be written as  
+\begin{equation}
+  \label{eqn:T_vs_alpha}
+  T(\alpha) = T_{max}\sin\left(\theta_{an}+\alpha \right)
+\end{equation}
+
+The objective is to find the current sheet anti-node axis $\theta_{an}$ for which $T(\alpha)$ equals zero when $\alpha$ is set to zero. Setting the current sheet anti-node axis equal to zero $T(\alpha)$ is calculated for different values of $\alpha$. The torque is calculated using the air gap element (AGE) as explained appendix \ref{app:AGE}\footnote{This is part of FEMP that was mentioned in the introduction.}. A DFT of the result will give the fundamental and the phase angle. For accurate results a very small current should be chosen to avoid saturation. 
+\begin{figure}
+  \centering
+  \input{figs/ch4/f_tvsalpha.tex}
+  \caption{Torque as a function of the current angle}
+  \label{fig:tvsalpha}
+\end{figure}
+
+As an example the method is applied to the prototype model as shown in Fig.~\ref{fig:f_fea_model}. The torque versus current angle results are shown in Fig.~\ref{fig:tvsalpha}. Applying a DFT to the FEA calculated torque results in a phase angle of \SI{0.5362}{rad}. A positive phase angle means that the curve is shifted \SI{0.5362}{} electrical radians to the left. Since the applied currents use cosine functions and the torque is a sine function, the current sheet anti-node axis is calculated as   
+\begin{equation}
+  \theta_{an} = -\frac{1}{p}\left(\theta_p+\frac{\pi}{2}\right)
+\end{equation}
+where $p$ is the number of pole pairs. 
+
+\section{Harmonic analysis}
+A harmonic analysis is an essential component in the machine design. The basic idea behind this type of analysis is to represent machine quantities as the sum of simpler trigonometric functions. This process of breaking up a function into pieces that helps to understand it better is common in the sciences and engineering and is more commonly referred to as a Fourier analysis. The difference between a time and spatial harmonic analysis is explained in this section. Although the underlying analysis is exactly the same, the terminology is different.
+
+\subsection{Definition of the discrete Fourier transform}
+Throughout the analysis in the present dissertation the discrete version of the Fourier transform is used. The discrete Fourier transform (DFT) of the function $x(n)$ is defined as      
+\begin{equation}
+  \label{eqn:def_dft}
+  X(k) \stackrel{\Delta}{=} \sum_{n=1}^{N}x(n)e^{-j2\pi(k-1)\frac{n-1}{N}} 
+  \quad  
+  \begin{cases}
+  \in \mathbb{C}\\
+  1 \leq k \leq N \\
+  \Delta X = \frac{1}{N\Delta x}\\
+  \end{cases}
+\end{equation}  
+where $N$ is the number of samples. Even if the fundamental transform stays the same there are important aspects that need to be taken into account when performing a time and spatial harmonic analysis. From \eqref{eqn:def_dft} the resolution in the transformed domain is determined by the number of sampling points and the sampling interval. Furthermore, the sampling interval $\Delta x$ is assumed to be equidistant. 
+
+\subsection{Time harmonics}
+The first and most common harmonic analysis type is to break up a time signal into smaller functions. A Fourier analysis applied to a time signal means that the signal is transformed from the time domain to the frequency domain. Usually for a transient or time-stepped solution it is required to perform a time harmonic analysis. Here the time signal is decomposed into its different frequency components which could have its origin from the time signal applied to the motor terminals or it could be due to the spatial mmf harmonics in the air gap. Since it is not always possible to distinguish between the exact cause of the time harmonics it is necessary to perform the analysis for both a no-load and load operating point. The two cases are summarised as follows:
+\begin{description}
+	\item[No-load] Under no-load the harmonic analysis gives harmonic information due 
+	the air gap spatial mmf harmonics. The spatial harmonics could 
+	arise from saturation in the lamination or it could arise from a geometrical
+	design aspect like the number of slots or even the permanent magnets.
+	\item[Load] If a voltage or current is applied, the motor terminal harmonics
+	could be caused due to saturation or even harmonics injected by the supply. Even
+	some harmonics are only load dependent.    
+\end{description}
+
+In general the DFT is used to both determine the amplitude and frequency of a specific harmonic component. Usually this is done by sampling the time signal for a sufficient long time to assure a very large number of sampling points. This assures a high resolution in the frequency domain and an accurate calculation of the amplitude. The Nyquist theory states that the sampling frequency $f_s$ should be at least twice the highest frequency, i.e.
+\begin{equation} 
+  \label{eqn:nyquist_fs}
+  f_s \geq 2f_{max}
+\end{equation}
+to prevent anti-aliasing. When performing FEA the solution could be quite long and it is desirable to keep it short and within limits. Since the frequency of the working harmonic and even the highest harmonic is usually known, the number of sampling points could be chosen in such a way so as to ensure that the solution time is as short as possible and the determination of the amplitude accurate. If the frequency applied to the terminals is $f_1$ and the highest expected harmonic is $\nu_{max}$, then a sampling interval
+\begin{equation}
+  \label{eqn:t_sampling}
+  \Delta t = \frac{1}{2f_1\nu_{max}}
+\end{equation}
+will ensure that the resolution in the frequency domain is a multiple of the fundamental.
+
+\subsection{Spatial harmonics}\label{subsec:spatial_harmonic_analysis}
+The basic procedure to perform a spatial harmonic analysis is explained by means of the air gap flux density, since it is a typical application in electrical machine design where a spatial harmonic analysis is required. In this case an arc, as shown in Fig.~\ref{fig:f_fea_model}, is drawn in the air gap, i.e.~$r=r_{\delta}$. 
+
+Since a harmonic analysis is common in signal processing it could be confusing, because a spatial harmonic has no frequency. Reformulating the Nyquist theory in terms of the signal's period, the sampling period should be less than or equal to half the lowest period, i.e. 
+\begin{equation}
+  \label{eqn:Ts}
+  T_s\leq \frac{1}{2}T_{min}
+\end{equation} 
+Recognizing that the period of the signal is comparable with the wavelength of a spatial harmonic, the Nyquist theory for the spatial harmonic analysis means that the sampling step length (wavelength) should be less than or equal to half the smallest wavelength, i.e.
+\begin{equation}
+  \label{eqn:nyquist_lam}
+  \lambda_s \leq \frac{1}{2}\lambda_{min}
+\end{equation}
+
+Usually only a part of the machine needs to be modeled, which follows from the basic winding parameters. In cases where sub-harmonics need to be determined, it is necessary to reconstruct the air gap flux density for $2\pi$ radians. The arc length for which the air gap flux density was calculated can be used to determine the total number of repetitions and the periodicity as shown in Fig.~\ref{fig:f_periodicity}. The number of repetitions is calculated as follows: 
+\begin{equation}
+\label{eqn:N_for_DFT}
+  N = \cfrac{2l_{arc}}{\lambda_{\nu=p}}
+  \quad 
+  \begin{cases}
+    l_{arc} = r(\theta_2-\theta_1)& \mbox{arc length}\\
+    \lambda_{\nu=p}=\frac{2\pi r}{p}& \mbox{working harmonic}\\
+    \mbox{mod}(N,2) = 0    & \mbox{even periodicity} \\ 
+    \mbox{mod}(N,2) \neq 0 & \mbox{odd periodicity}\\
+  \end{cases}
+\end{equation} 
+\begin{figure}[htbp]
+	\centering
+		\input{figs/ch4/f_periodicity.tex}
+	\caption{Even and odd boundary conditions}
+	\label{fig:f_periodicity}
+\end{figure}
+
+Due to the discretization through the triangular finite elements, it is not always possible to find points on the arc such that the points are equidistant. Therefore, the quantity (which could be the air gap flux density) obtained from the FEA is re-sampled with an equidistant interval. With $\nu_{max}$ as the highest expected harmonic known, the sampling wavelength is calculated as 
+\begin{equation}
+  \label{eqn:lambda_s}
+  \lambda_s = \frac{1}{2}\frac{2 \pi r}{\nu_{max}}
+\end{equation}
+Further, to obtain the correct amplitude, it is preferable to ensure that the sampling wavelength is a multiple of the fundamental\footnote{The reader is referred to section \ref{sec:working_harmonic} for the definition of the fundamental.}, i.e.
+\begin{equation}
+  \frac{\lambda_{\nu = 1}}{\lambda_s} = k 
+  \quad k \in \mathbb{N}
+\end{equation}
+In the next section a spatial harmonic analysis is applied to the prototype design.
+
+\section{Example of a spatial harmonic analysis}
+The prototype machine is used as an example to perform a spatial harmonic analysis. The magnetostatic solver from Maxwell 2D is used to calculate the air gap flux density to be analysed. In this model the depth is automatically set to \SI{1}{m}. First the air gap flux density is calculated, followed by the conversion to the flux per pole.
+ 
+\subsection{Air gap flux density}
+The way in which the stator currents are defined (in terms of the $d$- and $q$-axis currents) in section \ref{sec:current_sources} are defined for a solution domain that comprises all possible combinations of $d$- and $q$-axis currents, i.e.
+\begin{equation}
+  \mathbf{i_d}=\left[
+  \begin{array}{c c c c}
+     i_{d_{11}} & i_{d_{12}} & \cdots & i_{d_{1n}}\\
+     i_{d_{21}} & i_{d_{22}} & \cdots & i_{d_{2n}}\\
+     \vdots\\
+     i_{d_{m1}} & i_{d_{m2}} & \cdots & i_{d_{mn}}\\
+  \end{array} \right] \quad
+  \mathbf{i_q}=\left[
+  \begin{array}{c c c c}
+     i_{q_{11}} & i_{q_{12}} & \cdots & i_{q_{1m}}\\
+     i_{q_{21}} & i_{d_{22}} & \cdots & i_{q_{2m}}\\
+     \vdots\\
+     i_{q_{n1}} & i_{q_{n2}} & \cdots & i_{q_{nm}}\\
+  \end{array} \right]  
+\end{equation} 
+After each finite element solution, a macro calculates the air gap flux density. In order to do this an arc is drawn in the air gap on which the radial flux density is calculated. The spatial harmonic analysis is applied to radial air gap flux density.
+
+The $d$-axis currents are defined in the range $i_{d11} \leq i_d \leq i_{1n}$ and represent a row (all the rows are the same) of $\mathbf{i_d}$. The $q$-axis currents are defined in the range $i_{q11} \leq i_q \leq i_{n1}$ and represent a column (all the columns are the same) of $\mathbf{i_q}$. 
+
+\subsubsection{Two-dimensional air gap flux density functions}\label{subsubsec:BdBq}
+The air gap flux density will have components in the $d$- and $q$-axis that are load dependent. For each of the FEA solutions in the solution domain the air gap flux density is resolved into $B_d$ and $B_q$, the $d$- and $q$-axis components respectively. It is important to mention that the result of the DFT is a complex number and through a proper choice of reference axis, the real and imaginary parts will be the direct and quadrature-axis components (of the air gap flux density) respectively. The solution domain for the example is defined as follows:
+\begin{equation}
+  \mathbf{i_d}=\left[
+  \begin{array}{c c c c}
+     -450 & -425 & \cdots & 450\\
+     -450 & -425 & \cdots & 450\\
+     \vdots\\
+     -450 & -425 & \cdots & 450\\
+  \end{array} \right] \quad
+  \mathbf{i_q}=\left[
+  \begin{array}{c c c c}
+     -450 & -450 & \cdots & -450\\
+     -425 & -425 & \cdots & -425\\
+     \vdots\\
+     450  & 450  & \cdots & 450\\
+  \end{array} \right]  
+\end{equation} 
+and the calculated results for $B_d$ and $B_q$ (only of the working harmonic) are shown in Fig.~\ref{fig:Main_B_2D}\subref{fig:f_3DBd} and~%
+Fig.~\ref{fig:Main_B_2D}\subref{fig:f_3DBq} respectively. 
+\begin{figure}[htbp]
+	\centering
+	\input{figs/ch4/f_3DBd.tex}
+	\vspace{1cm}
+	\input{figs/ch4/f_3DBq.tex}
+	\caption{$B_d$ and $B_q$ as two-dimensional functions}
+	\label{fig:Main_B_2D}
+\end{figure}
+The $d$-axis component of the air gap flux density $B_d$ has an offset due to the permanent magnets. For positive $d$-axis current, the flux caused by the current is in the same direction as that of the permanent magnets. As a result the total flux density increases. When negative $d$-current is applied to the machine the flux from the current opposes that from the permanent magnets and the total flux density decreases. 
+
+Similar arguments hold for the $q$-axis flux density. The only difference is that there is no offset. For zero $q$-current the flux density is zero.  
+
+\subsubsection{Harmonic components}
+The results in section \ref{subsubsec:BdBq} was only given for the working harmonic. In this section the harmonic analysis of three cases is looked at in more detail. Special attention is given to the stator mmf sub-harmonics. These harmonics only arise when current is applied to the stator coils.
+
+The air gap flux density with zero stator current (and a regular distribution of the slots) is shown in Fig.~\ref{fig:Main_f_dft_id0}. For clarity the working harmonic is included as the dashed line in the spatial plot. Since only a fifth of the machine is modeled, \eqref{eqn:N_for_DFT} is used to construct the spatial air gap flux density for $2\pi$. A stem plot\footnote{The name is adopted as used in Matlab.} of the DFT is shown in the lower part of the figure. The working harmonic is at $\nu=10$. In the $q$-axis no harmonics are present. The slot harmonics are explained in two steps:
+\begin{description}
+	\item[Air gap flux density without stator slots:] If there are zero stator slots~%
+	only the harmonics due to the permanent magnets are present. In this case only the~%
+	odd harmonics are present, i.e.~$\nu \in 1,3,5,\ldots$, as shown in~%
+	Fig.~\ref{fig:Main_f_dft_id0}\subref{fig:f_only_rotor}.
+	\item[Air gap flux density including the stator slots:] When the stator slots are~%
+	present the slot harmonics will occur at
+	\begin{equation}
+	  \label{eqn:nu_slot}
+	  \nu_{slot} = \cfrac{Q_s}{p}\pm 1 
+	\end{equation} 
+	For $Q_s=30$ and $p=10$ the slot harmonics will be at $3 \pm 1$. This is shown~% 
+	in Fig.~\ref{fig:Main_f_dft_id0}\subref{fig:f_id0}.
+\end{description}
+\begin{figure}[htbp]
+	\centering
+	\input{figs/ch4/f_only_rotor.tex}
+	\vspace{0.1ex}
+	\input{figs/ch4/f_dft_id0.tex}
+	\caption{Spatial harmonic analysis with $I_1 = 0$}
+	\label{fig:Main_f_dft_id0}
+\end{figure}
+
+In the next example, a positive $d$-axis current is applied to the stator coils. According to the results presented in Fig.~\ref{fig:single_layer}, the prototype machine with 30 slots and 20 poles has a sub-harmonic. The spatial distribution of the air gap flux density with $I_d>0$ is shown in~%
+Fig.~\ref{fig:Main_DFT_B}\subref{fig:f_dft_id}. With the positive $d$-axis current the working harmonic is enhanced. The sub-harmonic at $\nu=5$ is consistent with the theoretical prediction.  
+
+The last example shows the result when only $q$-axis current is applied to the stator coils. The spatial air gap flux density distribution for $i_q>0$ is shown in Fig.~\ref{fig:Main_DFT_B}\subref{fig:f_dft_iq}. For $q$-axis current, the magnetic flux is in the direction of the $q$-axis and therefore perpendicular to the flux in the $d$-axis. There is a slight change in the $d$-axis flux due to cross-magnetisation.   
+\begin{figure}[htbp]
+	\centering
+	\input{figs/ch4/f_dft_id.tex}
+	\vspace{0.1cm}
+	\input{figs/ch4/f_dft_iq.tex}
+	\caption{Air gap harmonic analysis with $I_1\neq0$}
+	\label{fig:Main_DFT_B}
+\end{figure}
+
+In this section very important aspects on especially the spatial harmonic analysis were pointed out. Through a proper choice of reference axis and assuring consistent data, the DFT can be used to determine the $d$- and $q$-axis components of the spatial air gap flux density. 
+
+\subsection{Flux per pole}
+The air gap flux per pole is the integral of the flux density over the pole area, and for a two-pole machine is equal to    
+\begin{equation}
+  \label{eqn:phi_1}
+  \hat{\Phi} =l_{Fe}
+  \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}}\hat{B_{\delta}}\cos(\theta)rd\theta=
+  2l_{Fe}\hat{B_{\delta}}r
+\end{equation}
+where $l_{Fe}$ is the axial length of the stator and $r$ is the radius at the air gap. For a machine with $2p$ poles, the pole area is $\frac{1}{p}$ times that of a two-pole machine, i.e.~\eqref{eqn:phi_1} changes to
+\begin{equation}
+  \hat{\Phi} = \frac{1}{p}2l_{Fe}\hat{B_{\delta}}r
+\end{equation}
+This result means that the flux per pole can be calculated using the two-dimensional functions presented in section \ref{subsubsec:BdBq}. The air gap flux density is calculated as
+\begin{equation}
+  \hat{B_{\delta}} = \sqrt{B_{d}^{2}+B_{q}^{2}} 
+\end{equation}
+
+\section{Summary}
+In this chapter the important FEM underlying theory necessary to model a machine was explained. Since the model is based on the machine's physics, its sources and the boundaries must be specified in the correct way to achieve the desired results. The machine's performance is calculated in terms of the fundamental voltages and currents. To obtain the fundamental quantities, a harmonic analysis needs to be executed. The chapter concluded with examples of a time and spatial harmonic analysis. 
+
+In the next chapter the presented theory and analysis methods, up till now, are applied to a traction machine case study. The objective will be to answer the main research question.  
+
+\endinput

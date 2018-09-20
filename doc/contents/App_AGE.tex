@@ -1,0 +1,394 @@
+\chapter{Revision of the Air Gap Element}\label{app:AGE}
+The use of an air gap element (AGE) in the finite element analysis means that the air gap mesh is 
+replaced. It is also very accurate since it is derived from the analytical solution, and since there 
+is no mesh in the air gap there are no limits on rotor angular movement. In this section the graphical 
+presentation and the AGE matrix are reviewed. 
+
+\section{Introductory remarks}
+\label{sec:introduction}
+In the design of electrical machines a detailed analysis is required of the magnetic field 
+distribution to predict the machine's performance. This then generally leads to the calculation 
+of electromagnetic forces and torque. The problem when solving the magnetic field using the finite 
+element method is the rotation of the rotor and its influence on the mesh after each movement. There 
+are several ways to achieve movement of the rotor past the stator. Some of them include the boundary 
+element technique, coupled elements, slip surface, pre-stored meshes and a moving-band.
+
+\cite{razek_1981} introduced an air gap element (AGE) for the finite element analysis of rotating 
+electrical machines. It allows to keep a constant topology while the rotor is moved. The AGE replaces 
+the mesh in the air gap and is based on the analytical solution of the field in the air gap combined 
+with a finite element solution of the field in the non-linear parts of the stator and rotor. 
+\cite{felianchi_1983} extended the AGE to be consistent with second order iso-parametric finite 
+elements.
+
+Advantages of the method are that the model of the air gap is almost perfect and the accuracy depends 
+only on the quality of the discretisation of the stator and rotor. However, due to the computing time 
+necessary to compute the AGE matrix the total calculation time is longer compared to that of the 
+classical finite element method. \cite{flack_1994} introduced a time-saving computational scheme which 
+enables a rapid re-calculation of the AGE stiffness terms and thereby a reduced time to obtain a field 
+solution. The idea of the AGE was initially derived for the polar coordinate system and 
+\cite{wang_2002} derived the AGE for cartesian planes. 
+
+From most recent publications by \cite{kalokirsis_2005} it can be summarised that the AGE is still 
+in use. \cite{de_gersem_2005} improved the computational time to be as efficient as the moving-band 
+and sliding-surface methods.
+
+\section{Graphical presentation of the AGE}\label{sec:AGE_element}
+A finite element mesh that includes the air gap element is shown in Fig.~\ref{fig:f_mesh}. The AGE 
+is uniform and the inner and outer radius falls on $r = a$ and $r = b$ respectively. Both the stator 
+and rotor are meshed and the AGE is the element bounded by the nodes lying on both sides of the air 
+gap. A solution domain corresponding to positive periodicity of the vector potential is used to derive 
+the air gap element theory and is defined by $\theta_0$.
+
+The side lying on the negative $x$-axis is referred to as the master\footnote{The FE program assumes 
+the master boundary to lie on the negative $x$-axis.} and the side lying on $\pi-\theta_0$ is the 
+slave. The nodes on the rotor outer radius are numbered from $1$ to $s$, and the nodes on the stator 
+inner radius from $s+1$ to $t$. Due to periodicity, the nodes of the AGE lying in the slave is not 
+used. The nodes are saved in polar coordinates. The positive rotation direction is counter-clockwise.
+
+\begin{figure}
+	\centering
+		\input{figs/AppC/f_mesh.tex}
+	\caption{Finite element mesh with Air Gap Element}	
+	\label{fig:f_mesh}  
+\end{figure}
+
+%-------------------------------
+\subsection{AGE stiffness matrix}
+\label{AGE_stiffness}
+The general form for the AGE stiffness terms are given by \cite{razek_1982} as
+\begin{equation}\label{eqn:stiffness}
+    S_{ij}=\frac{\theta_{0}}{4}\frac
+    {ln\left(\frac{b}{c'}\right) - ln\left(\frac{a}{c'}\right)}
+    {ln\left(\frac{c}{c'}\right)   ln\left(\frac{e}{e'}\right)}a_{oi}a_{oj} +
+    \frac{\theta_{0}}{2}\sum^{\infty}_{n=1}f(\lambda_{n})
+    \left(a_{ni}a_{nj}+b_{ni}b_{nj}\right)
+\end{equation}
+given that
+\begin{equation}\label{eqn:func_aoi_lambda}
+    a_{oi}=\frac{\theta_{i+1}-\theta_{i-1}}{\theta_{0}}, \; 
+    \lambda_{n}=\frac{2\pi n}{\theta_{0}}
+    \; \textnormal{and} \;
+    f(\lambda_{n})=\frac{\lambda_{n}}{F_{ce}}\left(F_{bce}-F_{ace}\right)
+\end{equation}
+where
+\begin{equation}\label{eqn:fce}
+    F_{ce}=
+    \left[ 
+        \left(\frac{c}{c'}\right)^{\lambda_{n}}-
+        \left(\frac{c'}{c}\right)^{\lambda_{n}}  
+    \right]
+    \left[ 
+        \left(\frac{e}{e'}\right)^{\lambda_{n}}-
+        \left(\frac{e'}{e}\right)^{\lambda_{n}}
+    \right] \nonumber
+\end{equation}
+\begin{equation}
+\label{eqn:fbce}
+	F_{bce}= 
+	  \left[ 
+	    \left(\frac{b}{c'}\right)^{\lambda_{n}}-
+	    \left(\frac{c'}{b}\right)^{\lambda_{n}}
+	  \right]  
+	  \left[
+	    \left(\frac{b}{e'}\right)^{\lambda_{n}}+
+	    \left(\frac{e'}{b}\right)^{\lambda_{n}}
+	  \right]	\nonumber   
+\end{equation}
+\begin{equation}
+\label{eqn:face}
+	F_{ace}=
+	   \left[
+	     \left(\frac{a}{c'}\right)^{\lambda_{n}}-
+	     \left(\frac{c'}{a}\right)^{\lambda_{n}}
+	   \right]
+	   \left[
+	     \left(\frac{a}{e'}\right)^{\lambda_{n}}+
+	     \left(\frac{e'}{a}\right)^{\lambda_{n}}
+	   \right] \nonumber
+\end{equation}
+The Fourier coefficients in \eqref{eqn:stiffness} are calculated as follows
+\begin{equation}\label{eqn:ani}
+    a_{ni}=-k_{n}
+    \left[
+        \frac{1}{\phi_{1}}
+        \sin\left(\frac{\lambda_{n}}{2}\phi_{2}\right) 
+        \sin\left(\frac{\lambda_{n}}{2}\phi_{1}\right)+ 
+        \frac{1}{\phi_{3}}
+        \sin\left(\frac{\lambda_{n}}{2}\phi_{4}\right)
+        \sin\left(\frac{-\lambda_{n}}{2}\phi_{3}\right)
+    \right]
+\end{equation}
+\begin{equation}\label{eqn:bni}
+    b_{ni}=k_{n}
+    \left[
+        \frac{1}{\phi_{1}}
+        \sin\left(\frac{\lambda_{n}}{2}\phi_{1}\right) 
+        \cos\left(\frac{\lambda_{n}}{2}\phi_{2}\right) + 
+        \frac{1}{\phi_{3}}
+        \sin\left(\frac{-\lambda_{n}}{2}\phi_{3}\right)
+        \cos\left(\frac{\lambda_{n}}{2}\phi_{4}\right)
+    \right]
+\end{equation}
+where
+\begin{eqnarray}\label{eqn:theta}
+  \phi_{1} = \theta_{i}-\theta_{i-1};        &  
+  \phi_{2} = \theta_{i}+\theta_{i-1}         \nonumber \\  
+  \phi_{3} = \theta_{i}-\theta_{i+1};        &  
+  \phi_{4} = \theta_{i}+\theta_{i+1}         \nonumber \\
+  k_{n}    = \frac{4}{\lambda^{2}_{n}\theta_{0}} \nonumber & \;
+\end{eqnarray}
+
+%-----------------------------
+\subsection{Time-saving scheme}
+%-----------------------------
+\label{subsec:time_saving}
+The computational time can be reduced if the terms in the AGE matrix that are independent of 
+rotor angular movement are stored. Only the AGE matrix terms dependent on rotor angular movement 
+need to be recalculated for each $\Delta\theta$. This, however, implies more storage  but the 
+recalculation time is remarkable as shown by \cite{flack_1994}. 
+
+From the Fourier coefficients given in \eqref{eqn:ani} and \eqref{eqn:bni} 
+$\phi_1$ and $\phi_3$ are unchanged when the rotor is moved through an
+angle $\Delta\theta$, whereas $\phi_2$ and $\phi_4$ change as follows: 
+$\phi_2\rightarrow\phi_2+2\Delta\theta$ and 
+$\phi_4\rightarrow\phi_4+2\Delta\theta$. For each of the Fourier coefficients a time-saving scheme will be introduced.
+
+\subsubsection{Simplified Fourier coefficients}
+Using $\sin(-x)=-\sin(x)$, \eqref{eqn:ani} can be rewritten as 
+\begin{equation}\label{eqn:ani_new}
+    a_{ni}= C_{ni}\sin\left(\frac{\lambda_{n}}{2}\phi_{2}\right)+
+    D_{ni}\sin\left(\frac{\lambda_{n}}{2}\phi_{4}\right)
+    \qquad
+    \begin{cases}
+        \vspace{0.5em}
+        C_{ni}=\frac{k_{n}}{\phi_{1}}\sin\left(\frac{-\lambda_{n}}{2} \phi_{1}\right) \\
+        D_{ni}=\frac{k_{n}}{\phi_{3}}\sin\left(\frac{\lambda_{n}}{2} \phi_{3}\right)  \\
+    \end{cases}                    
+\end{equation}
+Introducing movement \eqref{eqn:ani_new} changes as follows
+\begin{equation}\label{eqn:ani_move}
+    a_{ni|_{+\Delta\theta}}=
+    C_{ni}\sin\left(
+    \frac{\lambda_{n}}{2}\left(\phi_{2}+2\Delta\theta\right)\right)+
+    D_{ni}\sin\left(
+    \frac{\lambda_{n}}{2}\left(\phi_{4}+2\Delta\theta\right)\right)
+\end{equation}
+and can be rewritten when simplified using trigonometric identities\footnote
+{
+    $\sin(x\pm y)=\sin(x)\cos(y)\pm \cos(x)\sin(y)$ and
+    $\cos(x\pm y)=\cos(x)\cos(y)\mp \sin(x)\sin(y)$
+} 
+as
+\begin{equation}\label{eqn:ani_short}
+    a_{ni|_{+\Delta\theta}}=G_{ni}\cos\left(\lambda_{n}\Delta\theta\right)+
+        F_{ni}\sin\left(\lambda_{n}\Delta\theta\right)
+    \qquad
+    \begin{cases}
+        \vspace{0.5em}
+        F_{ni}=C_{ni}\cos\left(\frac{\lambda_{n}}{2}\theta_{1}\right)+
+            D_{ni}\cos\left(\frac{\lambda_{n}}{2}\theta_{3}\right)
+        G_{ni}=C_{ni}\sin\left(\frac{\lambda_{n}}{2}\theta_{1}\right)+
+            D_{ni}\sin\left(\frac{\lambda_{n}}{2}\theta_{3}\right)
+    \end{cases}
+\end{equation}
+Equation \eqref{eqn:ani_short} can be written in a compact form using a trigonometric identity\footnote
+{
+    $A\cos(x)\pm B\sin(x)=R\cos\left(x+\theta\right)$ where
+    $R=\sqrt{A^{2}+B^{2}}\) and \(\theta=\tan^{-1}\left(\mp \frac{B}{A}\right)$
+}
+as
+\begin{equation}\label{eqn:ani_save}
+    a_{ni|_{+\Delta\theta}}=H_{ni}\cos
+    \left(\lambda_{n}\Delta\theta+P_{ni}\right)
+    \qquad
+    \begin{cases}
+        \vspace{0.5em}
+        H_{ni}=\sqrt{F^{2}_{ni}+G^{2}_{ni}} \\
+        P_{ni} = \frac{\lambda_{n}}{2}\theta_{2}-\tan^{-1}\frac{F_{ni}}{G_{ni}}
+    \end{cases}
+\end{equation} 
+
+A similar method that was used to simplify $a_{ni}$ will now be introduced to the coefficient $b_{ni}$. 
+Simplifying \eqref{eqn:bni} results in
+\begin{equation}\label{eqn:bni_new}
+    b_{ni}=C_{ni}\cos\left(\frac{\lambda_{n}}{2}\phi_{2}\right)+
+    D_{ni}\cos\left(\frac{\lambda_{n}}{2}\phi_{4}\right)
+    \qquad
+    \begin{cases}
+        \vspace{0.5em}
+        C_{ni}=\frac{k_{n}}{\phi_{1}}\sin\left(\frac{\lambda_{n}}{2} \phi_{1}\right) \\ 
+        D_{ni}=\frac{k_{n}}{\phi_{3}}\sin\left(\frac{-\lambda_{n}}{2} \phi_{3}\right)
+    \end{cases}
+\end{equation} 
+If rotor movement is introduced the coefficient will change as follows
+\begin{equation}\label{eqn:bni_move}
+    b_{ni|_{+\Delta\theta}}=
+        C_{ni}\cos\left(
+        \frac{\lambda_{n}}{2}\left(\phi_{2}+2\Delta\theta\right)\right)+
+        D_{ni}\cos\left(
+        \frac{\lambda_{n}}{2}\left(\phi_{4}+2\Delta\theta\right)\right)
+\end{equation}  
+and using a trigonometric identity it simplifies to
+\begin{equation}\label{eqn:bni_short}
+    b_{ni|_{+\Delta\theta}}=F_{ni}\cos\left(\lambda_{n}\Delta\theta\right)-
+    G_{ni}\sin\left(\lambda_{n}\Delta\theta\right)
+\end{equation}
+Equation \eqref{eqn:bni_short} can further be simplified to minimise the computational effort as 
+was done in \eqref{eqn:ani_save}. This results in
+\begin{equation}\label{eqn:bni_save}
+    b_{ni|_{+\Delta\theta}}=H_{ni}\cos
+    \left(\lambda_{n}\Delta\theta+P_{ni}\right)
+    \qquad
+    \begin{cases}
+        \vspace{0.5em}
+        H_{ni}=\sqrt{F^{2}_{ni}+G^{2}_{ni}} \; \textnormal{and} \\
+        P_{ni} = \frac{\lambda_{n}}{2}\theta_{2}-\tan^{-1}\frac{G_{ni}}{F_{ni}}
+    \end{cases}
+\end{equation}
+The constants $\lambda_{n}$, $H_{ni}$ and $P_{ni}$ need to be pre-determined. It requires more 
+storage but in case of movement $\Delta\theta$ the Fourier coefficients can be re-calculated in 
+a much shorter time which significantly reduces the total calculation time. 
+
+\subsubsection{Stepped AGE}
+\label{subsubsec:stepped_age}
+An implementation of the time-saving scheme implies that the constants given in  
+\eqref{eqn:ani_save} and \eqref{eqn:bni_save} need to be stored in memory. This only holds for 
+the nodes that are stationary. In the program the stator is chosen to rotate with counter-clockwise 
+taken as positive\footnote{This implies that the relative rotation of the rotor with respect to the 
+stator is clockwise.}. Thus the Fourier coefficients of the rotor nodes $(1-s)$ are saved. For a 
+movement $\Delta\theta$ the new Fourier coefficients for the stator AGE nodes are re-calculated 
+using \eqref{eqn:ani_save} and \eqref{eqn:bni_save} for $a_{ni}$ and $b_{ni}$ respectively. This 
+holds for nodes $(s+1)$ to $t$.
+
+\subsection{Periodicity conditions}\label{subsec:periodicity}
+In some problems the symmetry can be used to reduce the size of the model. When possible only one 
+pole-pitch is modeled which means that the periodicity condition must be negative. 
+Fig.~\ref{fig:f_vec_2} shows a simple example of a field solution having positive periodicity. Using 
+symmetry only half the model can be used. In such a case the $a_{oi}$ equals zero as shown by 
+\cite{flack_1994} and \eqref{eqn:stiffness} reduces to 
+\begin{equation} \label{eqn:stiffness_neg}
+    S_{ij}=
+    \frac{\theta_{0}}{2}\sum^{\infty}_{n=1}f(\lambda_{n})
+    \left(a_{ni}a_{nj}+b_{ni}b_{nj}\right) \qquad \textnormal{for } n=1,3,5,\ldots
+\end{equation}
+where the Fourier coefficients have twice its value as given in \eqref{eqn:ani} and \eqref{eqn:bni}. 
+If the equation for calculating the coefficients are kept the same in the case of negative periodicity 
+the term containing the coefficients in \eqref{eqn:stiffness_neg} need to change as follows 
+$(a_{ni}a_{nj}+b_{ni}b_{nj}) \rightarrow (2a_{ni}2a_{nj}+2b_{ni}2b_{nj})$ and 
+\eqref{eqn:stiffness_neg} has the form
+\begin{equation} \label{eqn:stiffness_neg_re}
+    S_{ij}=
+    4\frac{\theta_{0}}{2}\sum^{\infty}_{n=1}f(\lambda_{n})
+    \left(a_{ni}a_{nj}+b_{ni}b_{nj}\right) \qquad \textnormal{for } n=1,3,5,\ldots
+\end{equation}  
+
+\begin{figure}
+    \centering
+    \input{figs/AppC/f_vec_2.tex}
+    \caption{Vector potential solution with positive periodic boundary conditions}
+    \label{fig:f_vec_2}
+\end{figure}
+
+
+\subsection{Electromagnetic torque}\label{torque}
+The electromagnetic torque in an electrical machine is given by the Maxwell tensor as a function of 
+the radial and tangential components of the flux density. The flux density in the air gap is calculated 
+by derivatives of the expansion of the shape functions which then results in the quadratic product
+\begin{equation}
+\label{eqn:torque}
+  T = -\frac{p\:l_{Fe}}{\mu_{0}}\mathbf{A}^{T}\mathbf{T}\mathbf{A}
+\end{equation}
+For simplicity the variables as presented by \cite{razek_1981} were changed as follows $c=c$, $c'=c$, 
+$g=e'$, $g'=e$, and $k=\lambda_{n}$. The matrix \(\mathbf{T}\) is then given by 
+\begin{equation}\label{eqn:tij_pos}
+    t_{ij}=\frac{\theta_{0}}{2}\sum^{\infty}_{n=1}\lambda^{2}_{n}
+    F_{cer}\left(a_{ni}b_{nj}-b_{ni}a_{nj}\right)
+\end{equation}
+and
+\begin{equation}\label{eqn:fcer}
+    F_{cer}=\frac
+    {\left[
+        \left(\frac{r}{c'}\right)^{\lambda_{n}}+
+        \left(\frac{c'}{r}\right)^{\lambda_{n}}
+    \right]
+    \left[
+        \left(\frac{r}{e'}\right)^{\lambda_{n}}-
+        \left(\frac{e'}{r}\right)^{\lambda_{n}}
+    \right]
+  }
+  { \left[
+        \left(\frac{c}{c'}\right)^{\lambda_{n}}-
+        \left(\frac{c'}{c}\right)^{\lambda_{n}}
+    \right]
+    \left[
+        \left(\frac{e}{e'}\right)^{\lambda_{n}}-
+        \left(\frac{e'}{e}\right)^{\lambda_{n}}
+    \right]
+  } 
+\end{equation}  
+In the case of negative periodicity the Fourier coefficients holds only for $n$ odd. The Fourier 
+coefficients have twice its value compared to positive periodicity\footnote{If the calculating of 
+the Fourier coefficients is done in the same way for both negative and positive periodicity it might 
+be necessary to multiply \eqref{eqn:tij_neg} by a factor 4. This will however depend on how the factor 
+2 for the Fourier coefficients in the case of negative periodicity is handled.}. For similar 
+conditions as in \eqref{eqn:stiffness_neg_re}, \eqref{eqn:tij_pos} for negative periodicity changes 
+to
+\begin{equation}
+  \label{eqn:tij_neg}
+  t_{ij}=4\frac{\theta_{0}}{2}\sum^{\infty}_{n=1}\lambda^{2}_{n}
+   F_{cer}\left(a_{ni}b_{nj}-b_{ni}a_{nj}\right) \qquad \textnormal{for } n=1,3,5,\ldots
+\end{equation}
+The torque ripple for the finite element mesh in Fig.~\ref{fig:f_mesh} is given in 
+Fig.~\ref{fig:f_age_ss}. For the same condition as in the Cambridge software, the torque ripple was 
+calculated with Maxwell 2D. 
+\begin{figure}
+    \centering
+    \input{figs/AppC/f_age_ss.tex}
+    \caption{Torque ripple calculation using the AGE}
+    \label{fig:f_age_ss}
+\end{figure}
+
+
+\subsection{Air gap flux density}\label{subsec:air_gap_flux_density}
+The air gap flux density can be calculated from the vector potential solution. In case of the AGE the 
+nodes on $r=b$, the stator inner diameter nodes, are used. Nodes $(s+1)-t$ are already available from 
+the AGE. For the complete solution the node $\left\langle r_{b},(\pi-\theta_{0})\right\rangle$ must 
+be included. $B_{\delta}$ is then calculated as follows
+\begin{equation}\label{eqn:bdelta}
+    B_{\delta}=\frac{1}{r}
+    \left(
+        \frac{A_{z}(i+1)-A_{z}(i)}{\theta_{i+1}-\theta_{i}}
+    \right)  
+\end{equation}
+Since the flux density as calculated in \eqref{eqn:bdelta} is obtained from differentiation, the 
+result can be inaccurate for numerical reasons. To obtain better results it is preferable to perform 
+a spatial harmonic analysis on the vector potential as presented in 
+\ref{subsec:spatial_harmonic_analysis}. Differentiation of the harmonic components give better results.
+
+\section{History of the Cambridge software}\label{sec:cambridge}
+A short history of the development of the software at the University of Stellenbosch since 1993 will 
+now be given. Among the post-graduate students in the Electrical Machines Laboratory the software is 
+known as the Cambridge software. There is, however, no collaboration between the University of 
+Stellenbosch and University of Cambridge in this regard. Since 1993 the software has been further 
+developed individually.  
+
+Albertus Volschenk, a South African citizen, did his Ph.D at Cambridge University in England. During 
+his studies in the Department of Engineering, under the supervision of Prof.~Williamson, he used the 
+finite element software to analyse a salient pole generator feeding a rectifier load. 
+\cite{Volschenk1993} improved the calculation time of the air gap element. At this stage the software 
+was written in Fortran running on a Unix machine. \cite{Williamson1995} presented the outcome of the 
+research in a journal paper.
+
+Upon his return to South Africa he left a copy of the source code in the Department of Electrical 
+Engineering at Stellenbosch University. \cite{Kamper1996} adapted the software, still running under 
+Unix, to perform an optimisation of a cage less synchronous reluctance machine. 
+
+When the development of the software started, memory was still expensive and the data management was 
+mainly done by means of the hard disk. \cite{Germishuizen2000} ported the software to a stand-alone 
+PC and used the software to compare an induction machine with a synchronous reluctance machine for 
+rail traction.
+
+At present the software is capable of running on Window machines. The graphical output is viewed by 
+software written in Matlab. 
+
+\endinput

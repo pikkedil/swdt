@@ -1,0 +1,130 @@
+\chapter{Literature overview}\label{chap:overview}
+In this chapter a brief overview of the history of stator windings (layout and design) is given. Since this topic evolved over many years an in depth history is beyond the scope of the present dissertation. However, a few important works need to be mentioned. 
+
+\section{A historical view of winding design}
+In the first of his two remarkable papers \cite{Kauders1932} explains the systematics of stator windings and the calculation of the winding factors. The aim in this work was to determine the parameters that characterise the air gap mmf of the winding. Also in this paper the induced voltage in the coil sides is already mentioned and represented as a vector. The resultant vector diagram was called the star of coil groups (German: ``Spulengruppenstern''). The adjacent vectors on such a diagram that belong to the same phase is called a phase belt (German: ``Zone'').
+
+Two years later, in the second paper by \cite{Kauders1934}, the algebraic methods developed in the first paper were visualised by means of Tingley's diagram. The latter could be referred to as a linear representation of the now called star of slots (German: ``Nutenstern''). The star of slots is constructed using the electrical angle between two adjacent slots. Computer technology as we know it today was not available at the time and the use of graph paper certainly was common. Furthermore, such graphical methods definitely contributed to the subject of stator windings.
+
+Vil\'em Kl\'ima (Wilhelm Kauders) died on 6 October 1985 and in an obituary by \cite{Frohne1985} it is mentioned that Kl\'ima's equation for the distribution factor\footnote{Also known as the breadth factor.} of fractional slot windings is not found in textbooks. Another remark in the obituary is that in some references it is stated that it is not possible to find a closed-form expression for the winding factor of fractional slot windings. In the rest of this literature overview, none of the authors (except Kremser) refers to or makes use of Kl\'ima's closed-form expression\footnote{A summary of closed-form expression is given in appendix \ref{app:klima}.}. 
+
+More than fifty years later than \cite{Kauders1934}, \cite{Kremser1989} introduced a comprehensive study of fractional slot windings and the currents in the parallel paths of rotating machines. The reason for this big time gap does not mean that nothing had happened in the mean  time in winding design; it should be kept in mind that this overview only points out some important aspects. In the first part of Kremser's doctoral thesis a detailed algebraic description of single and double layer fractional slot windings is presented. In order to allocate the coils to the stator slots, modular arithmetic, which uses the so-called commutator pitch, is used. This can be seen as a step toward using computer programs to automatically performing winding designs. In the star of slots the vectors start wrapping, and once put on a graph, two vectors having angles of \ang{45} and \ang{405} respectively lie exactly on each other. The star of slots is thus the same as the remainder after dividing an angle by \ang{360} which can easily be implemented by means of the modulo function.     
+
+\cite{Wach1997} explains another algebraic method to design stator windings which has much in common with that presented by \cite{Kremser1989}\footnote{It should however be noticed that the authors Wach and Kremser are from Poland and Germany respectively.}.  The methods presented in the paper is characterised by the matrix representation of a winding. The winding matrix simplify the winding factor calculation and avoids complex equations. Basically the vectors of the star of slots is used in matrix form. What is called the winding matrix could be seen as the matrix representation of Tingley's diagram. A drawback of the method is that each matrix entry for double layer windings has two values. In computer programming this should be solved by either a multi-dimensional matrix or two two-dimensional matrices. In another paper by \cite{Wach1998}, the focus is on the optimisation of fractional slot windings. In spite of the fact that this paper is a very good source on the topic of winding design, none of the literature in the rest of this section refers to it.
+ 
+\cite{cros_2002} showed that the use of stator coils wound around the stator teeth has some attractive advantages for manufacturing. The coils do not overlap which means that the manufacturing is simplified and the winding overhang is less than that of overlapping windings. Electrically the shorter winding overhang means the use of less copper. Furthermore, the non-overlapping windings are derived from single or double layer overlapping windings. It is also pointed out that in the case of single layer non-overlapping windings the coil pitch can be increased and used as a design parameter\footnote{See Fig.~\ref{fig:f_slotstar} for regular and irregular distributed slots.}. The latter, however, is not taken into account in the winding factor calculation. This paper is referenced quite often, proving the interest among machine designers in non-overlapping windings.  
+
+\cite{Salminen2004} did an extensive study on fractional slot windings for low speed applications. The main objective in the doctoral thesis is to compare different slot combinations of a machine with a fixed air gap diameter in the \SI{45}{kW} range. Although both single and double non-overlapping windings are taken into account, the focus is on the double layer type. Since round wire coils are used in the investigated application it is appropriate to use a double layer rather than single layer. If form-wound coils were used the choice of double layer windings would have caused some difficulties when inserting the coils into the stator slots. Also, the stator had semi-closed slots. The star of slots is referred to as the voltage vector graph in Salminen's thesis. A very important comment by the author is that care should be taken when the winding factors for different winding types are to be calculated. Depending on the winding type the right set of equations should be chosen. 
+
+\cite{skaar_2006} proposed a method to calculate the winding factors for concentrated coils without knowledge of the winding layout. This is of course sufficient to quickly compare different slot and pole combinations. Using this method it is shown that the best number of slots per pole and phase should be in the range \textonequarter $\leq q\leq$ \textonehalf. 
+
+The tutorial presented by \cite{Bianchi2007} is an in-depth study of fractional slot windings in general. In their tutorial notes a distinction is made between overlapping and non-overlapping windings. Here too the non-overlapping type is derived from a double layer overlapping winding. 
+
+\section{Tendencies in machine analysis}
+When analysing permanent magnet electrical machines it is not necessary to start from scratch. Since the induction machine has been known for more than \num{100} years the developed methods serve as a good basis. A well-known book on induction machines is \textit{Die Asynchronmaschine} (commonly known as the induction machine) by \cite{Nuernerg1952}. The book gives a very detailed description of modeling techniques which can be used in the design of induction machines (which is of course not limited to induction machines only). 
+
+\subsection{Introductory remarks}
+It is important to mention that \cite{Nuernerg1952} uses equivalent $B(H)$ curves for the calculation of the mmf's in the teeth and yoke. This is not wrong and indeed helps to understand the physical behaviour of the machine. However, the curves evolved over many years and are based on measured results and are only valid for steady-state operation. 
+
+Fig.~\ref{fig:f_comp_teeth} illustrates the principle of leakage compensation (German: ``Zahnentlastung''). Due to saturation, flux lines leave the teeth tips and are parallel to the slot wall. This means that the flux density in the stator teeth decreases. Since the single layer non-overlapping winding could have a variable coil pitch the stator has two tooth types. The validity of the compensation curves given by \cite{Nuernerg1952} and applied to machines with different stator slots was not investigated and could be a very interesting topic for further study. The approach in the present dissertation is to use the finite element method, which calculates the exact flux densities by means of a physical model.
+\begin{figure}[htbp]
+	\centering
+		\input{figs/ch2/f_comp_teeth.tex}
+	\caption{Leakage compensation in the stator teeth}
+	\label{fig:f_comp_teeth}
+\end{figure}
+
+\subsection{The finite element method as a design tool}
+From most recent conference contributions there is a noticeable tendency to use numerical methods like the finite element method in the initial design phase. \cite{Germishuizen2007} proposed a new calculation method for calculating the machine performance from flux linkage and torque functions. These functions are obtained from a finite element analysis (FEA). 
+
+\cite{Center2008} introduced a software tool for the design of high-speed induction machines. For such machines the loss calculation and the influence of the material properties are very important. Therefore, to account for these aspects the finite element method is combined with analytical expressions. \cite{Hafner2008} suggested a similar design strategy for the same reasons.
+
+\cite{reichert_2_2004} explains a simplified approach to determine machine characteristics by means of the finite element method. In doing so the non-linear material behaviour is accounted for and is still fast and accurate. \cite{Garbe2008} also combines FEM and analytical expressions to calculate motor parameters.
+
+\subsection{The influence of saturation on transient solutions}
+\cite{seifert_1989} showed that the use of induction motor parameters calculated in the classical way leads to inaccurate predictions of machine behaviour under fault conditions such as terminal short circuits. Experienced based factors were introduced to account for the lack of accuracy. Again, this is an example of a situation where results must be known in order to obtain useful saturation factors.
+
+Besides the saturation of the materials used the modeling thereof is also essential for machine behaviour. The material behaviour up to saturation is explained in section \ref{sec:mat_properties} and, where applicable, referenced to the literature. \cite{ponick_1993} showed that neglecting the effect of saturation in transient solutions can lead to inaccurate results. It is suggested that not only the inductances influenced by saturation, but the change in current as well, should be taken into account. Avoiding saturation could result in undersizing of critical mechanical components. Depending on the machine application, undersized mechanical parts can become a safety problem, for example in traction drives for rail vehicles.
+
+\cite{retiere_1998} offered study methods of three-phase short circuits of induction machines. The reverse peak torque during a short circuit can cause serious mechanical stress. The authors show that for induction machines the saturation and the skin effect in the rotor bars should be accounted for in the calculation of the reverse peak torque and that it is necessary to take into account the saturation effects. \cite{Brauer2004a} compared the dynamic short circuits of induction machines (IM) to that of permanent magnet synchronous machines (PMSM). An important outcome of their study is that in the case of the two-phase short circuit a PMSM starts to oscillate and continues to do so until it is isolated from the inverter. It is also emphasised that these fault conditions should be calculated using FEM. \cite{Eichler2008} also describes that linear machine models cannot be used to simulate wind generators in the \SI{5}{MW} range.    
+
+There is a lack of experience in the development of permanent magnet machines compared to induction machines. This means that the use of for example compensation curves to account for saturation should be avoided, since it might lead to inaccurate design calculations. Furthermore, it should be noticed that such compensation curves were developed also due to the lack of computation technology. At present the latter is no problem anymore and the use of state of the art technology is advisable for accurate predictions. This is even more important as prototyping (and measurements to find compensation factors) is to be kept to a minimum for economic reasons.  
+
+\subsection{Present approaches in iron loss calculation}
+The huge number of scientific contributions found on iron loss calculations emphasises the complexity of iron losses. Two aspects that definitely contribute to this fact is that the material data cannot be described analytically and is usually presented in graphical form. Secondly, the influence of the manufacturing process is difficult to account for. 
+
+It is important to mention that a good approximation of the specific loss is found in \cite{Nuernerg1952}. Here the specific loss of one kilogram of deburred laminated steel in \SI{}{W} is given by
+\begin{equation}
+  \label{eqn:pfe_1}
+  p_{Fe}= \left(k_h \frac{f}{50}+k_c%
+  \left(\frac{f}{50}\right)^2\right)\left(\frac{B}{\SI{1}{T}} \right)^2
+\end{equation} 
+The coefficients $k_h$ and $k_c$ account for the hysteresis and classical eddy current losses respectively. Since the frequency in the stator is constant for a given operating point it is convenient to separate the frequency and flux density components of the loss as in \eqref{eqn:pfe_1}. In Nürnberg's book it is also mentioned that the iron loss calculated in this way is less than the measured loss using the Epstein\footnote{In \cite{Nuernerg1952} the Epstein frame is wrongly spelt Eppstein  (which is a small town in Germany not far from Frankfurt am Main).} frame. To account for this inaccuracy it is suggested to multiply the calculated iron loss in the yoke and teeth by \num{1.5} and \num{3} respectively. This holds for stator slots which is semi-closed. For open stator slots the loss in the teeth tends to increase even further. Due to this uncertainty it is understandable that \cite{Nuernerg1952} advised the following\footnote{English: Due to the uncertainty in the iron loss calculation a detailed discussion is not given.}: ``Wegen der erheblichen Unsicherheit bei der Eisenverlustberechnung gehe man aber nicht in die Feinheiten.'' This shows the limits of empirical models before techniques like the finite element method were introduced. 
+
+\cite{bertotti_1988} introduced what is called the excess loss and thereby expanded the analytical expression for specific loss by a $k_e (fB)^{1.5}$ term. Thus, \eqref{eqn:pfe_1} changes to    
+\begin{equation}
+  \label{eqn:pfe_2}
+  p_{Fe}= \left(k_h f +k_c f^2 \right) B^2 + k_e (fB)^{1.5}
+\end{equation} 
+\cite{lin_2004} used the expression \eqref{eqn:pfe_2} in a transient finite element analysis. The advantage in doing so is that the actual flux densities are directly obtained from the finite element solution. \cite{Germishuizen2008} showed that the loss calculation in \eqref{eqn:pfe_2} is only a theoretical loss estimation based on extrapolated data obtained from results measured in the Epstein frame. Instead of using different factors for the yoke and teeth to account for the manufacturing influence, a single manufacturing factor should be applied to the overall result. For machines in the \SI{200}{kW} range a manufacturing factor of two is found to be adequate. Another outcome of this paper is that inadequate loss computations could easily lead to misinterpretation of results. 
+
+\section[A short excursion]{A short excursion into the life of one of the authors consulted}\label{sec:excursion}
+At this point I would like to make a short excursion and report a very interesting incidence for the following reasons:
+\begin{itemize*}
+	\item Nearly none of the references consulted took note of Vil\'em Kl\'ima's~%
+	closed expression for the calculation of the distribution factor.
+	\item Vil\'em Kl\'ima's life story is an inspiration for young researchers.
+	\item Published research about the intellectual life of the Jewish elite in the~%
+	ghetto Theresienstadt led me to this discovery.
+\end{itemize*}
+If one takes a closer look at the references listed in the last paper by  \cite{Klima1979}, there is an entry entitled \textit{Systematik der Drehstromwicklungen} and the author is given as V.~Kl\'ima (Kauders). To supply a name between brackets is not typical, and this occurrence made me suspicious, since the only paper I could find with this title is written by Wilhelm Kauders. As I could not explain the enigma, I started to ask questions and never expected to find answers about tragic events that occurred during the Second World War. Since I grew up in South Africa which, compared to other countries, was little effected by the war, this discovery made the experience extraordinary.    
+
+\subsection{Coming across a very interesting source}
+Nowadays it is typical to use the well-known Google search engine. Trying a few combinations of the names Kauders and Kl\'ima, I came across a list of lecturers in the ghetto of Terezin (Theresienstadt). The entry details for Kauders are given in Tab.~\ref{tab:EntryDetailsForKauders}.
+\begin{table}[htbp]
+	\caption{Kl\'ima's entry in the list of lecturers in the ghetto Theresienstadt}
+	\label{tab:EntryDetailsForKauders}
+	\centering
+	\begin{tabular}{p{4.5cm}@{\hspace{22mm}}p{5.5cm}}
+		\toprule
+		Name and Title        & Kauders (Klima) (Vilem) Dr. \\\midrule
+    Birth Date            & 10.04.1906                  \\\midrule
+    Deported to Terezin   & 04.12.41                    \\\midrule 
+    Deported from 	      & Prague \\\midrule
+    Deported from Terezin & 01.11.44\\\midrule
+    Survived in           & Grossrosen\\
+    \bottomrule
+	\end{tabular}
+\end{table}
+ 
+This led me to the book \textit{University Over The Abyss: The story behind 520 lecturers and 2,430 lectures in KZ Theresienstadt 1942-1944} by \cite{Makarova2004}. A very interesting detail from the book is that Dr.~Goldschmied and Dr.~Kauders were secretly taken to Germany to improve the performance of German radar\footnote{According to Ivan Kl\'ima (Kl\'ima's son), Vil\'em Kl\'ima was sent together with two other specialists: Mr. Goldschmied and Mr. Kohn to the concentration camp in Grossrosen. Mr.~Goldschmied and Kl\'ima stayed only for a few weeks in Grossrosen. As a result of the evacuation of the camp both of them were sent to KZ Sachsenhausen.}. A witness, Gerda Haas, remembered the following: 
+\begin{quote}
+``\textit{One day, the two were ordered to prepare themselves to leave Terezin. Their suitcases must have been cleaned of any signs and numbers, yellow stars were torn off. They were told that they would be employed for a large industrial concern in Germany. Their dependents stayed in Terezin. Soon, Kauders sent a postcard saying that he was in the [concentration camp] Rosenberg (or -burg), where he was freezing terribly and where he worked on his books all day.}''
+\end{quote} 
+
+The first book by Kl\'ima entitled \textit{Trojf\'azov\'e komut\'atorov\'e deriva\`en\'i motory: jejich teorie a praxe} was published in 1962. Then in 1975, together with H.~Jordan and K.P.~Kov\'acs, Vil\'em Kl\'ima published a book on induction machines entitled \textit{Asynchronmaschinen}. 
+
+Through information supplied in the preface of the book published in 1975, I realised that Kl\'ima must have had contact with the University of Hanover, Germany. In this way I made contact with Prof.~Hans Otto Seinsch at the same university who kindly provided me with details on Kl\'ima and even gave me the contact details of one of Kl\'ima's students, Prof.~Zden\u{e}k \v{C}e\v{r}ovsk\'y. Since Prof.~\v{C}e\v{r}ovsk\'y was not only a student of Kl\'ima, but also a friend, I managed to contact Kl\'ima's son, Ivan Kl\'ima. 
+
+An obituary in German was written by \cite{Frohne1985} and one in Czech by \cite{Cevrovsky1986}.
+
+\subsection{A short biography of Vil\'em Kl\'ima}
+Vil\'em Kl\'ima finished his studies with distinction in 1928 at the German technical University in Prague. He then started to work for the company \v{C}eskomoravsk\'a-Kolben-Dan\v{e}k (\v{C}KD) in Prague. In 1932 Vil\'em Kl\'ima received his \textit{Dr.-Ing.} for his dissertation entitled \textit{Systematik der Drehstromwicklungen}.
+
+After the Munich Agreement in September 1938 the Czech boundary territory was occupied by the German army and later in March 1939 the whole of Czechoslovakia was occupied. Then, in November 1941, Vil\'em Kl\'ima was ordered to leave for the concentration camp at Terezin, which was a holding camp for Jews from central and southern Europe, and was regularly cleared of its overcrowded population by transports to death camps such as Auschwitz. During April 1944 Vil\'em Kl\'ima survived the so-called death march (a miracle at that time). Because of the hated German occupations of Czechoslovakia, Kl\'ima changed his name from Wilhelm Kauders to Vil\'em Kl\'ima. At the time it was a frequent decision of Czech families with German names to change their names to Czech-sounding names.  
+
+After the war Kl\'ima started a research centre, \textit{Centre for Electric Machines}, in Brno where he was the first director until 1951. In 1958 Kl\'ima was awarded the title of ``Dr.Scientium technicarum'' for his thesis entitled \textit{Theorie der Selbstserregung von Drehstromnebenschluß-kommutatormotoren mit Kondensatoren im Läuferkreis und ihre Verhütung}. Until his retirement in 1973 he was part of the research centre in B\v{e}chovice near Prague. Vil\'em Kl\'ima died on 6 October 1985 in Prague.  
+
+Taking note of the difficult circumstances Kl\'ima encountered during his life, any researcher in the field of electrical engineering can indeed feel inspired.         
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.55\textwidth]{figs/ch2/Kauders.eps}\\
+		\vspace{2cm}
+		\includegraphics[width=0.55\textwidth]{figs/ch2/Kauders_b.eps}
+	\caption{Vil\'em Kl\'ima, 10.04.1906-06.10.1985}
+	\label{fig:Kauders}
+\end{figure}
+
+
+\endinput

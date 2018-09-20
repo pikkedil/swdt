@@ -1,0 +1,58 @@
+\chapter{Conclusions and recommendations}\label{chap:ConlusionsRecommendations}
+This chapter contains the conclusions for the analysis of interior permanent magnets motors with non-overlapping stator windings. Thereafter recommendations for further studies are offered.
+
+\section{Introductory remarks}
+When designing interior permanent magnet machines with single layer non-overlapping windings, it will be necessary at some stage to deal with the stator winding. This could be during the mechanical construction in the mechanical design or the rotating mmf in the electrical design. In either case some technical difficulties must be overcome. Even if the mechanical realisation is neglected and the focus is kept on the electrical design, stator windings are a very interesting subject but also very complex. 
+
+\section{Answering the research sub-questions}
+This section presents the answers to the research sub-questions.
+ 
+\subsection[What is the mathematical expression to allocate the stator slots?]{What is the mathematical expression to allocate the stator slots belonging to a phase belt?}
+The first research sub-question dealt with the systematics to allocate the slots that belong to a phase belt. Then, after doing this, the concentrated coils can be inserted in the appropriate slots. It is important to mention that a proper definition of the phase belt is essential in the first step of a winding design.
+
+The answer to this question is given in chapter \ref{chap:DesignWindings}. In order to answer this question the single $N_t$-turn coil theory was presented to define the mmf envelope functions. The mmf envelope functions are a necessity to define phase belts. It is concluded that the mathematical expression to allocate the slots is given by the phase belt constraint, which is derived from the mmf envelope functions. This constraint allows a designer to allocate the stator slots for the coil sides of non-overlapping concentrated windings.   
+
+\subsection{How can a winding layout be represented in a compact form?}
+This second research sub-question is concerned with how the winding layout can be presented. Especially when using the finite element method as a design tool, the entry of the winding can be a very time-consuming process. A compact representation of the winding would simplify this process and thereby minimise errors, which is desirable in an everyday design environment.
+
+The question is answered in chapter \ref{chap:DesignWindings}. The winding matrix is presented. For both the ingoing and outgoing coil sides the matrices $\mathbf{M_1}$ and $\mathbf{M_2}$ are defined respectively. It is concluded that the winding can be represented in a compact form by means of the winding matrix. The winding matrix allows the designer to easily calculate the current sheet anti-node and the magnetic axes. These are necessary to describe the machine operating point. Furthermore, the winding matrix can be used to calculate the slot mmf.  
+
+\section{Answering the main research question}
+\begin{minipage}{\textwidth}
+\vspace{12pt}
+\textbf{How can an analysis method be described to accurately calculate the performance of interior permanent magnets motors with non-overlapping windings in an everyday design environment?}
+\vspace{12pt}
+\end{minipage}
+Accurate, fast and inexpensive engineering tools are required to predict machine performance. In addition, the design tools should be able to integrate in an existing  everyday design environment. 
+
+Chapter \ref{chap:design} showed that the machine's physics can be described by the three two-dimensional functions $T(i_d,i_q)$, $\psi_d(i_d,i_q)$ and $\psi_q(i_d,i_q)$. Using two-dimensional interpolating functions in conjunction with analytical expression for the losses, the machine performance can be calculated for any operating point. The solution domain presented is calculated using FEM and the necessary procedures and methods are explained in chapter \ref{chap:NonlinearAnalysis}. 
+
+The accuracy of the method was verified by means of a prototype traction machine. From the results it is concluded that the three two-dimensional functions can be used to accurately calculate the performance of permanent magnet machines in an everyday design environment. The developed analysis is based on real physical two-dimensional machine models. In doing so the number of empirical expressions are kept to a minimum. Although there is a variety of materials and different topologies associated with interior permanent magnets machines, it is yet not well known. Therefore, the results of the proposed analysis method is superior to the well established induction machine analytical theory. 
+
+The unique contributions of the present dissertation are summarised as follows:
+\begin{itemize}
+	\item the performance calculation method;
+	\item an expression that defines a phase belt; and
+	\item the winding matrices from which important machine properties can be calculated.
+\end{itemize}
+    
+
+\section{Recommendations for further research}
+The proposed model and the verification thereof in this thesis defined a framework in which the performance of permanent magnet machines can be accurately calculated in an everyday design environment. It provides detailed information on all the terminal quantities. In addition, the designer has all the internal data of the machine. Even though the objective of this thesis has been met, considerable scope for further work has been exposed. 
+
+Based on the results obtained in the proposed procedure to calculate the machine performance, the following are recommended:
+\begin{itemize}
+	\item The focus in the present dissertation was the terminal quantities and the~%
+	copper loss. As a next step, similar to the flux linkages, the flux densities in~%
+	the stator teeth and yoke should be calculated as two-dimensional functions. In~%
+	doing so the iron loss for a given frequency can be approximated based on FEA~%
+	calculated flux densities.
+	\item Besides the stator iron loss issue, detailed work needs to be done to~%
+	determine the machine's rotor losses. The stator slotting causes iron loss and~%
+	eddy current loss in the permanent magnets. Based on the physical quantities~%
+	developed in the present dissertation, the methods can easily be extended to~%
+	investigate the effect of the air gap mmf harmonics on the eddy current loss in~%
+	the permanent magnets. 
+\end{itemize}
+
+\endinput

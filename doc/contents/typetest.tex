@@ -1,0 +1,182 @@
+\chapter{Type test}
+In diesem Abschnitt wird die Typprüfung bei der Inbetriebnahme des Generators dargestellt. Als
+Literatur für diesen Abschnitt dienen [29] und [33]. Aufgrund der Geometrie - Außendurchmesser
+von ca. 6m - ist es mit sehr viel Aufwand verbunden, einen Direct Drive Windgenerator im Prüffeld
+zu untersuchen. Dennoch müssen bei der Inbetriebnahme des Windgenerators diese Untersuchungen
+durchgeführt werden. In der folgenden Übersicht werden die Messungen und Untersuchungen
+angegeben, die bei der Typprüfung notwendig sind. Dabei ist sehr wichtig, dass die chronologische
+Reihenfolge genau eingehalten wird:
+\begin{itemize}
+\item Bohrungsfeldmessung
+\item Leerlaufmessung
+\item Kurzschlussmessung
+\item Leerlaufmessung - Prüfen auf Entmagnetisierung der Permanentmagnete
+\end{itemize}
+Im Folgenden werden die einzelnen Komponenten der Typprüfung genauer erläutert. Es ist an
+dieser Stelle noch anzumerken, dass bei diesen Untersuchungen nur die Eigenschaften der Maschine
+überprüft werden. Der Umrichter wird bei diesen Messungen nicht benötigt.
+
+\section{Bohrungsfeldmessung}
+Die Bohrungsfeldmessung ist in erster Linie dadurch gekennzeichnet, dass dabei nur der Stator
+betrachtet wird - der Rotor ist hier nicht vorhanden. Die Bohrungsfeldmessung besteht aus zwei
+verschiedenen Messungen:
+\begin{description}
+\item Ermittlung der Stromverdrängung Die erste Messung zielt darauf ab, den Stromverdrängungsfaktor
+zu bestimmen. Dazu wird in den Stator ein konstanter Strom eingeprägt. Für diesen Strom
+wird bei unterschiedlichen Frequenzen die Leistung gemessen. Es ist hier zu beachten, dass
+sich die gemessene Leistung hauptsächlich aus den Kupferverlusten zusammensetzt. Das Blechpaket
+„sieht“ bei dieser Messung nur einen geringen Fluss, der sich zeitlich ändert. Dadurch
+können die Eisenverluste in der Maschine vernachlässigt werden.Wird nun die Frequenz erhöht
+- Strom bleibt konstant - so kann aus der Änderung der Verluste der Stromverdrängungsfaktor
+kR(f) bestimmt werden.
+\item Ermittlung der Zusatzverluste Mit der zweiten Messung werden die Zusatzverluste in der Maschine
+bestimmt. Dazu wird der Strom bei konstanter Frequenz variiert. Auch bei dieser Messung
+wird wieder die Leistung gemessen. Diese besteht erneut fast ausschließlich aus den Kupferverlusten.
+Da bei der ersten Messung bei einer bestimmten Frequenz der Stromverdrängungsfaktor
+bereits bestimmt wurde, können mit dieser Messung die Zusatzverluste angegeben werden.
+Von der gemessenen Leistung werden die Kupferverluste, die bereits bei der ersten Messung
+mit dem entsprechenden Strom und Frequenz bestimmt wurden, abgezogen. Die restlichen
+Verluste in der Maschine sind die Zusatzverluste.
+\end{description}
+
+Es sei hier nochmals erwähnt, dass bei der Bohrungsfeldmessung zuerst die Stromverdrängung und
+anschließend die Zusatzverluste der Maschine bestimmt werden müssen.
+
+\section{Leerlaufmessung}
+Die Leerlaufmessung ist eine sehr wichtige Untersuchung bei der Typprüfung. Daraus können wichtige
+Informationen über das Betriebsverhalten der Maschine gewonnen werden. Die Leerlaufmessung
+ist durch zwei Aspekte gekennzeichnet:
+• I1 = 0 - offene Klemmen; und
+• Die Maschine wird extern angetrieben
+Es wird zuerst an den Klemmen für jede Drehzahl die Spannung gemessen. Außerdem wird über
+eine Drehmomentmesswelle das Drehmoment der Maschine bestimmt. Aus der Spannungsmessung
+kann die Leerlaufkennlinie der Maschine ermittelt werden. Durch die Messung des Drehmoments
+kann mit dem Zusammenhang
+PMessung = 2? n MMesswelle (A.3)
+die Leistung bestimmt werden. Da der Strom I1 bei der Leerlaufmessung gleich null ist, setzen
+sich die Verluste hauptsächlich aus den Reibungsverlusten und den Eisenverlusten zusammen. Aus
+diesem Grund können über die berechnete Leistung PMessung diese beiden Verlustkomponenten bestimmt
+werden. Es ist allerdings zu erwähnen, dass die beiden Bestandteile nicht oder nur schwierig
+voneinander getrennt werden können. Darum kann bei der Leerlaufmessung nur die Summe der
+beiden Verlustkomponenten bestimmt werden. Es muss also auf die berechneten Eisenverluste bei
+der Auslegung der Maschine vertraut werden, um nur die Reibungsverluste bestimmen zu können.
+Mit der Leerlaufmessung kann noch eine zusätzliche Information über die Maschine gewonnen werden.
+Dazu wird auf die Gleichung (3.98) verwiesen. Mit der Spannung und der Drehzahl kann der
+Magnetfluss 	PM bestimmt werden.
+
+\section{Kurzschlussmessung}
+Diese Prüfung ist ebenfalls sehr wichtig bei der Inbetriebnahme einer permanenterregten Maschine.
+Zunächst wird angegeben, wodurch die Kurzschlussmessung gekennzeichnet ist:
+• U1 = 0 - kurzgeschlossene Klemmen; und
+• Die Maschine wird extern angetrieben
+Die Maschine wird zunächst auf die Nenndrehzahl beschleunigt. Anschließend werden über einen
+Schalter die Klemmen der Maschine kurzgeschlossen. Bei dieser Messung ist es erforderlich, die auftretenden
+Spannungen und Ströme mit Hilfe eines Oszillographen zu messen. Daraus können zum
+einen der Schaltzeitpunkt und zum anderen der maximal auftretende Strom bestimmt werden. Im
+Abschnitt 3.8 wurde ausgesagt, dass der schlimmste Fall eines Kurzschlusses im Spannungsnulldurchgang
+der Phasenspannung vorliegt. Mit dem Verlauf von Strom und Spannung am Oszilloskop kann
+bestimmt werden, wann der Kurzschluss erfolgt ist. Gegebenenfalls muss dieser Versuch mehrmals
+wiederholt werden, um diesen „worst case“ zu erhalten. Des Weiteren wird auch bei dieser Messung
+das Drehmoment mit einer Messwelle bestimmt. Dabei ist zu beachten, dass der Kurzschluss erst
+dann eintreten darf, wenn das Moment bereits unter die Belastbarkeit der Messwelle gesunken ist
+- Vergleiche dazu die Abbildung 3.22(b). Da bei der Kurzschlussmessung die Ströme mit dem Oszilloskop
+sehr genau bestimmt werden können, kann daraus auch der Dauerkurzschlussstrom ˆIkd
+bestimmt werden. Daraus kann mit Hilfe der Gleichung (3.123) auf die Induktivität Ld geschlossen
+werden.
+
+\section{Leerlaufmessung - Prüfen auf Entmagnetisierung}
+Wie zu Beginn dieses Abschnitts wurde bereits erwähnt, dass die Leerlaufmessung zweimal durchgeführt
+werden muss. Der Grund hierfür ist, dass bei der vorangegangenen Kurzschlussmessung die
+Magnete sehr stark beansprucht werden. Da bei der Auslegung der Maschine darauf geachtet werden
+muss, dass es bei einem dreipoligen Klemmenkurzschluss zu keiner bleibenden Entmagnetisierung
+kommt, muss dies nun geprüft werden. Dazu wird nochmals die Leerlaufmessung durchgeführt. Es
+wird also die Spannung bei jeder Drehzahl gemessen und der Verlauf wird mit den Ergebnissen aus
+Abschnitt A.4.2 verglichen. Ist zwischen den Ergebnissen keine Abweichung zu erkennen, so haben
+die Magnete den Kurzschlussversuch ohne eine irreversible Entmagnetisierung überstanden. Auch
+hier kann nochmals der Magnetfluss 	PM bestimmt und mit dem Ergebnis aus Abschnitt A.4.2
+verglichen werden.
+
+\section{Zusammenfassung}
+In diesem Unterabschnitt werden die Schritte bei der Typprüfung in der Tabelle A.3 zusammengefasst.
+Es ist hier nochmals zu erwähnen, dass die Reihenfolge bei der Prüfung genau eingehalten
+werden muss:
+\begin{table}
+\centering
+\caption{Zusammenfassung der Typprüfung}
+\begin{tabular}{cccc}
+\hline
+\multicolumn{4}{|c|}{Zusammenfassung der Typprüfung}  \\
+\hline
+Bezeichnung & Messung & Durchführung   & Ergebnisse   \\
+\hline
+\multirow{2}{*}{Bohrungsfeldmessung}   &
+  \multirow{2}{*}{Leistung P}          &
+  I = const. ; f variieren             &
+  Stromverdrängung kR(f)                              \\
+&&
+  f = const. ; I variieren             &
+  Zusatzverluste PZu                                  \\
+\hline
+\multirow{4}{*}{Leerlaufmessung}       &
+                                       &
+  \multirow{4}{*}{I = 0 ; n variieren} &
+  Leerlaufkennlinie U(n)                              \\
+&
+  Leistung P                           &
+                                       &
+  Summe: Eisenverluste PFe                            \\
+&
+  Drehmoment M                         &
+                                       &
+  und Reibungsverluste PReib                          \\
+&
+                                       &
+                                       &
+  Magnetfluss 	PM                                    \\
+\hline
+\multirow{3}{*}{Kurzschlussmessung}    &
+  Drehmoment M                         &
+  \multirow{3}{*}{U = 0 ; n = nN}      &
+  Kurzschlussstrom Ik                                 \\
+&
+  Spannung U                           &
+                                       &
+  Kurzschlussmoment Mk                                \\
+&
+  Strom I                              &
+                                       &
+  Induktivität Ld                                     \\
+\hline  
+Leerlaufmessung                        &
+  Drehmoment M                         &
+  \multirow{3}{*}{I = 0 ; n variieren} &
+  Leerlaufkennlinie U(n)                             \\
+Prüfen auf bleibende                   &
+  Spannung U                           &
+                                       &
+  Magnetfluss 	PM                                   \\
+Entmagnetisierung                      &
+                                       &
+                                       &
+                                                     \\
+\hline                                                    
+\end{tabular}
+\end{table}
+  
+
+
+
+ 
+
+
+I = 0 ; n variieren
+ 
+Wie zu Beginn dieses Abschnittes erwähnt, kann ein Direct Drive Windgenerator dieser Größe
+nicht in einem Prüfstand getestet werden. Aus diesem Grund wird die Typprüfung erst vor Ort,
+also nach der Installation der Anlage durchgeführt. Dies ist mit einigen Schwierigkeiten verbunden.
+Zum einen müssen die Messgeräte auf den Turm transportiert werden. Zum anderen kann dieser
+Generator nicht extern von einer Maschine angetrieben werden. Aus diesem Grund muss dazu die
+Turbine durch den Wind in Bewegung gesetzt werden. Es ist aber abschließend zu sagen, dass die
+Typprüfung enorm wichtig ist, da aus den Messergebnissen viele Informationen über die Maschine zu
+erhalten sind. Des Weiteren können damit auch die Ergebnisse der elektromagnetischen Auslegung
+überprüft werden.

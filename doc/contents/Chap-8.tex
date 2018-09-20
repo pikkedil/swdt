@@ -1,0 +1,191 @@
+\chapter{Cool stuff}
+
+In electrical machines the windings are spread over a number of slots around the air gap periphery. The individual coils are interconnected so that the result is a magnetic field having the same number of poles as the rotor. The source of the magnetic field is the product $Ni$. In magnetic circuit terminology this is called the magnetomotive force (mmf), has the symbol $F$ and has the unit ampere-turns, $At$. In this context, the word \textit{force} is used in a general sense of \textit{work potential}, and is analogous to, but distinct from mechanical force measured in newtons.
+
+Kauders (Klima) (Vilem) Dr.  	 10.04.1906  	 04.12.41  	 Prague  	 01.11.44  	 Grossrosen
+
+Vilém Klíma
+
+This allows for the calculation of the number of stator slots required by the basic winding. This is given as
+\begin{equation}\label{eqn:Nslots_basic} 
+{Q_b=}\begin{cases}
+	mq_{c_n}  &\text{for double layer}\\
+	2mq_{c_n} &\text{for single layer}.
+\end{cases}
+\end{equation} 
+Having all this one phase of the winding will have
+\begin{equation}
+	n_{seg}=\frac{Q_{c}}{q_{c_n}}
+\end{equation}
+segments. The segments could contain a larger number of repetitive parts symmetrical in respect to all $m$-phases. This is called the reduced number of pole pairs and equals the subharmonic with respect to the fundamental. It also is the lowest $mmf$ harmonic produced by the winding. The reduced number of pole pairs is given by
+\begin{equation}\label{eqn:Nslots_basic} 
+  p_r=\frac{n_c}{r} \hspace{15pt} \textnormal{where} \hspace{15pt} r=\begin{cases}
+  
+	m  & \text{$q_{c_d}$ even}\\
+	2m & \text{$q_{c_d}$ odd}.
+\end{cases}
+\end{equation} 
+
+\begin{table}
+  \centering
+	\begin{tabular}{llccc}
+	\toprule
+	$N_1  $    &slot number          &    $72$  &       $30$      & $30$ \\\midrule
+	$2p   $    &pole number          &    $16$  &       $20$      & $20$ \\\midrule
+	$Q_c   $   &coil number          &    $72$  &       $15$      & $30$ \\\midrule
+	$q_{s_r}$  &slots per phase belt &    $\frac{3}{2}$&$\frac{1}{2}$&
+	                                                        $\frac{1}{2}$\\\midrule
+	$q_{c_r}$  &coils per phase belt &    $\frac{3}{2}$&$\frac{1}{4}$&
+	                                                        $\frac{1}{2}$\\\midrule
+	$2q_{c_n}$ &coils sides per phase&    $6$   &       $2$       & $2$  \\\midrule
+	$q_{c_d}$  &number of poles      &    $2$   &       $4$       & $2$  \\\midrule
+	$N_b$      &basic winding slot number&$9$   &       $6$       & $3$  \\\midrule
+	$n_c$      &coil number per phase&    $24$  &       $15$      & $$   \\\midrule
+	$r$        &quotient             &    $3$   &       $3$          \\\midrule
+	$p_r$      &reduced pole number  &    $16$  &       $10$         \\\bottomrule
+	\end{tabular}
+	\caption{Example of winding characteristics}
+	\label{tab:wnd_char}
+\end{table}
+
+A method is presented in the paper to calculate the speed characteristic using torque and flux linkage functions which are calculated by means of a 2D finite element analysis. A similar method as used by \cite{stumberger_2003} is used to take into account the effect of saturation and cross-magnetisation. The paper describes a 20-pole, 150 kW direct traction IPM with a single layer non-overlapping concentrated winding with 30 stator slots.
+
+The use of a finite element transient solver offers very accurate results but the solution time required is insufficient for an everyday design environment. An analytical solution on the other hand is fast, but due to the motor nonlinearities the accuracy is not high enough. Especially in saturated machines the motor parameters depend on the operating point \cite{rahman_1996}, \cite{reichert_2_2004}. A compromise is to use a combination of the two methods. 
+
+ 
+For generating a rotating field it is necessary to produce at least two poles by arranging the $m$-phases. A rotating wave is obtained by displacing the positive coil sides\footnote{Typically the magnetic axis of the three phases are used in literature. For the explanation of how to obtain the distribution of the slot among the phase belts it is preferable to use the positive coil sides. The result is the same.} of the $m$-phases by $\frac{2\pi}{m}$ radians. When supplying the coils with three phase currents that is phase shifted by $\frac{2\pi}{m}$ radians three standing waves are produced. Decomposing the latter then results in a rotating wave. This is graphically shown in Fig. \ref{fig:rotating_wave}. With the positive coil side of phase $a$ in the $\frac{\pi}{2}$ the positive coils sides of phases $b$ and $c$ are at $-\frac{\pi}{3}$ and $\frac{7\pi}{6}$ respectively. For this two pole machine example the difference in the electrical and mechanical angle between the positive and negative\footnote{The positive and negative coil sides could equally be refer to as the ingoing and outgoing coil sides respectively.} coil sides is $\frac{\pi}{2}$. This displacements results in the sequence $a$, $-b$, $c$, $-a$, $b$ and $-c$. 
+to the coils the flux path at time $t=0$ will be as shown in Fig. \ref{fig:rotating_wave}(a) and the resultant flux is aligned with the magnetic axis of phase $a$. As time increases the position of maximum mmf along the air gap periphery will move to $-b$ as shown in Fig. \ref{fig:rotating_wave}(b).
+
+\section{Background to the study} 
+In order to replace the induction motor and gearbox with a direct drive a design engineer has a few options. From the above discussion it should be a combination of fast and accurate performance calculations, simple components and recent advances in material science. All of these aspects are the motivation for this study and are applied to a permanent magnet synchronous traction machine.    
+
+Comparing with surface mount magnets a rotor with interior permanent magnets is very attractive. This is because the magnets can be rectangular which implies simplified manufacturing compared to surface mount magnets and thus lower manufacturing costs. It also means that the magnets are well protected and a fibre-glass bandage is avoided.  The risk of demagnetisation of the permanent magnets is smaller \cite{salminen_2004_ICEM}.
+
+Finally a suitable tool that fulfil the requirements of an all day design environment is needed. In such a case it is desirable to avoid the direct use of for example finite element analysis (FEA). Whatever decision is made on how to implement such a tool, it should definitely be capable of being integrated into an already existing process.  
+
+As an example a prototype traction machine is designed, build and tested to verify the methods described in the thesis.  
+
+Single layer non-overlapping concentrated windings has an extra degree of freedom compared to the overlapping type. The coil pitch can be varied and thereby influence the machine performance. This will be the primary focus in the traction machine design presented in this chapter. However, where applicable the necessary comments on design decisions will be given.   
+
+It is important to keep in mind that many of the developed methods were aimed at induction machines operating with sinusoidal supply. 
+
+Quite often losses that can not be explained is categorised as stray load losses. A typical example is given by \cite{Germishuizen2008}. Here an induction machine with 36 stator slots and 48 rotor slots was investigated. This is a slot combination that is not recommend by \cite{oberretl_1989} and initially did not succeeded as expected. A transient finite element analysis afterwards made it possible to explain the exact cause of the unexpected results. The redesign with was build and the test results then was as expected. Which would have been normally classified as iron loss was discovered to be rotor excess copper loss. Although in the initial design methods which have proofed to be reliable over the years was used, it still failed as shown by the initial test  results. This is a good example of well-established designs from trimmed methods. As long as a design stays within the experienced range accurate machine performance is guaranteed. Moving beyond these boundaries could be successful, but could also result in failure. 
+
+The use of a $m$-phase winding allows to produce a rotating magnetic field in the stationary part of an electrical machine which interacts with the rotating part. The key in the design of the stator winding is to assign each of the stator slots to an appropriate phase belt. There are different graphical techniques available to design a winding but the disadvantage is that it is time consuming. A more convenient method would be to have a function that uniquely describes the conditions for assigning the stator slots to the different phase belts. 
+
+
+The winging factor can be calculated with or without the actual winding design. The latter implies however that it is only possible to compare the winding factors for different windings and not a FEA analysis for example. Therefore the approach used throughout this work is that of using the winding layout. This the windings can also be compared on a FEA basis.
+
+Electrical conductivity or specific conductivity is the reciprocal of electrical resistivity and has the SI units of siemens per metre (S·m-1) i.e. if the electrical conductance between opposite faces of a 1-metre cube of material is 1 Siemens then the material's electrical conductivity is 1 Siemens per metre. Electrical conductivity is commonly represented by the Greek letter $\sigma$. The resistivity has the symbol $\rho$ which is the same as that used for the material density.
+
+In the analysis of a two dimensional magnetostatic problem the vector field is represented in terms of a scalar function. Consider the net flux of the magnetic flux density through the surface enclosed by $C_1$. The length in the $z$-direction equals $l_{Fe}$. 
+
+\subsection{Air gap flux density}
+In oder to get the flux density in the air gap it is necessary to find the partial derivative of the vector potential. Since this operation requires differentiation the result depends on the number of elements or equivalently the interval. This step is avoided by first interpolating the vector potential on the stator bore diameter and then perform a discrete Fourier transform. This way the fundamental air gap flzux density is obtained without any distortion.   
+\begin{equation}
+  \nabla \times \mathbf{A} = \frac{1}{r} \frac{\partial A_z}{\partial \phi}  \quad \frac{\partial A_z}{\partial r}=0
+\end{equation}
+
+\begin{equation}
+  A_{\nu} = \sum_{n=1}^{N} A(\phi_n)
+\end{equation}
+
+\begin{equation}
+  \label{eqn:ui_pm}
+  U_i = \sqrt{2} \pi f_1 \xi_p N_s \left(\Phi+\Phi_m\right)
+\end{equation}
+
+The finite element model of the machine, that was optimised for minimum torque ripple and an improved winding factor, along with the flux lines with zero stator current, of the motor is shown in Fig. \ref{fig:fieldsol}. It is important to mention here that FEMP was used to calculate the flux linkage for different tooth widths. The advantage of FEMP is that the source code is available. As a consequence the data management from creating the model through to the calculation of the flux linkages and torque can be automated.  
+
+
+Using \eqref{eqn_Qb} the \emph{basic winding} has $Q_b=6$ stator slots from which one slot has to be assigned to a coil side of phase A. The return coil side will be in the same layer and is determined by $y_d$. From the denominator of \eqref{eqn_qc} the \emph{basic winding} represents 4 rotor poles and its parameters using \eqref{eqn_q}-\eqref{eqn_yd} are summarized in Tab. \ref{tab_basic_winding}.
+
+\begin{table}[h]
+	\centering
+		\begin{tabular}{cccccccccc}
+		 \hline
+		 $Q_{s}$ & $Q_{c}$ & $q$           & $q_{c}$       & $q_{cn}$ & $q_{cd}$ & $t$ & $Q_{b}$ & $y_{p}$ & $y_{d}$ \\
+		 \hline
+		 30      & 15      & $\frac{1}{2}$ & $\frac{1}{4}$ & 1        & 4        & 5       & 6  & $\frac{3}{2}$ &1    \\   
+		 \hline 		
+		\end{tabular}
+		\caption{Basic winding parameters for $Q_{s}=30$ and $p=10$.}
+		\label{tab_basic_winding}
+\end{table}
+
+\'o \`o \^o \=o \.o \u{o} \v{o}
+\H{o} \t{oo} \c{c} \d{o} \b{o}
+
+{\oe} {\OE} {\ae} {\AE} {\aa} {\AA}
+{\o} {\O} {\l} {\L
+
+Overlapping double layer windings have the two coil sides in the top and bottom part of the stator slot and non-overlapping double layer windings have the coil sides in the left and right side of the slot.
+
+Similarly a fractional slot winding could be either overlapping or non-overlapping. The term ``Overlapping fractional slot windings'' means that the coils have a coil pitch greater than one. Non-overlapping is always fractional. 
+
+The double layer winding is best suited for round-wire only.
+
+The  systematically describes the winding systematic and the methods to analyse machines with single layer non-overlapping windings. This of coarse is not limited to this machine type. 
+
+A very important requirement that must be fulfilled is that the $m$-phases of the winding must have a spatial displacement while the currents must be time delayed. In both cases the spatial displacement as well as the time delay are a function of the number of phases. 
+
+The product $\xi_p N_s \Phi$ is directly related to the winging design.
+
+ The derivation only takes into account the working harmonic. Higher order harmonics are commented where applicable.   
+ 
+ 
+\begin{tabular}{llcl}
+\toprule %
+Winding type  & Layer  &  Parallel paths & Constraint \\
+\toprule %
+\multirow{4}*{Integer slot} 
+& \multirow{2}*{Single} & $p$           & $q$  odd             \\\cmidrule{3-4}
+&                       & $2p$          & $q$  even            \\\cmidrule{2-4}  
+& \multirow{2}*{Double} & $\frac{p}{2}$ & $m$  phase belts     \\\cmidrule{3-4}
+&                       & $2p$          & $2m$ phase belts     \\\midrule        
+\multirow{4}*{Fractional slot} 
+& \multirow{2}*{Single} & $2t$          & $mod(Q_{b},4)=0$     \\\cmidrule{3-4}
+&                       & $t$           & $mod(Q_{b},4)\neq 0$ \\\cmidrule{2-4}    
+& \multirow{2}*{Double} & $2t$          & $Q_{b}$ even         \\\cmidrule{3-4}
+&                       & $p$           & $Q_{b}$ odd          \\\bottomrule
+\end{tabular}
+
+
+\begin{tabular}{llll}
+\toprule %
+\multirow{10}*{Fractional slot} 
+& \multirow{5}*{Single}
+  & $t=gcd\left(\frac{Q_s}{2},p\right)$      &                \\\cmidrule{3-4}
+& & $Q_b=\frac{Q_s}{t}$                      &                \\\cmidrule{3-4}
+& & $Y_k=\left(1+\frac{Q_b}{2}g\right)\frac{t}{p}$ &          \\\cmidrule{3-4}
+& & $q_1=q_2=\frac{Q_b}{4m}$                 & $mod(Q_b,4)=0$ \\\cmidrule{3-4}
+& & $q_1=\frac{\frac{Q_b}{2}+m}{2m},\ q_2=q_1-1$& $mod(Q_b,4)\neq 0$ \\\cmidrule{2-4} 
+& \multirow{5}*{Double}&$t=gcd\left(Q_s,p\right)$ &          \\\cmidrule{3-4}
+&& $Q_b=\frac{Q_s}{t}$                            &          \\\cmidrule{3-4}
+&& $Y_k=\left(1+Q_b g\right)\frac{t}{p}$ &                   \\\cmidrule{3-4} 
+&& $q_1=q_2=\frac{Q_b}{2m}$                 & $Q_b$ even     \\\cmidrule{3-4}
+&& $q_1=\frac{Q_b+m}{2m},\ q_2=q_1-1$       & $Q_b$ odd      \\\bottomrule
+\end{tabular}
+
+\begin{tabular}{llll}
+\toprule %
+\multirow{8}*{Fractional slot} 
+& \multirow{4}*{Single}
+&  $Q_b=\frac{Q_s}{gcd\left(Q_c,p\right)}$        &          \\\cmidrule{3-4}
+&& $Y_k=\left(1+\frac{Q_b}{2}g\right)\frac{t}{p}$ &          \\\cmidrule{3-4}
+&& $q_1=q_2=\frac{Q_b}{4m}$                 & $mod(Q_b,4)=0$ \\\cmidrule{3-4}
+&& $q_1=\frac{\frac{Q_b}{2}+m}{2m},\ q_2=q_1-1$& $mod(Q_b,4)\neq 0$ \\\cmidrule{2-4} 
+& \multirow{4}*{Double}
+&  $Q_b=\frac{Q_s}{gcd\left(Q_c,p\right)}$        &          \\\cmidrule{3-4}
+&& $Y_k=\left(1+Q_b g\right)\frac{t}{p}$ &                   \\\cmidrule{3-4} 
+&& $q_1=q_2=\frac{Q_b}{2m}$                 & $Q_b$ even     \\\cmidrule{3-4}
+&& $q_1=\frac{Q_b+m}{2m},\ q_2=q_1-1$       & $Q_b$ odd      \\\bottomrule
+\end{tabular}
+
+\begin{equation}
+	wh=mk
+\end{equation}
+and
+\begin{equation}
+	gcd(h,m)=1
+\end{equation}

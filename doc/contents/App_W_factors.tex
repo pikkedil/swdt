@@ -1,0 +1,51 @@
+\chapter{Kl\'ima's closed expression}\label{app:klima}
+\section{Introductory remarks}
+Until now, the literature that refers to Kl\'ima's closed expression is very limited. Authors that refer to the closed expression are \cite{Kremser1989} and \cite{brune_2003}. Additionally, they are all related to the university of Hanover where V\'ilem Kl\'ima regularly held lectures since 1964 as reported by \cite{Frohne1985}.  
+
+\section{Distribution factor}
+The distribution factor, as summerised by \cite{brune_2003} (in English), for all types of $m$-phase symmetrical fractional slot windings is given as
+\begin{equation}
+  \xi_{p}=
+  \begin{cases}
+  \cfrac
+  {
+   \sin\left(\frac{\pi}{Q_s}Y_kq_1\nu \right)-
+   e^{j\frac{\pi}{t}Y_k \nu}
+   \sin\left(\frac{\pi}{Q_s} Y_kq_2\nu\right)
+  }
+  {
+   \left(q_1+q_2\right)
+   \sin\left(\frac{\pi}{Q_s} Y_k\nu\right)
+  }
+  e^{j\frac{\pi}{Q_s}Y_k \left(q_1-1\right)\nu}
+  &
+  q_1\neq q_2\\
+  \cfrac
+  {
+   \sin\left(\frac{\pi}{Q_s}Y_kq_1\nu \right)
+  }
+  {
+   q_1 \sin\left(\frac{\pi}{Q_s} Y_k\nu\right)
+  }
+  &
+  q_1= q_2\\  
+  \end{cases}
+\end{equation}
+where 
+\begin{equation}
+  Y_k=\frac{gQ_s}{p}+\frac{Q_s}{Q_bp}
+  \quad
+  \begin{cases}
+  t = \mbox{gcd}(Q_s,p)\\
+  Q_b = \cfrac{Q_s}{t}\\
+  g=\mbox{smallest integer for which}\ Y_k \in \mathbb{N}\\
+  \end{cases}
+\end{equation}
+is the commutator pitch. The numbers $q_1$ and $q_2$ depend on whether $Q_b$ is even or odd and are calculated as follows:
+\begin{equation}
+  q_1=
+  \begin{cases}
+  q_2 = \cfrac{Q_b}{2m} & Q_b\ \mbox{even} \\
+  q_2+1 = \cfrac{Q_b+m}{2m} & Q_b\ \mbox{odd}\\
+  \end{cases}
+\end{equation}
