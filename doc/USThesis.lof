@@ -1,0 +1,108 @@
+\select@language {english}
+\select@language {afrikaans}
+\select@language {english}
+\addvspace {10pt}
+\addvspace {10pt}
+\select@language {afrikaans}
+\select@language {english}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Double layer overlapping and single layer non-overlapping windings\relax }}{4}{figure.caption.13}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Double and single layer non-overlapping windings\relax }}{5}{figure.caption.15}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Leakage compensation in the stator teeth\relax }}{11}{figure.caption.17}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Vil\'em Kl\'ima, 10.04.1906-06.10.1985\relax }}{16}{figure.caption.19}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Classification of symmetrical $m$-phase windings\relax }}{20}{figure.caption.21}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Spatial mmf distribution for a $N_t$-turn coil\relax }}{23}{figure.caption.23}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The fundamental spatial mmf distribution for a three-phase machine\relax }}{26}{figure.caption.24}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Rotation of the resultant mmf}}{26}{figure.caption.25}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Star of slots\relax }}{29}{figure.caption.26}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Flowchart to allocate the stator slots\relax }}{31}{figure.caption.27}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Non-overlapping single layer winding\relax }}{38}{figure.caption.31}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Winding layout}}}{38}{subfigure.7.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Slot mmf and winding factors}}}{38}{subfigure.7.2}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Non-overlapping double layer winding\relax }}{39}{figure.caption.32}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Winding layout}}}{39}{subfigure.8.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Slot mmf and winding factors}}}{39}{subfigure.8.2}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Single layer overlapping winding\relax }}{40}{figure.caption.33}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Single layer overlapping winding layout}}}{40}{subfigure.9.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Slot mmf and winding factors}}}{40}{subfigure.9.2}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Double layer overlapping winding\relax }}{42}{figure.caption.34}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Double layer overlapping winding layout}}}{42}{subfigure.10.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Slot mmf and winding factors}}}{42}{subfigure.10.2}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Determination of the winding axes\relax }}{43}{figure.caption.35}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Measurement setup to measure $J(H)$ for laminated steel\relax }}{46}{figure.caption.36}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces The measured data for M470P65A lamination steel\relax }}{47}{figure.caption.37}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Frequency dependency of $J(H)$}}}{47}{subfigure.2.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Specific loss}}}{47}{subfigure.2.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces The extrapolation of the $B(H)$ for M470P65A lamination steel\relax }}{48}{figure.caption.38}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Determination of coefficients $k_h$ and $k_c$\relax }}{50}{figure.caption.40}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Permanent magnet material properties\relax }}{51}{figure.caption.42}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Finite element model showing the different materials and boundary~conditions\relax }}{54}{figure.caption.44}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Contours $C_1$ and $C_2$ to calculate the flux linkage and inductance\relax }}{56}{figure.caption.45}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Definitions for energy calculation\relax }}{57}{figure.caption.46}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Saved permeability for a given operating point\relax }}{59}{figure.caption.47}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Torque as a function of the current angle\relax }}{60}{figure.caption.48}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Even and odd boundary conditions\relax }}{62}{figure.caption.49}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces $B_d$ and $B_q$ as two-dimensional functions\relax }}{64}{figure.caption.50}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$B_d$ as a function of $i_d$ and $i_q$}}}{64}{subfigure.12.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$B_q$ as a function of $i_d$ and $i_q$}}}{64}{subfigure.12.2}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Spatial harmonic analysis with $I_1 = 0$\relax }}{66}{figure.caption.51}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Air gap flux density without stator slots}}}{66}{subfigure.13.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Air gap flux density including the stator slots}}}{66}{subfigure.13.2}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Air gap harmonic analysis with $I_1\not =0$\relax }}{67}{figure.caption.52}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Spatial harmonic analysis with $i_d > 0$}}}{67}{subfigure.14.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Spatial harmonic analysis with $i_q > 0$}}}{67}{subfigure.14.2}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Traction machine torque speed characteristic\relax }}{71}{figure.caption.54}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Typical single and double layer winding layouts\relax }}{72}{figure.caption.55}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Geometrical machine parameters\relax }}{75}{figure.caption.59}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces End winding parameters\relax }}{76}{figure.caption.60}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Winding layout\relax }}{77}{figure.caption.61}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces No-load field solution using FEMP\relax }}{79}{figure.caption.63}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Tooth width as design parameter\relax }}{80}{figure.caption.64}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\psi _1$ as a function of tooth width}}}{80}{subfigure.7.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Cogging torque}}}{80}{subfigure.7.2}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Air gap flux density harmonics due to the magnets\relax }}{81}{figure.caption.65}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Staggered rotor\relax }}{82}{figure.caption.66}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Conductors located in a stator slot of an electrical machine\relax }}{84}{figure.caption.68}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Single and double layer overlapping windings}}}{84}{subfigure.10.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Single layer concentrated coil}}}{84}{subfigure.10.2}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Eddy currents in the permanent magnets\relax }}{88}{figure.caption.70}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Reduction factor for the permanent magnet's conductivity\relax }}{88}{figure.caption.71}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Design loop\relax }}{89}{figure.caption.72}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Existing process}}}{89}{subfigure.13.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Proposed process}}}{89}{subfigure.13.2}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Cross section of machine and vector diagram for $qd$-variables\relax }}{90}{figure.caption.73}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Steady-state $d$- and $q$-axes equivalent circuits\relax }}{92}{figure.caption.74}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Torque as a function of $i_d$ and $i_q$\relax }}{93}{figure.caption.75}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Two-dimensional flux linkage functions\relax }}{94}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\psi _d$ as a function of $i_d$ and $i_q$}}}{94}{subfigure.17.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\psi _q$ as a function of $i_d$ and $i_q$}}}{94}{subfigure.17.2}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Finding a valid operating point\relax }}{96}{figure.caption.77}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Prototype traction machine\relax }}{97}{figure.caption.78}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Measured and calculated no-load voltage at \SI {62.5}{Hz}\relax }}{99}{figure.caption.81}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Measured and calculated no-load losses\relax }}{100}{figure.caption.82}
+\contentsline {figure}{\numberline {5.22}{\ignorespaces No-load magnetising current at \SI {40}{Hz}\relax }}{100}{figure.caption.83}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Removed rotor test\relax }}{103}{figure.caption.85}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Measured input power with \SI {100}{A}}}}{103}{subfigure.23.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {FEA results for the removed rotor test}}}{103}{subfigure.23.2}
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Measured stator current for torque characteristic\relax }}{104}{figure.caption.87}
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Measured and calculated terminal voltage\relax }}{105}{figure.caption.88}
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Measured and calculated torque\relax }}{105}{figure.caption.89}
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Measured rotor temperature\relax }}{107}{figure.caption.91}
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Calculated results from Tab.~\ref {tab:FEACalculatedResults}~($U_p = \SI {337.8}{V}$)\relax }}{108}{figure.caption.93}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Winding factors and slot mmf for $Q_s=24$ and $p=8$\relax }}{115}{figure.caption.97}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Winding factors and slot mmf for $Q_s=24$ and $p=10$\relax }}{116}{figure.caption.98}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Winding factors and slot mmf for $Q_s=30$ and $p=13$\relax }}{116}{figure.caption.99}
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Winding factors and slot mmf for $Q_s=36$ and $p=12$\relax }}{117}{figure.caption.100}
+\contentsline {figure}{\numberline {B.5}{\ignorespaces Winding factors and slot mmf for $Q_s=36$ and $p=15$\relax }}{117}{figure.caption.101}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Finite element mesh with Air Gap Element\relax }}{119}{figure.caption.102}
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Vector potential solution with positive periodic boundary conditions\relax }}{122}{figure.caption.103}
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Torque ripple calculation using the AGE\relax }}{124}{figure.caption.104}

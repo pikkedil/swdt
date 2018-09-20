@@ -1,0 +1,175 @@
+\BOOKMARK [0][-]{section*.2}{Declaration}{}% 1
+\BOOKMARK [0][-]{section*.4}{Abstract}{}% 2
+\BOOKMARK [0][-]{section*.6}{Uittreksel}{}% 3
+\BOOKMARK [0][-]{chapter*.7}{Acknowledgements}{}% 4
+\BOOKMARK [0][-]{chapter*.8}{Dedications}{}% 5
+\BOOKMARK [0][-]{section*.9}{Contents}{}% 6
+\BOOKMARK [0][-]{section*.10}{List of Figures}{}% 7
+\BOOKMARK [0][-]{section*.11}{List of Tables}{}% 8
+\BOOKMARK [0][-]{chapter*.12}{Nomenclature}{}% 9
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 10
+\BOOKMARK [1][-]{section.1.1}{Background to the study}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.2}{Problem statement}{chapter.1}% 12
+\BOOKMARK [1][-]{section.1.3}{Overlapping and non-overlapping windings}{chapter.1}% 13
+\BOOKMARK [1][-]{section.1.4}{Approach to the problem}{chapter.1}% 14
+\BOOKMARK [1][-]{section.1.5}{Scientific contributions of this dissertation}{chapter.1}% 15
+\BOOKMARK [1][-]{section.1.6}{Delimitations of the study}{chapter.1}% 16
+\BOOKMARK [1][-]{section.1.7}{Layout of the dissertation}{chapter.1}% 17
+\BOOKMARK [1][-]{section.1.8}{Difficulties encountered during the study}{chapter.1}% 18
+\BOOKMARK [1][-]{section.1.9}{Notes to the reader}{chapter.1}% 19
+\BOOKMARK [0][-]{chapter.2}{Literature overview}{}% 20
+\BOOKMARK [1][-]{section.2.1}{A historical view of winding design}{chapter.2}% 21
+\BOOKMARK [1][-]{section.2.2}{Tendencies in machine analysis}{chapter.2}% 22
+\BOOKMARK [2][-]{subsection.2.2.1}{Introductory remarks}{section.2.2}% 23
+\BOOKMARK [2][-]{subsection.2.2.2}{The finite element method as a design tool}{section.2.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.3}{The influence of saturation on transient solutions}{section.2.2}% 25
+\BOOKMARK [2][-]{subsection.2.2.4}{Present approaches in iron loss calculation}{section.2.2}% 26
+\BOOKMARK [1][-]{section.2.3}{A short excursion}{chapter.2}% 27
+\BOOKMARK [2][-]{subsection.2.3.1}{Coming across a very interesting source}{section.2.3}% 28
+\BOOKMARK [2][-]{subsection.2.3.2}{A short biography of Vil\351m Kl\355ma}{section.2.3}% 29
+\BOOKMARK [0][-]{chapter.3}{Design and analysis of stator windings}{}% 30
+\BOOKMARK [1][-]{section.3.1}{Definition of the working harmonic}{chapter.3}% 31
+\BOOKMARK [1][-]{section.3.2}{Classification of symmetrical windings}{chapter.3}% 32
+\BOOKMARK [2][-]{subsection.3.2.1}{Slots and coils per pole and phase}{section.3.2}% 33
+\BOOKMARK [2][-]{subsection.3.2.2}{Average coil pitch}{section.3.2}% 34
+\BOOKMARK [2][-]{subsection.3.2.3}{Classification scheme}{section.3.2}% 35
+\BOOKMARK [1][-]{section.3.3}{Characteristics of symmetrical windings}{chapter.3}% 36
+\BOOKMARK [2][-]{subsection.3.3.1}{Basic winding}{section.3.3}% 37
+\BOOKMARK [2][-]{subsection.3.3.2}{Winding symmetry}{section.3.3}% 38
+\BOOKMARK [2][-]{subsection.3.3.3}{Reduced number of pole pairs}{section.3.3}% 39
+\BOOKMARK [1][-]{section.3.4}{Rotating mmf}{chapter.3}% 40
+\BOOKMARK [2][-]{subsection.3.4.1}{The mmf of a single turn coil}{section.3.4}% 41
+\BOOKMARK [2][-]{subsection.3.4.2}{The mmf of three single turn coils}{section.3.4}% 42
+\BOOKMARK [2][-]{subsection.3.4.3}{Definition of the mmf envelope functions}{section.3.4}% 43
+\BOOKMARK [2][-]{subsection.3.4.4}{Phase belt definition}{section.3.4}% 44
+\BOOKMARK [2][-]{subsection.3.4.5}{Higher order harmonics}{section.3.4}% 45
+\BOOKMARK [1][-]{section.3.5}{Matrix representation of a winding}{chapter.3}% 46
+\BOOKMARK [2][-]{subsection.3.5.1}{Slot vector}{section.3.5}% 47
+\BOOKMARK [2][-]{subsection.3.5.2}{Phase belt constraint}{section.3.5}% 48
+\BOOKMARK [2][-]{subsection.3.5.3}{Algorithm flowchart}{section.3.5}% 49
+\BOOKMARK [2][-]{subsection.3.5.4}{Matrix element assignment}{section.3.5}% 50
+\BOOKMARK [1][-]{section.3.6}{Properties of the winding matrix}{chapter.3}% 51
+\BOOKMARK [2][-]{subsection.3.6.1}{Winding factor}{section.3.6}% 52
+\BOOKMARK [2][-]{subsection.3.6.2}{Current sheet anti-node axis}{section.3.6}% 53
+\BOOKMARK [2][-]{subsection.3.6.3}{Magnetic axis}{section.3.6}% 54
+\BOOKMARK [2][-]{subsection.3.6.4}{Slot mmf}{section.3.6}% 55
+\BOOKMARK [1][-]{section.3.7}{Examples}{chapter.3}% 56
+\BOOKMARK [2][-]{subsection.3.7.1}{Winding factor table}{section.3.7}% 57
+\BOOKMARK [2][-]{subsection.3.7.2}{Slot mmf and current sheet}{section.3.7}% 58
+\BOOKMARK [3][-]{subsubsection.3.7.2.1}{Single layer non-overlapping}{subsection.3.7.2}% 59
+\BOOKMARK [3][-]{subsubsection.3.7.2.2}{Double layer non-overlapping}{subsection.3.7.2}% 60
+\BOOKMARK [3][-]{subsubsection.3.7.2.3}{Single layer overlapping}{subsection.3.7.2}% 61
+\BOOKMARK [3][-]{subsubsection.3.7.2.4}{Double layer overlapping}{subsection.3.7.2}% 62
+\BOOKMARK [1][-]{section.3.8}{Determination of the winding axes}{chapter.3}% 63
+\BOOKMARK [1][-]{section.3.9}{Summary}{chapter.3}% 64
+\BOOKMARK [0][-]{chapter.4}{Nonlinear magnetic circuit analysis}{}% 65
+\BOOKMARK [1][-]{section.4.1}{Introductory remarks}{chapter.4}% 66
+\BOOKMARK [1][-]{section.4.2}{Material properties}{chapter.4}% 67
+\BOOKMARK [2][-]{subsection.4.2.1}{Laminated steel}{section.4.2}% 68
+\BOOKMARK [3][-]{subsubsection.4.2.1.1}{Epstein frame measurements}{subsection.4.2.1}% 69
+\BOOKMARK [3][-]{subsubsection.4.2.1.2}{Extrapolation of the B\(H\) Curve}{subsection.4.2.1}% 70
+\BOOKMARK [3][-]{subsubsection.4.2.1.3}{Three-term core loss model}{subsection.4.2.1}% 71
+\BOOKMARK [3][-]{subsubsection.4.2.1.4}{Two-term core loss model}{subsection.4.2.1}% 72
+\BOOKMARK [3][-]{subsubsection.4.2.1.5}{Accounting for the stacking factor in 2D FEA}{subsection.4.2.1}% 73
+\BOOKMARK [2][-]{subsection.4.2.2}{Permanent magnets}{section.4.2}% 74
+\BOOKMARK [1][-]{section.4.3}{Nonlinear field solutions}{chapter.4}% 75
+\BOOKMARK [2][-]{subsection.4.3.1}{Magnetostatic fields}{section.4.3}% 76
+\BOOKMARK [3][-]{subsubsection.4.3.1.1}{Amp\350re's law}{subsection.4.3.1}% 77
+\BOOKMARK [3][-]{subsubsection.4.3.1.2}{Faraday's law}{subsection.4.3.1}% 78
+\BOOKMARK [2][-]{subsection.4.3.2}{Boundary setup and sources}{section.4.3}% 79
+\BOOKMARK [3][-]{subsubsection.4.3.2.1}{Dirichlet boundary conditions}{subsection.4.3.2}% 80
+\BOOKMARK [3][-]{subsubsection.4.3.2.2}{Periodic boundary conditions}{subsection.4.3.2}% 81
+\BOOKMARK [3][-]{subsubsection.4.3.2.3}{Current sources}{subsection.4.3.2}% 82
+\BOOKMARK [3][-]{subsubsection.4.3.2.4}{Voltage sources}{subsection.4.3.2}% 83
+\BOOKMARK [2][-]{subsection.4.3.3}{Flux linkage calculation}{section.4.3}% 84
+\BOOKMARK [2][-]{subsection.4.3.4}{Inductance calculation}{section.4.3}% 85
+\BOOKMARK [3][-]{subsubsection.4.3.4.1}{Definitions for energy calculation}{subsection.4.3.4}% 86
+\BOOKMARK [3][-]{subsubsection.4.3.4.2}{Inductance matrix}{subsection.4.3.4}% 87
+\BOOKMARK [1][-]{section.4.4}{Determination of the winding axis: second method}{chapter.4}% 88
+\BOOKMARK [1][-]{section.4.5}{Harmonic analysis}{chapter.4}% 89
+\BOOKMARK [2][-]{subsection.4.5.1}{Definition of the discrete Fourier transform}{section.4.5}% 90
+\BOOKMARK [2][-]{subsection.4.5.2}{Time harmonics}{section.4.5}% 91
+\BOOKMARK [2][-]{subsection.4.5.3}{Spatial harmonics}{section.4.5}% 92
+\BOOKMARK [1][-]{section.4.6}{Example of a spatial harmonic analysis}{chapter.4}% 93
+\BOOKMARK [2][-]{subsection.4.6.1}{Air gap flux density}{section.4.6}% 94
+\BOOKMARK [3][-]{subsubsection.4.6.1.1}{Two-dimensional air gap flux density functions}{subsection.4.6.1}% 95
+\BOOKMARK [3][-]{subsubsection.4.6.1.2}{Harmonic components}{subsection.4.6.1}% 96
+\BOOKMARK [2][-]{subsection.4.6.2}{Flux per pole}{section.4.6}% 97
+\BOOKMARK [1][-]{section.4.7}{Summary}{chapter.4}% 98
+\BOOKMARK [0][-]{chapter.5}{Traction machine case study}{}% 99
+\BOOKMARK [1][-]{section.5.1}{Introductory remarks}{chapter.5}% 100
+\BOOKMARK [1][-]{section.5.2}{Torque versus speed characteristic}{chapter.5}% 101
+\BOOKMARK [1][-]{section.5.3}{Conceptional design}{chapter.5}% 102
+\BOOKMARK [2][-]{subsection.5.3.1}{Winding type}{section.5.3}% 103
+\BOOKMARK [3][-]{subsubsection.5.3.1.1}{Form-wound versus random-wound coils}{subsection.5.3.1}% 104
+\BOOKMARK [3][-]{subsubsection.5.3.1.2}{Single versus double layer non-overlapping windings}{subsection.5.3.1}% 105
+\BOOKMARK [2][-]{subsection.5.3.2}{Sizing equations}{section.5.3}% 106
+\BOOKMARK [2][-]{subsection.5.3.3}{Number of stator slots}{section.5.3}% 107
+\BOOKMARK [2][-]{subsection.5.3.4}{Electromagnetic design}{section.5.3}% 108
+\BOOKMARK [2][-]{subsection.5.3.5}{Winding properties}{section.5.3}% 109
+\BOOKMARK [3][-]{subsubsection.5.3.5.1}{Effective number of turns per slot}{subsection.5.3.5}% 110
+\BOOKMARK [3][-]{subsubsection.5.3.5.2}{Series number of turns}{subsection.5.3.5}% 111
+\BOOKMARK [3][-]{subsubsection.5.3.5.3}{End winding leakage inductance}{subsection.5.3.5}% 112
+\BOOKMARK [3][-]{subsubsection.5.3.5.4}{Stator d.c. winding resistance}{subsection.5.3.5}% 113
+\BOOKMARK [3][-]{subsubsection.5.3.5.5}{Winding layout}{subsection.5.3.5}% 114
+\BOOKMARK [2][-]{subsection.5.3.6}{Geometrical dimensioning}{section.5.3}% 115
+\BOOKMARK [3][-]{subsubsection.5.3.6.1}{No-load flux linkage versus tooth width}{subsection.5.3.6}% 116
+\BOOKMARK [3][-]{subsubsection.5.3.6.2}{Torque pulsation}{subsection.5.3.6}% 117
+\BOOKMARK [3][-]{subsubsection.5.3.6.3}{Rotor design}{subsection.5.3.6}% 118
+\BOOKMARK [3][-]{subsubsection.5.3.6.4}{Staggered rotor design}{subsection.5.3.6}% 119
+\BOOKMARK [3][-]{subsubsection.5.3.6.5}{Stator parameters}{subsection.5.3.6}% 120
+\BOOKMARK [1][-]{section.5.4}{Loss calculation}{chapter.5}% 121
+\BOOKMARK [2][-]{subsection.5.4.1}{Local eddy current loss}{section.5.4}% 122
+\BOOKMARK [3][-]{subsubsection.5.4.1.1}{Double layer windings}{subsection.5.4.1}% 123
+\BOOKMARK [3][-]{subsubsection.5.4.1.2}{Single layer windings}{subsection.5.4.1}% 124
+\BOOKMARK [3][-]{subsubsection.5.4.1.3}{Round wire}{subsection.5.4.1}% 125
+\BOOKMARK [2][-]{subsection.5.4.2}{Circulating current loss}{section.5.4}% 126
+\BOOKMARK [2][-]{subsection.5.4.3}{Stator winding losses}{section.5.4}% 127
+\BOOKMARK [2][-]{subsection.5.4.4}{Iron loss}{section.5.4}% 128
+\BOOKMARK [2][-]{subsection.5.4.5}{Eddy currents in the permanent magnets}{section.5.4}% 129
+\BOOKMARK [1][-]{section.5.5}{Two-dimensional machine characteristic functions}{chapter.5}% 130
+\BOOKMARK [2][-]{subsection.5.5.1}{Park transformation}{section.5.5}% 131
+\BOOKMARK [2][-]{subsection.5.5.2}{General motor voltage and torque equations}{section.5.5}% 132
+\BOOKMARK [2][-]{subsection.5.5.3}{Equivalent circuit}{section.5.5}% 133
+\BOOKMARK [2][-]{subsection.5.5.4}{Solution domain}{section.5.5}% 134
+\BOOKMARK [2][-]{subsection.5.5.5}{Torque versus frequency characteristic}{section.5.5}% 135
+\BOOKMARK [2][-]{subsection.5.5.6}{Scaling of the solution domain}{section.5.5}% 136
+\BOOKMARK [1][-]{section.5.6}{Realisation of a prototype}{chapter.5}% 137
+\BOOKMARK [2][-]{subsection.5.6.1}{Manufactured motor}{section.5.6}% 138
+\BOOKMARK [2][-]{subsection.5.6.2}{Stator d.c. resistance measurement}{section.5.6}% 139
+\BOOKMARK [2][-]{subsection.5.6.3}{No-load measurements}{section.5.6}% 140
+\BOOKMARK [3][-]{subsubsection.5.6.3.1}{Open terminal test}{subsection.5.6.3}% 141
+\BOOKMARK [3][-]{subsubsection.5.6.3.2}{Magnetising current}{subsection.5.6.3}% 142
+\BOOKMARK [2][-]{subsection.5.6.4}{Short circuit test}{section.5.6}% 143
+\BOOKMARK [2][-]{subsection.5.6.5}{Removed rotor test}{section.5.6}% 144
+\BOOKMARK [2][-]{subsection.5.6.6}{Torque speed characteristic}{section.5.6}% 145
+\BOOKMARK [2][-]{subsection.5.6.7}{Temperature rise test}{section.5.6}% 146
+\BOOKMARK [3][-]{subsubsection.5.6.7.1}{Measured results}{subsection.5.6.7}% 147
+\BOOKMARK [3][-]{subsubsection.5.6.7.2}{Adiabatic rotor loss}{subsection.5.6.7}% 148
+\BOOKMARK [3][-]{subsubsection.5.6.7.3}{Transient FEA}{subsection.5.6.7}% 149
+\BOOKMARK [3][-]{subsubsection.5.6.7.4}{Loss calculations}{subsection.5.6.7}% 150
+\BOOKMARK [1][-]{section.5.7}{Summary}{chapter.5}% 151
+\BOOKMARK [0][-]{chapter.6}{Conclusions and recommendations}{}% 152
+\BOOKMARK [1][-]{section.6.1}{Introductory remarks}{chapter.6}% 153
+\BOOKMARK [1][-]{section.6.2}{Answering the research sub-questions}{chapter.6}% 154
+\BOOKMARK [2][-]{subsection.6.2.1}{What is the mathematical expression to allocate the stator slots?}{section.6.2}% 155
+\BOOKMARK [2][-]{subsection.6.2.2}{How can a winding layout be represented in a compact form?}{section.6.2}% 156
+\BOOKMARK [1][-]{section.6.3}{Answering the main research question}{chapter.6}% 157
+\BOOKMARK [1][-]{section.6.4}{Recommendations for further research}{chapter.6}% 158
+\BOOKMARK [0][-]{section*.96}{Appendices}{}% 159
+\BOOKMARK [0][-]{appendix.A}{Kl\355ma's closed expression}{}% 160
+\BOOKMARK [1][-]{section.A.1}{Introductory remarks}{appendix.A}% 161
+\BOOKMARK [1][-]{section.A.2}{Distribution factor}{appendix.A}% 162
+\BOOKMARK [0][-]{appendix.B}{Slot combinations}{}% 163
+\BOOKMARK [0][-]{appendix.C}{Revision of the Air Gap Element}{}% 164
+\BOOKMARK [1][-]{section.C.1}{Introductory remarks}{appendix.C}% 165
+\BOOKMARK [1][-]{section.C.2}{Graphical presentation of the AGE}{appendix.C}% 166
+\BOOKMARK [2][-]{subsection.C.2.1}{AGE stiffness matrix}{section.C.2}% 167
+\BOOKMARK [2][-]{subsection.C.2.2}{Time-saving scheme}{section.C.2}% 168
+\BOOKMARK [3][-]{subsubsection.C.2.2.1}{Simplified Fourier coefficients}{subsection.C.2.2}% 169
+\BOOKMARK [3][-]{subsubsection.C.2.2.2}{Stepped AGE}{subsection.C.2.2}% 170
+\BOOKMARK [2][-]{subsection.C.2.3}{Periodicity conditions}{section.C.2}% 171
+\BOOKMARK [2][-]{subsection.C.2.4}{Electromagnetic torque}{section.C.2}% 172
+\BOOKMARK [2][-]{subsection.C.2.5}{Air gap flux density}{section.C.2}% 173
+\BOOKMARK [1][-]{section.C.3}{History of the Cambridge software}{appendix.C}% 174
+\BOOKMARK [0][-]{appendix*.105}{Bibliography}{}% 175

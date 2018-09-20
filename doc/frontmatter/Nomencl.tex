@@ -1,0 +1,225 @@
+\chapter{Nomenclature}
+
+\begin{Nomencl}
+
+ \NomGroup{Variables}%-----------------------------------------------
+   
+   \item[$a$]              number of parallel branches, \eqref{eqn:z} 
+   \item[$a_w$]            number of parallel wires, \eqref{eqn:z}
+   
+ 	 \item[$k_b$]            Boules's reduction factor, Fig.~\ref{fig:f_boules}
+	 \item[$k_r$]            average loss coefficient for local eddy currents,~%
+	                         \eqref{eqn:kr1} - \eqref{eqn:kr4}
+	 \item[$k_{rc}$]         average loss coefficient for circulating eddy currents,~%
+	                         \eqref{eqn:kr5}  
+
+	 \item[$m$]              number of phases, section \ref{sec:m_phases}	 
+   \item[$m_{sl}$]         number of wires arranged above each other,~%
+                           \eqref{eqn:z}  
+   \item[$m_{psl}$]        parallel conductor wires at different heights,~%
+                           \eqref{eqn_PCu_kr_rkc}
+   
+   \item[$n_1$]            outer loop variable, Fig.~\ref{fig:flowchart}
+   \item[$n_2$]            inner loop variable, Fig.~\ref{fig:flowchart}
+   \item[$n_{sl}$]         number of wires in slot width, \eqref{eqn:z} 
+   \item[$N_p$]            total number of phase belts, \eqref{eqn:Np}
+ 	 \item[$N_s$]            number of series turns per phase, \eqref{eqn:Ns} 
+	 \item[$N_{cs}$]         number of coil sides in a slot,~%
+	                         section \ref{sec:current_sources}
+	 \item[$N_{t}$]          number of turns per coil, section \ref{subsec:nt-turn_coil} 
+	 	 
+	 \item[$p$]              number of pole pairs, %
+	                         section \ref{subsec:slots_coils} 
+   \item[$p_{b}$]          number of pole pairs of the basic winding, %
+                           \eqref{eqn:qd_pb} and \eqref{eqn:p_b}
+   
+   \item[$q$]              number of slots per pole and phase, %
+                           section \ref{subsec:slots_coils}
+   \item[$q_{c}$]          number of coils per pole and phase, %
+                           section \ref{subsec:slots_coils}
+%   \item[$q_{c_n}$]        numerator of $q_c$
+%   \item[$q_{c_d}$]        denominator of $q_c$ 
+   
+   \item[$Q_{b}$]          number of slots of the basic winding, %
+                           \eqref{eqn:qd_pb} 
+   \item[$Q_{s}$]          number of stator slots, section \ref{subsec:slots_coils}    
+   
+	 \item[$t$]              greatest common divisor, %
+	                         \eqref{eqn:gcd_t} and \eqref{eqn:gcd_t_gcd(Qc_p)}
+	 
+	 \item[$y_{d}$]          coil pitch, \eqref{eqn:y_p}    
+	 \item[$y_{p}$]          average coil pitch, \eqref{eqn:y_d} 
+	    
+	 \item[$z$]              average number of turns per slot, \eqref{eqn:z}	 	 
+	 
+	 \item[$\nu$]            harmonic oder, \eqref{eqn:harm_oder}
+	 \item[$\xi$]            winding factor, \eqref{eqn:winding_factor}
+	 \item[$\mu_{r}$]        relative permeability, \eqref{eqn:H_cBe}	 
+   
+ \NomGroup{Variables with units}%------------------------------------   
+ 
+   \item[$A_{Cu}$]         \UnitLine{copper cross section area,~%
+                           \eqref{eqn:R1a}}{\SI{}{m^{2}}}  
+                           
+   \item[$b_{c}$]          \UnitLine{wire width,~%
+                           Tab.~\ref{tab:PropertiesOfTheWinding}}{m}  
+   \item[$b_{m}$]          \UnitLine{magnet width, Fig.~\ref{fig:FEA_design}}{m} 
+   \item[$b_{t}$]          \UnitLine{tooth width, Fig.~\ref{fig:FEA_design}}{m} 
+   \item[$B_{r}$]          \UnitLine{remanent magnetisation,~%
+                           Fig.~\ref{fig:f_magnet_BH}}{T}
+   \item[$B_{eq}$]         \UnitLine{equivalent flux density,~%
+                           \eqref{eqn:sf}}{T}
+ 
+   \item[$C$]              \UnitLine{Esson number,~%
+                           \eqref{eqn:Esson}}{\SI{}{kW.m^{-3}.min^{-1}}}
+
+   \item[$f_s$]            \UnitLine{sampling frequency,~%
+                           \eqref{eqn:nyquist_fs}}{\SI{}{Hz}}
+
+	 \item[$F$]              \UnitLine{magnetomotive force,~%
+	                         \eqref{eqn:F_theta_t_1}}{\SI{}{A}} 
+	    
+	 \item[$h_{1}$]          \UnitLine{effective slot height,~%
+	                         Fig.~\ref{fig:FEA_design}}{\SI{}{m}} 
+	 \item[$h_{c}$]          \UnitLine{wire thickness, \eqref{eqn:hc_roundwire} and~%
+	                         Tab.~\ref{tab:PropertiesOfTheWinding}}{\SI{}{m}}  
+	 \item[$h_{m}$]          \UnitLine{magnet height,~%
+	                         Fig.~\ref{fig:FEA_design}}{\SI{}{m}} 
+	 \item[$h_{s}$]          \UnitLine{slot height,~%
+	                         Fig.~\ref{fig:wend_winding}}{\SI{}{m}} 
+	 \item[$H$]              \UnitLine{magnetic field intensity,~%
+	                         Fig.~\ref{fig:f_magnet_BH}}{\SI{}{A.m^{-1}}}
+	 \item[$H_c$]            \UnitLine{magnetic field coercivity intensity,~%
+	                         Fig.~\ref{fig:f_magnet_BH}}{\SI{}{A.m^{-1}}}
+
+	 \item[$i_d$]            \UnitLine{$d$-axis current,~%
+	                         Fig.~\ref{fig:qd_transform}}{\SI{}{A}} 
+	 \item[$i_q$]            \UnitLine{$q$-axis current,~%
+	                         Fig.~\ref{fig:qd_transform}}{\SI{}{A}} 
+	 \item[$\hat{I}_1$]      \UnitLine{peak phase current,~%
+	                         Fig.~\ref{fig:qd_transform}}{\SI{}{A}} 
+	 \item[$I_1$]            \UnitLine{$rms$ phase current,~%
+	                         \eqref{eqn:stator_current}}{\SI{}{A}} 
+	 
+	 \item[$J$]              \UnitLine{magnetic polarisation,~%
+	                         Fig.~\ref{fig:f_magnet_BH}}{\SI{}{T}} 
+	 \item[$J_s$]            \UnitLine{magnetic saturation polarisation,~%
+	                         Fig.~\ref{fig:f_magnet_BH}}{\SI{}{T}} 
+	 
+	 \item[$l_{av}$]         \UnitLine{average half-turn length of a~%
+	                         stator wire, \eqref{eqn:lav}}{\SI{}{m}}  	
+	 \item[$l_{e}$]          \UnitLine{average length of a single end~%
+	                         connection, Fig.~\ref{fig:wend_winding}}{\SI{}{m}}   
+	 \item[$l_{o}$]          \UnitLine{length of the end winding overhang,~%
+	                         Fig.~\ref{fig:wend_winding}}{\SI{}{m}}  
+	 \item[$l_{Fe}$]         \UnitLine{stack length,~%
+	                         Fig.~\ref{fig:wend_winding}}{\SI{}{m}}  
+	 \item[$l_{m}$]          \UnitLine{magnet length,~%
+	                         Fig.~\ref{fig:f_boules}}{\SI{}{m}}  
+	                         
+	 \item[$L_e$]            \UnitLine{end-winding leakage inductance,~%
+	                         \eqref{eqn:Lsigma}}{\SI{}{H}} 
+	                         
+   \item[$n$]              \UnitLine{rotational speel,~%
+	                         Fig.~\ref{fig:torq_speed}}{\SI{}{min^{-1}}} 
+	 	 	
+	 \item[$P_{Cu}$]         \UnitLine{copper loss,~%
+                           \eqref{eqn_PCu_kr_rkc}}{\SI{}{W}}	 	
+   \item[$p_{Fe}$]         \UnitLine{specific iron loss,~%
+                           \eqref{pfe_bertotti}}{\SI{}{W.kg^{-1}}}   
+   \item[$P_{Fe}$]         \UnitLine{iron loss,~%
+                           section \ref{subsec:eq_circ}}{\SI{}{W}}   
+      
+	 \item[$R_{1}$]          \UnitLine{stator phase resistance,~%
+	                         \eqref{eqn:R1a} and \eqref{eqn:R1b}}{\SI{}{\ohm}}   
+	 \item[$R_{b}$]          \UnitLine{resistance of bars,~%
+	                         \eqref{eqn:R1b}}{\SI{}{\ohm}}
+	 \item[$R_{c}$]          \UnitLine{core loss resistance,~%
+	                         \eqref{eqn:Rc}}{\SI{}{\ohm}}
+	 \item[$R_{e}$]          \UnitLine{resistance of the end connections,~%
+	                         \eqref{eqn:R1b}}{\SI{}{\ohm}}   
+	           
+   \item[$T_{e}$]          \UnitLine{electromagnetic torque,~%
+                           \eqref{dq_inductances} and \eqref{eqn:torque}}%
+                           {\SI{}{N.m}}
+   \item[$T_{s}$]          \UnitLine{sampling period,~%
+                           \eqref{eqn:Ts}}{\SI{}{s}}                           
+                           
+	 \item[$\hat{U}_1$]      \UnitLine{peak line-to-line voltage,~%
+	                         Fig.~\ref{fig:qd_transform}}{\SI{}{V}}   
+	 \item[$U_p$]            \UnitLine{$rms$ phase voltage,~%
+	                         \eqref{eqn:Up}}{\SI{}{V}}   
+	 
+	 \item[$W$]              \UnitLine{energy, \eqref{eqn:W}}{\SI{}{J}}   
+	    	    
+   \item[$\alpha_{n_2}$]   \UnitLine{slot vector angle,~%
+                           \eqref{eqn:slot_alpha}}{\SI{}{rad}} 	
+   \item[$\alpha$]         \UnitLine{angle between $\hat{I}_1$ and the $d$-axis,~%
+                           Fig.~\ref{fig:qd_transform}}{\SI{}{rad}} 
+	 \item[$\beta$]          \UnitLine{angle between $\hat{U}_1$ and the $q$-axis,~%
+                           Fig.~\ref{fig:qd_transform}}{\SI{}{rad}} 
+   \item[$\eta$]           \UnitLine{efficiency, \eqref{eqn:eta}}{\SI{}{\%}} 
+   \item[$\theta_{an}$]    \UnitLine{current sheet anti-node axis,~%
+                           Fig.~\ref{fig:determ_axis}}{\SI{}{rad}} 
+   \item[$\theta_m$]       \UnitLine{magnetic axis of a phase,~%
+                           Fig.~\ref{fig:determ_axis}}{\SI{}{rad}} 
+   \item[$\theta_s$]       \UnitLine{staggering angle,~%
+                           \eqref{eqn:stagger_angle}}{\SI{}{rad}}
+   \item[$\Theta$]         \UnitLine{magnetomotive force,~%
+                           Tab.~\ref{tab:translation}}{\SI{}{A}} 
+   \item[$\lambda$]        \UnitLine{wavelength,~%
+                           Fig.~\ref{fig:f_periodicity}}{\SI{}{m}}                           \item[$\lambda_s$]      \UnitLine{sampling wavelength,~%
+                           \eqref{eqn:lambda_s}}{\SI{}{m}} 
+   \item[$\sigma$]         \UnitLine{electric conductivity,~%
+                           \eqref{eqn:R1a}}{\SI{}{S.m^{-1}}}
+   \item[$\rho$]           \UnitLine{specific mass density,~%
+                           Tab.~\ref{tab:translation}}{\SI{}{kg.m^{-3}}}
+   \item[$\rho$]           \UnitLine{specific resistance,~%
+                           Tab.~\ref{tab:translation}}{\SI{}{\ohm.m}}
+	 \item[$\Phi$]           \UnitLine{magnetic flux, \eqref{eqn:phi_1}}%
+	                         {\SI{}{V.s}}
+	 \item[$\psi$ ]          \UnitLine{flux linkage $\psi=N \Phi$,~%
+	                         \eqref{eqn:flux_link}}{\SI{}{V.s}} 
+	 \item[$\mu_{0}$]        \UnitLine{permeability of free space $\mu_{0}=%
+	                         \num{4 \pi 10e-7}$}{\SI{}{H.m^{-1}}}
+	 \item[$\tau_{s}$]       \UnitLine{slot pitch, Fig.~\ref{fig:flowchart}}%
+	                         {\SI{}{m}} 	
+	 \item[$\tau_{p}$]       \UnitLine{pole pitch}%
+	                         {\SI{}{m}}
+   	 
+	 \item[$\phi$]           \UnitLine{angle between $\hat{U}$ and $\hat{I}_1$,~%
+	                         Fig.~\ref{fig:qd_transform}}{\SI{}{rad}}
+	 \item[$\psi_{\delta}$]  \UnitLine{air gap flux linkage,~%
+	                         Fig.~\ref{fig:qd_transform}}{\SI{}{V.s}}
+	 \item[$\psi_{sl}$]      \UnitLine{stator slot leakage flux linkage,~%
+	                         Fig.~\ref{fig:qd_transform}}{\SI{}{V.s}}
+	 \item[$\psi_e$]         \UnitLine{end-winding leakage flux linkage,~%
+	                         Fig.~\ref{fig:qd_transform}}{\SI{}{V.s}}
+	                         
+ \NomGroup{Matrices}%------------------------------------------
+
+   \item[$\mathbf{A}$]     vector potential at AGE nodes, \eqref{eqn:torque}
+   \item[$\mathbf{i_d}$]   2D $d$-axis current matrix, \eqref{eqn:2D_func}
+   \item[$\mathbf{i_q}$]   2D $q$-axis current matrix, \eqref{eqn:2D_func}
+   \item[$\mathbf{L}$]     inductance matrix, section \ref{subsec:ind_matrix}
+   \item[$\mathbf{M}$]     winding matrix, \eqref{eqn:M_matrix}
+   \item[$\mathbf{S}$]     stiffness matrix, \eqref{eqn:stiffness}
+   \item[$\mathbf{T}$]     used in \eqref{eqn:torque} for torque calculation
+   \item[$\mathbf{T}$]     2D torque matrix, \eqref{eqn:2D_func}
+   \item[$\mathbf{v}$]     slot vector, \eqref{eqn:slot_vector}
+   \item[$\mathbf{X}$]     regression matrix, \eqref{eqn:regression}
+        	 
+ \NomGroup{Symbols}%------------------------------------------- 	 
+   
+   \item[$\mathbb{C}$]     complex numbers
+   \item[$\mathbb{N}$]     positive integer numbers, $n \in \mathbb{Z}^{+}$
+   \item[$\mathbb{Z}$]     integer numbers $\ldots,-2,-1,0,1,2,\ldots$
+   \item[$\mathbb{Z}^{+}$] integer numbers $1,2,3,\ldots$
+   \item[$\mathbb{Z}^{*}$] non-negative integer numbers $0,1,2,\ldots$,~%
+                           see \cite{Weisstein2008} 
+   
+\end{Nomencl}
+
+
+
+\endinput

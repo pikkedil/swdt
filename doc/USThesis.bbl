@@ -1,0 +1,640 @@
+\begin{thebibliography}{72}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\providecommand{\selectlanguage}[1]{\relax}
+\edef\AFRstr{\string afrikaans}
+\ifx\AFRstr\languagename
+   \input{usbib.afr}%
+ \else
+   \input{usbib.eng}%
+\fi
+\newcommand{\Capitalize}[1]{\uppercase{#1}}
+\newcommand{\capitalize}[1]{\expandafter\Capitalize#1}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Abdel-Razek}
+  \emph{\bbletal{}}(1981)\citenamefont{Abdel-Razek}, \citenamefont{Coulomb},
+  \citenamefont{Feliachi} \protect\BIBand{}
+  \citenamefont{Sabbonadiere}}]{razek_1981}
+\bibnamefont{Abdel-Razek}, \bibfnamefont{A.}, \bibnamefont{Coulomb},
+  \bibfnamefont{J.}, \bibnamefont{Feliachi}, \bibfnamefont{M.}
+  \protect\BIBand{} \bibnamefont{Sabbonadiere}, \bibfnamefont{J.} (1981
+  November).
+\newblock The calculation of electromagnetic torque in saturated electric
+  machines within combined numerical and analytical solutions in the field
+  equations.
+\newblock \emph{IEEE Transactions on Magnetics}, \bblvol{}~17, \bblno{}~6,
+  \bblpp{} 3250--3252.
+
+\bibitem[{\citenamefont{Abdel-Razek}
+  \emph{\bbletal{}}(1982)\citenamefont{Abdel-Razek}, \citenamefont{Coulomb},
+  \citenamefont{Feliachi} \protect\BIBand{}
+  \citenamefont{Sabonnadiere}}]{razek_1982}
+\bibnamefont{Abdel-Razek}, \bibfnamefont{A.}, \bibnamefont{Coulomb},
+  \bibfnamefont{J.}, \bibnamefont{Feliachi}, \bibfnamefont{M.}
+  \protect\BIBand{} \bibnamefont{Sabonnadiere}, \bibfnamefont{J.} (1982).
+\newblock Conception of an airgap element for the dynamic analysis of the
+  electromagnetic field in electric machines.
+\newblock \emph{IEEE Transactions on Magnetics}, \bblvol{}~18, \bblno{}~2,
+  \bblpp{} 655--659.
+
+\bibitem[{\citenamefont{Bech} \emph{\bbletal{}}(2005)\citenamefont{Bech},
+  \citenamefont{Frederiksen} \protect\BIBand{}
+  \citenamefont{Sandholdt}}]{bech_2005}
+\bibnamefont{Bech}, \bibfnamefont{M.}, \bibnamefont{Frederiksen},
+  \bibfnamefont{T.} \protect\BIBand{} \bibnamefont{Sandholdt},
+  \bibfnamefont{P.} (2005).
+\newblock Accurate torque control of saturated interior permanent magnet
+  synchronous motors in the field-weakening region.
+\newblock \emph{Conference Record of the 2005 IEEE Industry Applications
+  Society}.
+
+\bibitem[{\citenamefont{Bertotti}(1988)}]{bertotti_1988}
+\bibnamefont{Bertotti}, \bibfnamefont{G.} (1988).
+\newblock General properties of power losses in soft ferromagnetic materials.
+\newblock \emph{IEEE Transactions on Magnetics}, \bblvol{}~24, \bblno{}~1,
+  \bblpp{} 612--630.
+
+\bibitem[{\citenamefont{Bianchi} \protect\BIBand{}
+  \citenamefont{Bolognani}(2004)}]{bianchi_2004}
+\bibnamefont{Bianchi}, \bibfnamefont{N.} \protect\BIBand{}
+  \bibnamefont{Bolognani}, \bibfnamefont{S.} (2004).
+\newblock {Fractional-slot PM motors for electric power steering systems}.
+\newblock \emph{International Journal of Vechile Autonomous Systems},
+  \bblvol{}~2, \bblpp{} 189--200.
+
+\bibitem[{\citenamefont{Bianchi} \emph{\bbletal{}}(2007)\citenamefont{Bianchi},
+  \citenamefont{Pre}, \citenamefont{Alberti} \protect\BIBand{}
+  \citenamefont{Fornasiero}}]{Bianchi2007}
+\bibnamefont{Bianchi}, \bibfnamefont{N.}, \bibnamefont{Pre}, \bibfnamefont{M.},
+  \bibnamefont{Alberti}, \bibfnamefont{L.} \protect\BIBand{}
+  \bibnamefont{Fornasiero}, \bibfnamefont{E.} (2007).
+\newblock \emph{Theory and design of fractional-slot PM machines}.
+\newblock CLEUP.
+
+\bibitem[{\citenamefont{Boules} \emph{\bbletal{}}(1980)\citenamefont{Boules},
+  \citenamefont{Canders} \protect\BIBand{} \citenamefont{Weh}}]{Boules1980}
+\bibnamefont{Boules}, \bibfnamefont{N.}, \bibnamefont{Canders},
+  \bibfnamefont{W.-R.} \protect\BIBand{} \bibnamefont{Weh}, \bibfnamefont{H.}
+  (1980).
+\newblock {Analytische Bestimmung des Nutungseinflusses auf die Feldverteilung
+  und die Wirbelstromverluste in dauermagneterregten Synchronmaschinen}.
+\newblock \emph{Archiv für Elektrotechnik}, \bblvol{}~62, \bblpp{} 283--293.
+
+\bibitem[{\citenamefont{Bozorth}(1993)}]{Bozorth1993}
+\bibnamefont{Bozorth}, \bibfnamefont{R.} (1993).
+\newblock \emph{Ferromagnetism}.
+\newblock John Wiley \& Sons Inc.
+
+\bibitem[{\citenamefont{Brauer} \emph{\bbletal{}}(2004)\citenamefont{Brauer},
+  \citenamefont{Germishuizen}, \citenamefont{Körner} \protect\BIBand{}
+  \citenamefont{Jöckel}}]{Brauer2004a}
+\bibnamefont{Brauer}, \bibfnamefont{M.}, \bibnamefont{Germishuizen},
+  \bibfnamefont{J.}, \bibnamefont{Körner}, \bibfnamefont{O.} \protect\BIBand{}
+  \bibnamefont{Jöckel}, \bibfnamefont{A.} (2004).
+\newblock Dynamic short circuits of traction drives - comparison of induction
+  motors with {PM} synchronous motors.
+\newblock \emph{Proceedings of the 2004 International Conference on Electrical
+  Machines}.
+
+\bibitem[{\citenamefont{Brune} \emph{\bbletal{}}(2003)\citenamefont{Brune},
+  \citenamefont{Seinsch} \protect\BIBand{}
+  \citenamefont{Steinbrink}}]{brune_2003}
+\bibnamefont{Brune}, \bibfnamefont{K.}, \bibnamefont{Seinsch},
+  \bibfnamefont{H.} \protect\BIBand{} \bibnamefont{Steinbrink},
+  \bibfnamefont{J.} (2003).
+\newblock Conduced emission of synchronous generators and its dependence on
+  design features.
+\newblock \emph{Electrical Engineering}, \bblvol{}~85, \bblno{}~2, \bblpp{}
+  71--81.
+
+\bibitem[{\citenamefont{Centner}(2008)}]{Center2008}
+\bibnamefont{Centner}, \bibfnamefont{M.} (2008).
+\newblock Machine design tools for induction motors.
+\newblock \emph{Proceedings of the 2008 International Conference on Electrical
+  Machines}.
+
+\bibitem[{\citenamefont{Chen} \protect\BIBand{}
+  \citenamefont{Pillay}(2002)}]{Chen2002}
+\bibnamefont{Chen}, \bibfnamefont{Y.} \protect\BIBand{} \bibnamefont{Pillay},
+  \bibfnamefont{P.} (2002).
+\newblock An improved formula for lamination core loss calculations in machines
+  operating with high frequency and high flux density excitation.
+\newblock \emph{Conference Record of the 2002 IEEE Industry Applications
+  Society}.
+
+\bibitem[{\citenamefont{Cros} \protect\BIBand{}
+  \citenamefont{Viarouge}(2002)}]{cros_2002}
+\bibnamefont{Cros}, \bibfnamefont{J.} \protect\BIBand{} \bibnamefont{Viarouge},
+  \bibfnamefont{P.} (2002 June).
+\newblock {Synthesis of high performance PM motors with concentrated windings}.
+\newblock \emph{IEEE Transactions on Energy Conversion}, \bblvol{}~17,
+  \bblno{}~2, \bblpp{} 248--253.
+
+\bibitem[{\citenamefont{Eichler} \emph{\bbletal{}}(2008)\citenamefont{Eichler},
+  \citenamefont{Elender}, \citenamefont{Germishuizen}, \citenamefont{Grüning},
+  \citenamefont{Jöckel} \protect\BIBand{}
+  \citenamefont{Schwimmbeck}}]{Eichler2008}
+\bibnamefont{Eichler}, \bibfnamefont{B.}, \bibnamefont{Elender},
+  \bibfnamefont{G.}, \bibnamefont{Germishuizen}, \bibfnamefont{J.},
+  \bibnamefont{Grüning}, \bibfnamefont{A.}, \bibnamefont{Jöckel},
+  \bibfnamefont{A.} \protect\BIBand{} \bibnamefont{Schwimmbeck},
+  \bibfnamefont{F.} (2008 September).
+\newblock {Systemsimulation des Schutzeingriffs bei doppeltgespeisten
+  Windkraft-Generatoren der 5MW-Klasse}.
+\newblock \emph{VDE Tagung: Elektrisch-mechanische Antriebssysteme Innovation,
+  Trends, Mechatronik}.
+
+\bibitem[{\citenamefont{Feliachi}
+  \emph{\bbletal{}}(1983)\citenamefont{Feliachi}, \citenamefont{Coulomb}
+  \protect\BIBand{} \citenamefont{Mansir}}]{felianchi_1983}
+\bibnamefont{Feliachi}, \bibfnamefont{M.}, \bibnamefont{Coulomb},
+  \bibfnamefont{J.} \protect\BIBand{} \bibnamefont{Mansir}, \bibfnamefont{H.}
+  (1983 March).
+\newblock Second order air-gap element for the dynamic finite-element analysis
+  of the electromagnetic field in electric machines.
+\newblock \emph{IEEE Transactions on Magnetics}, \bblvol{}~19, \bblno{}~2,
+  \bblpp{} 2300--2303.
+
+\bibitem[{\citenamefont{Fitzgerald}
+  \emph{\bbletal{}}(1992)\citenamefont{Fitzgerald}, \citenamefont{Kingsley}
+  \protect\BIBand{} \citenamefont{Umans}}]{Fitzgerald1992}
+\bibnamefont{Fitzgerald}, \bibfnamefont{A.E.}, \bibnamefont{Kingsley},
+  \bibfnamefont{C.} \protect\BIBand{} \bibnamefont{Umans}, \bibfnamefont{S.D.}
+  (1992).
+\newblock \emph{Electric Machinery}.
+\newblock Mc-Graw-Hill Book Company.
+
+\bibitem[{\citenamefont{Flack} \protect\BIBand{}
+  \citenamefont{Volschenk}(1994)}]{flack_1994}
+\bibnamefont{Flack}, \bibfnamefont{T.} \protect\BIBand{}
+  \bibnamefont{Volschenk}, \bibfnamefont{A.} (1994).
+\newblock Computational aspects of time-stepping finite-element analysis using
+  an airgap element.
+\newblock \emph{Proceedings of the 1994 International Conference on Electrical
+  Machines}.
+
+\bibitem[{\citenamefont{Frohne} \protect\BIBand{}
+  \citenamefont{Seinsch}(1985)}]{Frohne1985}
+\bibnamefont{Frohne}, \bibfnamefont{H.} \protect\BIBand{}
+  \bibnamefont{Seinsch}, \bibfnamefont{H.} (1985).
+\newblock {Systematik der Drehstromwicklungen}.
+\newblock \emph{ETZ Archiv}, \bblvol{}~8, \bblpp{} 71--73.
+
+\bibitem[{\citenamefont{Garbe} \emph{\bbletal{}}(2008)\citenamefont{Garbe},
+  \citenamefont{Helmer} \protect\BIBand{} \citenamefont{Ponick}}]{Garbe2008}
+\bibnamefont{Garbe}, \bibfnamefont{E.}, \bibnamefont{Helmer}, \bibfnamefont{R.}
+  \protect\BIBand{} \bibnamefont{Ponick}, \bibfnamefont{B.} (2008).
+\newblock Modelling and fast calculating the characteristics of synchronous
+  machines with the finite element method.
+\newblock \emph{Proceedings of the 2008 International Conference on Electrical
+  Machines}.
+
+\bibitem[{\citenamefont{Germishuizen}
+  \emph{\bbletal{}}(2000)\citenamefont{Germishuizen}, \citenamefont{der Merwe},
+  \citenamefont{der Westhuizen} \protect\BIBand{}
+  \citenamefont{Kamper}}]{Germishuizen2000}
+\bibnamefont{Germishuizen}, \bibfnamefont{J.}, \bibnamefont{der Merwe},
+  \bibfnamefont{F.V.}, \bibnamefont{der Westhuizen}, \bibfnamefont{K.V.}
+  \protect\BIBand{} \bibnamefont{Kamper}, \bibfnamefont{M.} (2000).
+\newblock Performance comparison of reluctance synchronous and induction
+  traction drives for electrical multiple units.
+\newblock \emph{Conference Record of the 2000 IEEE Industry Applications
+  Society}.
+
+\bibitem[{\citenamefont{Germishuizen}
+  \emph{\bbletal{}}(2006)\citenamefont{Germishuizen}, \citenamefont{Jöckel},
+  \citenamefont{Hoffmann}, \citenamefont{Teichmann}, \citenamefont{Löwenstein}
+  \protect\BIBand{} \citenamefont{{Von Wangelin}}}]{germishuizen_2006}
+\bibnamefont{Germishuizen}, \bibfnamefont{J.}, \bibnamefont{Jöckel},
+  \bibfnamefont{A.}, \bibnamefont{Hoffmann}, \bibfnamefont{T.},
+  \bibnamefont{Teichmann}, \bibfnamefont{M.}, \bibnamefont{Löwenstein},
+  \bibfnamefont{L.} \protect\BIBand{} \bibnamefont{{Von Wangelin}},
+  \bibfnamefont{F.} (2006 May).
+\newblock Syntegra - next generation traction drive system, total integration
+  of traction, bogie and braking technology.
+\newblock \emph{International Symposium on Power Electronics, Electrical
+  Drives, Automation and Motion}, \bblpp{} 23--27.
+
+\bibitem[{\citenamefont{Germishuizen} \protect\BIBand{}
+  \citenamefont{Kamper}(2007)}]{Germishuizen2007}
+\bibnamefont{Germishuizen}, \bibfnamefont{J.} \protect\BIBand{}
+  \bibnamefont{Kamper}, \bibfnamefont{M.} (2007).
+\newblock Field weakening performance of {IPM} machines with single layer
+  non-overlapping concentrated windings.
+\newblock \emph{Conference Record of the 2007 IEEE Industry Applications
+  Society}.
+
+\bibitem[{\citenamefont{Germishuizen} \protect\BIBand{}
+  \citenamefont{Stanton}(2008)}]{Germishuizen2008}
+\bibnamefont{Germishuizen}, \bibfnamefont{J.} \protect\BIBand{}
+  \bibnamefont{Stanton}, \bibfnamefont{S.} (2008).
+\newblock No load loss and component separation for induction machines.
+\newblock \emph{Proceedings of the 2008 International Conference on Electrical
+  Machines}.
+
+\bibitem[{\citenamefont{Gersem} \protect\BIBand{}
+  \citenamefont{Weiland}(2005)}]{de_gersem_2005}
+\bibnamefont{Gersem}, \bibfnamefont{H.D.} \protect\BIBand{}
+  \bibnamefont{Weiland}, \bibfnamefont{T.} (2005).
+\newblock A computationally efficient air-gap element for {2-D FE} machine
+  models.
+\newblock \emph{IEEE Transactions on Magnetics}, \bblvol{}~41, \bblno{}~5,
+  \bblpp{} 1844--1847.
+
+\bibitem[{\citenamefont{Gieras} \protect\BIBand{}
+  \citenamefont{Gieras}(2000)}]{gieras_2000}
+\bibnamefont{Gieras}, \bibfnamefont{J.} \protect\BIBand{} \bibnamefont{Gieras},
+  \bibfnamefont{I.} (2000 September).
+\newblock Electric motors - the future.
+\newblock \emph{International Conference on Power Electronics and Motion
+  Control}, \bblvol{}~1, \bblpp{} 12--18.
+
+\bibitem[{\citenamefont{Gieras} \protect\BIBand{}
+  \citenamefont{Wing}(2002)}]{Gieras2002}
+\bibnamefont{Gieras}, \bibfnamefont{J.F.} \protect\BIBand{} \bibnamefont{Wing},
+  \bibfnamefont{M.} (2002).
+\newblock \emph{Permanent Magnet Motor Technology}.
+\newblock CRC Press.
+
+\bibitem[{\citenamefont{Gutt} \protect\BIBand{}
+  \citenamefont{Grüner}(1998)}]{Gutt1998}
+\bibnamefont{Gutt}, \bibfnamefont{H.-J.} \protect\BIBand{}
+  \bibnamefont{Grüner}, \bibfnamefont{A.} (1998).
+\newblock Definition of power density as a general utilization factor of
+  electrical machines.
+\newblock \emph{European Transactions on Electrical Power}, \bblvol{}~8,
+  \bblpp{} 305--308.
+
+\bibitem[{\citenamefont{Hafner} \emph{\bbletal{}}(2008)\citenamefont{Hafner},
+  \citenamefont{Schöning} \protect\BIBand{}
+  \citenamefont{Hameyer}}]{Hafner2008}
+\bibnamefont{Hafner}, \bibfnamefont{M.}, \bibnamefont{Schöning},
+  \bibfnamefont{M.} \protect\BIBand{} \bibnamefont{Hameyer}, \bibfnamefont{K.}
+  (2008).
+\newblock Automated sizing of permanent magnet synchronous machines with
+  respect to electromagnetic and thermal aspects.
+\newblock \emph{Proceedings of the 2008 International Conference on Electrical
+  Machines}.
+
+\bibitem[{\citenamefont{Heller} \protect\BIBand{}
+  \citenamefont{Hamata}(1977)}]{helle_1977}
+\bibnamefont{Heller}, \bibfnamefont{B.} \protect\BIBand{} \bibnamefont{Hamata},
+  \bibfnamefont{V.} (1977).
+\newblock \emph{Harmonic field effects in induction machines}.
+\newblock Elsevier.
+
+\bibitem[{\citenamefont{Huth} \protect\BIBand{}
+  \citenamefont{Qian}(2004)}]{huth_2004}
+\bibnamefont{Huth}, \bibfnamefont{G.} \protect\BIBand{} \bibnamefont{Qian},
+  \bibfnamefont{K.} (2004).
+\newblock {Permanentmagneterregte AC-Servomotoren mit vereinfachten
+  Wicklungssystem}.
+\newblock \emph{ETG-Fachberichte}, \bblvol{}~96, \bblpp{} 15--21.
+
+\bibitem[{\citenamefont{Jöckel}
+  \emph{\bbletal{}}(2006{\natexlab{\emph{a}}})\citenamefont{Jöckel},
+  \citenamefont{Germishuizen}, \citenamefont{Löwenstein}, \citenamefont{{Von
+  Wangelin}}, \citenamefont{Hoffmann} \protect\BIBand{}
+  \citenamefont{Teichmann}}]{Joeckel2006}
+\bibnamefont{Jöckel}, \bibfnamefont{A.}, \bibnamefont{Germishuizen},
+  \bibfnamefont{J.}, \bibnamefont{Löwenstein}, \bibfnamefont{L.},
+  \bibnamefont{{Von Wangelin}}, \bibfnamefont{F.}, \bibnamefont{Hoffmann},
+  \bibfnamefont{T.} \protect\BIBand{} \bibnamefont{Teichmann},
+  \bibfnamefont{M.} (2006{\natexlab{\emph{a}}}).
+\newblock {Integrierte Direktantriebe fuer U-Bahnen und S-Bahnen. Konzeption,
+  technische Eigenschaften und Stand der Entwicklung}.
+\newblock \emph{Elektrisch-mechanische Antriebssysteme, Innovationen - Trends
+  Mechatronik}, \bblvol{} 1963, \bblpp{} 257--272.
+
+\bibitem[{\citenamefont{Jöckel}
+  \emph{\bbletal{}}(2006{\natexlab{\emph{b}}})\citenamefont{Jöckel},
+  \citenamefont{Löwenstein} \protect\BIBand{}
+  \citenamefont{Teichmann}}]{joeckel_2006}
+\bibnamefont{Jöckel}, \bibfnamefont{A.}, \bibnamefont{Löwenstein},
+  \bibfnamefont{L.} \protect\BIBand{} \bibnamefont{Teichmann},
+  \bibfnamefont{M.} (2006{\natexlab{\emph{b}}}).
+\newblock Syntegra - innovative motor bogie technology with direct drives.
+\newblock \emph{ZEVrail}, \bblvol{} 130, \bblno{}~9, \bblpp{} 368--379.
+
+\bibitem[{\citenamefont{Jöckel}
+  \emph{\bbletal{}}(2006{\natexlab{\emph{c}}})\citenamefont{Jöckel},
+  \citenamefont{Löwenstein}, \citenamefont{Teichmann}, \citenamefont{Hoffmann}
+  \protect\BIBand{} \citenamefont{{Von Wangelin}}}]{joeckel_2006_EB}
+\bibnamefont{Jöckel}, \bibfnamefont{A.}, \bibnamefont{Löwenstein},
+  \bibfnamefont{L.}, \bibnamefont{Teichmann}, \bibfnamefont{M.},
+  \bibnamefont{Hoffmann}, \bibfnamefont{T.} \protect\BIBand{} \bibnamefont{{Von
+  Wangelin}}, \bibfnamefont{F.} (2006{\natexlab{\emph{c}}}).
+\newblock {Syntegra - Innovativer Prototyp einer nächsten
+  Triebfahrwerk-Generation}.
+\newblock \emph{Elektrische Bahnen}, \bblvol{} 104, \bblno{} 8/9, \bblpp{}
+  360--362,364--366,368--369.
+
+\bibitem[{\citenamefont{Jordan} \emph{\bbletal{}}(1975)\citenamefont{Jordan},
+  \citenamefont{Klíma} \protect\BIBand{} \citenamefont{Kovacs}}]{Jordan1975}
+\bibnamefont{Jordan}, \bibfnamefont{H.}, \bibnamefont{Klíma}, \bibfnamefont{V.}
+  \protect\BIBand{} \bibnamefont{Kovacs}, \bibfnamefont{K.} (1975).
+\newblock \emph{{Asynchronmashinen}}.
+\newblock Vieweg.
+
+\bibitem[{\citenamefont{Kalokiris}
+  \emph{\bbletal{}}(2005)\citenamefont{Kalokiris}, \citenamefont{Kefalas},
+  \citenamefont{Kladas} \protect\BIBand{}
+  \citenamefont{Tegopoulos}}]{kalokirsis_2005}
+\bibnamefont{Kalokiris}, \bibfnamefont{G.}, \bibnamefont{Kefalas},
+  \bibfnamefont{T.}, \bibnamefont{Kladas}, \bibfnamefont{A.} \protect\BIBand{}
+  \bibnamefont{Tegopoulos}, \bibfnamefont{J.} (2005).
+\newblock Special air-gap element for {2-D FEM} analysis of electrical machines
+  accounting for rotor skew.
+\newblock \emph{IEEE Transactions on Magnetics}, \bblvol{}~41, \bblno{}~5,
+  \bblpp{} 2020--2023.
+
+\bibitem[{\citenamefont{Kamper}(1996)}]{Kamper1996}
+\bibnamefont{Kamper}, \bibfnamefont{M.J.} (1996).
+\newblock \emph{Design optimisation of cageless flux barrier rotor reluctance
+  synchronous machine}.
+\newblock \bblphdthesis{}, University of Stelenbosch.
+
+\bibitem[{\citenamefont{Kauders}(1932)}]{Kauders1932}
+\bibnamefont{Kauders}, \bibfnamefont{W.} (1932).
+\newblock {Systematik der Drehstromwicklungen}.
+\newblock \emph{Elektrotechnik und Maschinenbau}, \bblvol{}~6, \bblpp{} 88--94.
+
+\bibitem[{\citenamefont{Kauders}(1934)}]{Kauders1934}
+\bibnamefont{Kauders}, \bibfnamefont{W.} (1934).
+\newblock {Systematik der Drehstromwicklungen II}.
+\newblock \emph{Elektrotechnik und Maschinenbau}, \bblvol{}~8, \bblpp{} 85--92.
+
+\bibitem[{\citenamefont{Klamt}(1962)}]{Klamt1962}
+\bibnamefont{Klamt}, \bibfnamefont{J.} (1962).
+\newblock \emph{{Berechnung und Bemessung elektrischer Maschinen}}.
+\newblock Springer-Verlag.
+
+\bibitem[{\citenamefont{Klíma}(1979)}]{Klima1979}
+\bibnamefont{Klíma}, \bibfnamefont{V.} (1979).
+\newblock On the theorem of the sum of squares of winding factors invariance.
+\newblock \emph{ACTA Technica CSAV}, \bblvol{}~3, \bblpp{} 365--388.
+
+\bibitem[{\citenamefont{Koch} \protect\BIBand{}
+  \citenamefont{Binder}(2001)}]{koch_2001}
+\bibnamefont{Koch}, \bibfnamefont{T.} \protect\BIBand{} \bibnamefont{Binder},
+  \bibfnamefont{A.} (2001 June).
+\newblock Permanent magnet synchronous direct drive for high speed trains.
+\newblock \emph{International Symposium on Advanced Electromechanical Motion
+  Systems}, \bblpp{} 287--292.
+
+\bibitem[{\citenamefont{Kremser}(1989)}]{Kremser1989}
+\bibnamefont{Kremser}, \bibfnamefont{A.} (1989).
+\newblock \emph{{Theorie der mehsrängigen Bruchlochwicklungen und Berechnung
+  der Zweigströme in Drehfeldmaschinen}}.
+\newblock VDI Verlag.
+
+\bibitem[{\citenamefont{Lammeraner} \protect\BIBand{}
+  \citenamefont{Stafl}(1966)}]{lammeraner_1966}
+\bibnamefont{Lammeraner}, \bibfnamefont{J.} \protect\BIBand{}
+  \bibnamefont{Stafl}, \bibfnamefont{M.} (1966).
+\newblock \emph{Eddy Currents}.
+\newblock Iliffe Books Ltd.
+
+\bibitem[{\citenamefont{Libert} \protect\BIBand{}
+  \citenamefont{Soulard}(2004)}]{libert_2004}
+\bibnamefont{Libert}, \bibfnamefont{F.} \protect\BIBand{}
+  \bibnamefont{Soulard}, \bibfnamefont{J.} (2004).
+\newblock Investigation on pole-slot combinations for permanent-magnet machines
+  with concentrated windings.
+\newblock \emph{Proceedings of the 2004 International Conference on Electrical
+  Machines}.
+
+\bibitem[{\citenamefont{Lin} \emph{\bbletal{}}(2003)\citenamefont{Lin},
+  \citenamefont{Zhou}, \citenamefont{Fu}, \citenamefont{Badics}
+  \protect\BIBand{} \citenamefont{Cendes}}]{lin_2004}
+\bibnamefont{Lin}, \bibfnamefont{D.}, \bibnamefont{Zhou}, \bibfnamefont{P.},
+  \bibnamefont{Fu}, \bibfnamefont{W.N.}, \bibnamefont{Badics},
+  \bibfnamefont{Z.} \protect\BIBand{} \bibnamefont{Cendes}, \bibfnamefont{Z.J.}
+  (2003).
+\newblock A dynamic core loss model for soft ferromagnetic and power ferrite
+  materials in transient finite element analysis.
+\newblock \emph{IEEE Transactions on Magnetics}, \bblvol{}~40, \bblpp{}
+  1318--1321.
+
+\bibitem[{\citenamefont{Magnussen} \protect\BIBand{}
+  \citenamefont{Sadarangani}(2003)}]{IR-EE-EME_2003:029}
+\bibnamefont{Magnussen}, \bibfnamefont{F.} \protect\BIBand{}
+  \bibnamefont{Sadarangani}, \bibfnamefont{C.} (2003 June).
+\newblock Winding factors and joule losses of permanent magnet machines with
+  concentrated windings.
+\newblock \emph{International Electric Machines and Drives Conference},
+  \bblvol{}~1, \bblpp{} 333--339.
+
+\bibitem[{\citenamefont{Magnussen}
+  \emph{\bbletal{}}(2004)\citenamefont{Magnussen}, \citenamefont{Svechkarenko},
+  \citenamefont{Thelin} \protect\BIBand{}
+  \citenamefont{Sadarangani}}]{IR-EE-EME_2004:022}
+\bibnamefont{Magnussen}, \bibfnamefont{F.}, \bibnamefont{Svechkarenko},
+  \bibfnamefont{D.}, \bibnamefont{Thelin}, \bibfnamefont{P.} \protect\BIBand{}
+  \bibnamefont{Sadarangani}, \bibfnamefont{C.} (2004).
+\newblock Analysis of a {PM} machine with concentrated fractional pitch
+  windings.
+\newblock \emph{Proceedings of the Nordic Workshop on Power and Industrial
+  Electronics}.
+
+\bibitem[{\citenamefont{Makarova}
+  \emph{\bbletal{}}(2004)\citenamefont{Makarova}, \citenamefont{Makarov}
+  \protect\BIBand{} \citenamefont{Kuperman}}]{Makarova2004}
+\bibnamefont{Makarova}, \bibfnamefont{E.}, \bibnamefont{Makarov},
+  \bibfnamefont{S.} \protect\BIBand{} \bibnamefont{Kuperman}, \bibfnamefont{V.}
+  (2004).
+\newblock \emph{University over the Abyss}.
+\newblock Verba Publishers Ltd.
+
+\bibitem[{\citenamefont{Nan} \protect\BIBand{}
+  \citenamefont{Sullivan}(2005)}]{Nan2005}
+\bibnamefont{Nan}, \bibfnamefont{X.} \protect\BIBand{} \bibnamefont{Sullivan},
+  \bibfnamefont{C.} (2005).
+\newblock Simplified high-accuracy calculation of eddy-current loss in
+  round-wire windings.
+\newblock \emph{IEEE 35th Annual Power Electronics Specialists Conference}.
+
+\bibitem[{\citenamefont{Neuschl}(2007)}]{Neuschl2007}
+\bibnamefont{Neuschl}, \bibfnamefont{Z.} (2007).
+\newblock \emph{{Rechnerunterstützte experimentelle Verfahren zur Bestimmung
+  der lastunabhängigen Eisenverluste in permanentmagnetisch erregten
+  elektrischen Maschinen mit additionalem Axialfluss}}.
+\newblock \bblphdthesis{}, Brandenburgischen Technischen Universität Cottbus.
+
+\bibitem[{\citenamefont{Nürnberg}(1952)}]{Nuernerg1952}
+\bibnamefont{Nürnberg}, \bibfnamefont{W.} (1952).
+\newblock \emph{{Die Asynchronmaschine}}.
+\newblock Springer-Verlag.
+
+\bibitem[{\citenamefont{Ponick}(1993)}]{ponick_1993}
+\bibnamefont{Ponick}, \bibfnamefont{B.} (1993).
+\newblock {Ueber den Einfluss der Hauptfeldsaettigung auf Ausgleichsvorgaenge
+  elektrischer Antriebe und eine einfache Methode zu ihrer Berueksichtigung}.
+\newblock \emph{Archiv fuer Elektrotechnik}, \bblvol{}~76, \bblno{}~5, \bblpp{}
+  369--376.
+
+\bibitem[{\citenamefont{Reichert}(2004)}]{reichert_2_2004}
+\bibnamefont{Reichert}, \bibfnamefont{K.} (2004 September).
+\newblock A simplified approach to permanent magnet and reluctance motor
+  characteristics determination by finite-element methods.
+\newblock \emph{Proceedings of the 2004 International Conference on Electrical
+  Machines}.
+
+\bibitem[{\citenamefont{Reti\`ere} \protect\BIBand{}
+  \citenamefont{Ivan\`es}(1998)}]{retiere_1998}
+\bibnamefont{Reti\`ere}, \bibfnamefont{N.} \protect\BIBand{}
+  \bibnamefont{Ivan\`es}, \bibfnamefont{M.} (1998).
+\newblock Study methods of induction traction motor three phase short circuits.
+\newblock \emph{The European Physiacal Journal of Applied Physics},
+  \bblvol{}~3, \bblpp{} 263--271.
+
+\bibitem[{\citenamefont{Ronghai} \protect\BIBand{}
+  \citenamefont{Lipo}(2004)}]{Ronghai2004}
+\bibnamefont{Ronghai}, \bibfnamefont{Q.} \protect\BIBand{} \bibnamefont{Lipo},
+  \bibfnamefont{T.} (2004 September).
+\newblock Sizing equations and power density evaluation of dual-rotor,
+  radial-flux, toroidally wound, permenent-magnet machines.
+\newblock \emph{Proceedings of the 2004 International Conference on Electrical
+  Machines}.
+
+\bibitem[{\citenamefont{Salminen}(2004)}]{Salminen2004}
+\bibnamefont{Salminen}, \bibfnamefont{P.} (2004).
+\newblock \emph{Fractional slot permanent magnet synchronous motors for low
+  speed aaplications}.
+\newblock \bblphdthesis{}, Lappeenranta University of Technology.
+
+\bibitem[{\citenamefont{Salminen}
+  \emph{\bbletal{}}(2004{\natexlab{\emph{a}}})\citenamefont{Salminen},
+  \citenamefont{Mantere}, \citenamefont{Pyrhönen} \protect\BIBand{}
+  \citenamefont{Niemelä}}]{salminen_2004_ICEM}
+\bibnamefont{Salminen}, \bibfnamefont{P.}, \bibnamefont{Mantere},
+  \bibfnamefont{J.}, \bibnamefont{Pyrhönen}, \bibfnamefont{J.}
+  \protect\BIBand{} \bibnamefont{Niemelä}, \bibfnamefont{M.} (2004
+  September{\natexlab{\emph{a}}}).
+\newblock Performance analysis of fractional slot wound {PM}-motors.
+\newblock \emph{Proceedings of the 2004 International Conference on Electrical
+  Machines}.
+
+\bibitem[{\citenamefont{Salminen}
+  \emph{\bbletal{}}(2004{\natexlab{\emph{b}}})\citenamefont{Salminen},
+  \citenamefont{Niemelä}, \citenamefont{Pyhönen} \protect\BIBand{}
+  \citenamefont{Mantere}}]{salminen_2004_IAS}
+\bibnamefont{Salminen}, \bibfnamefont{P.}, \bibnamefont{Niemelä},
+  \bibfnamefont{M.}, \bibnamefont{Pyhönen}, \bibfnamefont{J.} \protect\BIBand{}
+  \bibnamefont{Mantere}, \bibfnamefont{J.} (2004{\natexlab{\emph{b}}}).
+\newblock {Performance analysis of fractional slot wound PM-motors for low
+  speed applications}.
+\newblock \emph{Conference Record of the 2004 IEEE Industry Applications
+  Society}.
+
+\bibitem[{\citenamefont{Seifert} \protect\BIBand{}
+  \citenamefont{Strangmüller}(1989)}]{seifert_1989}
+\bibnamefont{Seifert}, \bibfnamefont{D.} \protect\BIBand{}
+  \bibnamefont{Strangmüller}, \bibfnamefont{T.} (1989).
+\newblock {Stossmoment und Stossstrom der Asynchronmaschine}.
+\newblock \emph{ETZ Archiv}, \bblvol{}~11, \bblno{}~9, \bblpp{} 283--289.
+
+\bibitem[{\citenamefont{Skaar} \emph{\bbletal{}}(2006)\citenamefont{Skaar},
+  \citenamefont{Krovel} \protect\BIBand{} \citenamefont{Nilssen}}]{skaar_2006}
+\bibnamefont{Skaar}, \bibfnamefont{S.}, \bibnamefont{Krovel}, \bibfnamefont{O.}
+  \protect\BIBand{} \bibnamefont{Nilssen}, \bibfnamefont{R.} (2006).
+\newblock Distribution, coil-span and winding factors for {PM} machines with
+  concentrated windings.
+\newblock \emph{Proceedings of the 2006 International Conference on Electrical
+  Machines}.
+
+\bibitem[{\citenamefont{Stanton} \protect\BIBand{}
+  \citenamefont{Germishuizen}(2008)}]{Stanton2008}
+\bibnamefont{Stanton}, \bibfnamefont{S.} \protect\BIBand{}
+  \bibnamefont{Germishuizen}, \bibfnamefont{J.} (2008 November).
+\newblock Improving product performance through advanced simulation techniques
+  for core loss calculation, permanent magnet losses, and cogging torque
+  optimization.
+\newblock Ansoft's application workshop for high-performance electronic design:
+  Inspiring Engineering.
+\newblock Munich.
+
+\bibitem[{\citenamefont{Tibudd}(2008)}]{Tibudd2008}
+\bibnamefont{Tibudd}, \bibfnamefont{M.} (2008 13 August).
+\newblock {Kooperation von MVG und Siemens}.
+\newblock {Süddeutsche Zeitung}.
+\newblock Nr. 188, Seite 48.
+
+\bibitem[{\citenamefont{Vacuumschmelze}(2006)}]{Vacuumschmelze}
+\bibnamefont{Vacuumschmelze} (2006).
+\newblock {Selten-Erd-Dauermagneten}.
+\newblock Vacuumschmelze GmbH.
+
+\bibitem[{\citenamefont{\v{C}e\v{r}ovsk\'y}(1986)}]{Cevrovsky1986}
+\bibnamefont{\v{C}e\v{r}ovsk\'y}, \bibfnamefont{Z.} (1986).
+\newblock Osobn\'i zpr\'avy.
+\newblock \emph{Elektrotechnick\' obzor}, \bblvol{}~75, \bblp{}~62.
+
+\bibitem[{\citenamefont{Vogt}(1996)}]{Vogt1996}
+\bibnamefont{Vogt}, \bibfnamefont{K.} (1996).
+\newblock \emph{{Berechnung elektrischer Maschinen}}.
+\newblock VCH Verlagsgesellschaft.
+
+\bibitem[{\citenamefont{Volschenk}(1993)}]{Volschenk1993}
+\bibnamefont{Volschenk}, \bibfnamefont{A.F.} (1993).
+\newblock \emph{Finite element amalysis of a salient-pole generator feeding a
+  rectifier load}.
+\newblock \bblphdthesis{}, University of Cambridge.
+
+\bibitem[{\citenamefont{Wach}(1997)}]{Wach1997}
+\bibnamefont{Wach}, \bibfnamefont{P.} (1997).
+\newblock Multi-phase systems of fractional-slot windings af {AC} electrical
+  windings.
+\newblock \emph{Archives of electrical enegineering}, \bblvol{} XLVI, \bblpp{}
+  471--486.
+
+\bibitem[{\citenamefont{Wach}(1998)}]{Wach1998}
+\bibnamefont{Wach}, \bibfnamefont{P.} (1998).
+\newblock Optimasation of fractional-slot windings of {AC} electrical machines.
+\newblock \emph{Archives of electrical enegineering}, \bblvol{} XLVII, \bblpp{}
+  69--80.
+
+\bibitem[{\citenamefont{Wang} \emph{\bbletal{}}(2002)\citenamefont{Wang},
+  \citenamefont{Mohellebi}, \citenamefont{Flack}, \citenamefont{Kamper}
+  \protect\BIBand{} \citenamefont{Buys}}]{wang_2002}
+\bibnamefont{Wang}, \bibfnamefont{R.}, \bibnamefont{Mohellebi},
+  \bibfnamefont{H.}, \bibnamefont{Flack}, \bibfnamefont{T.},
+  \bibnamefont{Kamper}, \bibfnamefont{M.} \protect\BIBand{} \bibnamefont{Buys},
+  \bibfnamefont{J.} (2002).
+\newblock Two-dimensional cartesian air-gap element {(CAGE)} for dynamic
+  finite-element modeling of electrical machines with a flat air gap.
+\newblock \emph{IEEE Transactions on Magnetics}, \bblvol{}~38, \bblno{}~2,
+  \bblpp{} 1357--1360.
+
+\bibitem[{\citenamefont{Weisstein}(2008)}]{Weisstein2008}
+\bibnamefont{Weisstein}, \bibfnamefont{E.W.} (2008).
+\newblock Nonnegative integer.
+\newline\bblurlpre\url{http://mathworld.wolfram.com/NonnegativeInteger.html}
+
+\bibitem[{\citenamefont{Williamson} \protect\BIBand{}
+  \citenamefont{Volschenk}(1995{\natexlab{\emph{a}}})}]{Williamson1995a}
+\bibnamefont{Williamson}, \bibfnamefont{S.} \protect\BIBand{}
+  \bibnamefont{Volschenk}, \bibfnamefont{A.} (1995{\natexlab{\emph{a}}}).
+\newblock Representation of skew in a time-stepped two-dimensional
+  finite-element models of electrical machines.
+\newblock \emph{IEEE Transactions on Industry Applications}, \bblvol{}~31,
+  \bblno{}~5, \bblpp{} 1009--1015.
+
+\bibitem[{\citenamefont{Williamson} \protect\BIBand{}
+  \citenamefont{Volschenk}(1995{\natexlab{\emph{b}}})}]{Williamson1995}
+\bibnamefont{Williamson}, \bibfnamefont{S.} \protect\BIBand{}
+  \bibnamefont{Volschenk}, \bibfnamefont{A.} (1995{\natexlab{\emph{b}}}).
+\newblock Time-stepping finite element analysis for a synchronous generator
+  feeding a rectifier load.
+\newblock \emph{IEE Prodeedings - Electric Power Appications}, \bblvol{} 142,
+  \bblno{}~1, \bblpp{} 50--56.
+
+\end{thebibliography}
