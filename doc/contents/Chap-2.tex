@@ -50,16 +50,41 @@ Besides the saturation of the materials used the modeling thereof is also essent
 
 There is a lack of experience in the development of permanent magnet machines compared to induction machines. This means that the use of for example compensation curves to account for saturation should be avoided, since it might lead to inaccurate design calculations. Furthermore, it should be noticed that such compensation curves were developed also due to the lack of computation technology. At present the latter is no problem anymore and the use of state of the art technology is advisable for accurate predictions. This is even more important as prototyping (and measurements to find compensation factors) is to be kept to a minimum for economic reasons.  
 
+\subsection{Normalised coefficients}
+In times before the use of personal computers and calculators it was common to scale equations in such a way as to simplify mental arithmetic -- indeed one of those rare occurrences where a specific and easy to use number was chosen to simplify things \cite{REF-00716}. Books like \cite{REF-00004} and \cite{REF-00429} are two good examples where this is found. The two-term Jordan iron loss model is common in the following form:
+\begin{equation}\label{eqn:pFe_norm}
+  p\left(\frac{f}{f_n},\frac{J}{J_n}\right) = \left[\sigma_h\cfrac{f}{f_n}        + 
+	           \sigma_c\left(\cfrac{f}{f_n}\right)^2\right] \cdot 
+       \left(\cfrac{J}{J_n}\right)^2
+  \qquad
+  \begin{cases}
+    \sigma_h = J_n^2 f_n k_h         \\
+    \sigma_c = (J_nf_n)^2k_c   
+  \end{cases}
+\end{equation}
+means that the coefficients will have different units\footnote{There are different software packages available to calculate the iron loss in electrical machines. Some packages require the $k$-coefficients while other packages make use of the $\sigma$-coefficients in \eqref{eqn:pFe_norm}. The coefficients $k_h$ and $k_c$ have the units \SI{}{W.kg^{-1}.f^{-1}.T^{-2}} and \SI{}{W.kg^{-1}.f^{-2}.T^{-2}} respectively -- \cite{REF-00012}. Using \eqref{eqn:pFe_norm} it will be \SI{}{W.kg^{-1}} for both $\sigma_h$ and $\sigma_c$.}. It is important to mention that the choice of $f_n$ and $J_n$ are arbitrary\footnote{At present $f_n=\SI{50}{Hz}$ and $J_n=\SI{1.5}{T}$ are typical. However, $J_n=\SI{1}{T}$ is also found in many (older) books dealing with iron losses.}. The basic principle is visually shown in Fig.~\ref{fig:M330-50A}\subref{fig:Measured} and Fig.~\ref{fig:M330-50A}\subref{fig:Calculated} for the measured and calculated (using a mathematical model) loss respectively. 
+\begin{figure}[htbp]
+  \centering
+  \fontsize{8}{10}\selectfont
+  \setlength\fwidth{0.4\textwidth}
+  \subfloat[M330-50A\label{fig:Measured}]{
+  \input{figs/M330-50A-P.tex}}
+  \hfill  
+  \subfloat[Normalised\label{fig:Calculated}]{
+  \input{figs/M330-50A-Pn.tex}}
+  \caption{Measured and estimated specific loss} 
+  \label{fig:M330-50A}
+\end{figure}
+
 \subsection{Present approaches in iron loss calculation}
 The huge number of scientific contributions found on iron loss calculations emphasises the complexity of iron losses. Two aspects that definitely contribute to this fact is that the material data cannot be described analytically and is usually presented in graphical form. Secondly, the influence of the manufacturing process is difficult to account for. 
 
 It is important to mention that a good approximation of the specific loss is found in \cite{Nuernerg1952}. Here the specific loss of one kilogram of deburred laminated steel in \SI{}{W} is given by
 \begin{equation}
   \label{eqn:pfe_1}
-  p_{Fe}= \left(k_h \frac{f}{50}+k_c%
-  \left(\frac{f}{50}\right)^2\right)\left(\frac{B}{\SI{1}{T}} \right)^2
+  p_{Fe}= \left(k_h f+k_c f^2 \right) B ^2
 \end{equation} 
-The coefficients $k_h$ and $k_c$ account for the hysteresis and classical eddy current losses respectively. Since the frequency in the stator is constant for a given operating point it is convenient to separate the frequency and flux density components of the loss as in \eqref{eqn:pfe_1}. In Nürnberg's book it is also mentioned that the iron loss calculated in this way is less than the measured loss using the Epstein\footnote{In \cite{Nuernerg1952} the Epstein frame is wrongly spelt Eppstein  (which is a small town in Germany not far from Frankfurt am Main).} frame. To account for this inaccuracy it is suggested to multiply the calculated iron loss in the yoke and teeth by \num{1.5} and \num{3} respectively. This holds for stator slots which is semi-closed. For open stator slots the loss in the teeth tends to increase even further. Due to this uncertainty it is understandable that \cite{Nuernerg1952} advised the following\footnote{English: Due to the uncertainty in the iron loss calculation a detailed discussion is not given.}: ``Wegen der erheblichen Unsicherheit bei der Eisenverlustberechnung gehe man aber nicht in die Feinheiten.'' This shows the limits of empirical models before techniques like the finite element method were introduced. 
+The coefficients $k_h$ and $k_c$ account for the hysteresis and classical eddy current losses respectively. Since the frequency in the stator is constant for a given operating point it is convenient to separate the frequency and flux density components of the loss as in \eqref{eqn:pfe_1}. In Nürnberg's book it is also mentioned that the iron loss calculated in this way is less than the measured loss using the Epstein frame. To account for this inaccuracy it is suggested to multiply the calculated iron loss in the yoke and teeth by \num{1.5} and \num{3} respectively. This holds for stator slots which is semi-closed. For open stator slots the loss in the teeth tends to increase even further. Due to this uncertainty it is understandable that \cite{Nuernerg1952} advised the following\footnote{English: Due to the uncertainty in the iron loss calculation a detailed discussion is not given.}: ``Wegen der erheblichen Unsicherheit bei der Eisenverlustberechnung gehe man aber nicht in die Feinheiten.'' This shows the limits of empirical models before techniques like the finite element method were introduced. 
 
 \cite{bertotti_1988} introduced what is called the excess loss and thereby expanded the analytical expression for specific loss by a $k_e (fB)^{1.5}$ term. Thus, \eqref{eqn:pfe_1} changes to    
 \begin{equation}
@@ -117,11 +142,11 @@ After the war Kl\'ima started a research centre, \textit{Centre for Electric Mac
 
 Taking note of the difficult circumstances Kl\'ima encountered during his life, any researcher in the field of electrical engineering can indeed feel inspired.         
 
-\begin{figure}[htbp]
+\begin{figure}[h!]
 	\centering
-		\includegraphics[width=0.55\textwidth]{figs/ch2/Kauders.eps}\\
-		\vspace{2cm}
-		\includegraphics[width=0.55\textwidth]{figs/ch2/Kauders_b.eps}
+		\includegraphics[width=0.35\textwidth]{figs/ch2/Kauders.eps}
+		\hfill
+		\includegraphics[width=0.30\textwidth]{figs/ch2/Kauders_b.eps}
 	\caption{Vil\'em Kl\'ima, 10.04.1906-06.10.1985}
 	\label{fig:Kauders}
 \end{figure}
